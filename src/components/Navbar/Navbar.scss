@@ -1,0 +1,78 @@
+@import './../../variables.scss';
+
+.HeaderNav {
+    background-color: $primary-color;
+    height: 40px;
+    color: $primary-text-color;
+    font-family: $primary-font-family;
+    padding: 0 $vs;
+}
+
+.flex-row {
+    @include display-flex-row();
+}
+
+.navName {
+    font-size: 30px;
+}
+
+.navWeather {
+    margin-right: $vs;
+}
+
+.navMenuButton {
+    color: $primary-text-color;
+    font-size: 22px;
+}
+
+.navMenuWords {
+    font-size: 7.5px;
+}
+
+.SubNav {
+    font-size: 60px;
+    padding: 0 $vs;
+    background-color: $primary-color;
+    color: $primary-text-color;
+    height: 0px;
+    transition:height 200ms ease-in;
+    overflow: hidden;
+}
+
+.SubNavExpand {
+    height: 105px;
+}
+
+.headerProfilePicParent {
+    width: 75px;
+    height: 75px;
+    font-size: 20px;
+}
+
+.headerProfilePic {
+    height: 75px;
+    border-radius: 100%;
+}
+
+.navProfileStatus {
+    position: absolute;
+    font-size: 25px;
+    right: 8px;
+    bottom: 5px;
+}
+
+.headerProfilePicParentOut {
+    font-size: 20px;
+    width: 100vw;
+}
+
+.headerLogin, .headerRegister {
+    margin-right: $vs;
+    padding: $vs;
+    border-radius: 5px;
+    background-color: $third-color;
+}
+
+.headerRegister {
+    margin-left: auto;
+}

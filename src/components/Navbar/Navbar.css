@@ -1,0 +1,90 @@
+.HeaderNav {
+  background-color: #0b162f;
+  height: 40px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0 10px;
+}
+
+.flex-row {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navName {
+  font-size: 30px;
+}
+
+.navWeather {
+  margin-right: 10px;
+}
+
+.navMenuButton {
+  color: #ffffff;
+  font-size: 22px;
+}
+
+.navMenuWords {
+  font-size: 7.5px;
+}
+
+.SubNav {
+  font-size: 60px;
+  padding: 0 10px;
+  background-color: #0b162f;
+  color: #ffffff;
+  height: 0px;
+  -webkit-transition: height 200ms ease-in;
+  transition: height 200ms ease-in;
+  overflow: hidden;
+}
+
+.SubNavExpand {
+  height: 105px;
+}
+
+.headerProfilePicParent {
+  width: 75px;
+  height: 75px;
+  font-size: 20px;
+}
+
+.headerProfilePic {
+  height: 75px;
+  border-radius: 100%;
+}
+
+.navProfileStatus {
+  position: absolute;
+  font-size: 25px;
+  right: 8px;
+  bottom: 5px;
+}
+
+.headerProfilePicParentOut {
+  font-size: 20px;
+  width: 100vw;
+}
+
+.headerLogin, .headerRegister {
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #5b92f4;
+}
+
+.headerRegister {
+  margin-left: auto;
+}
+/*# sourceMappingURL=Navbar.css.map */
