@@ -14,6 +14,8 @@
 
 .navName {
     font-size: 30px;
+    text-decoration: none;
+    color: $primary-text-color
 }
 
 .navWeather {
@@ -37,6 +39,10 @@
     height: 0px;
     transition:height 200ms ease-in;
     overflow: hidden;
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    z-index: 1;
 }
 
 .SubNavExpand {
@@ -71,8 +77,4 @@
     padding: $vs;
     border-radius: 5px;
     background-color: $third-color;
-}
-
-.headerRegister {
-    margin-left: auto;
 }

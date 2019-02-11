@@ -24,6 +24,8 @@
 
 .navName {
   font-size: 30px;
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .navWeather {
@@ -48,6 +50,10 @@
   -webkit-transition: height 200ms ease-in;
   transition: height 200ms ease-in;
   overflow: hidden;
+  position: absolute;
+  top: 40px;
+  right: 0px;
+  z-index: 1;
 }
 
 .SubNavExpand {
@@ -82,9 +88,5 @@
   padding: 10px;
   border-radius: 5px;
   background-color: #5b92f4;
-}
-
-.headerRegister {
-  margin-left: auto;
 }
 /*# sourceMappingURL=Navbar.css.map */

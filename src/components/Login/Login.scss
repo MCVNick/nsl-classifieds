@@ -1,0 +1,45 @@
+@import './../../variables.scss';
+
+.Login {
+    justify-content: center;
+    align-content: center;
+    padding: $s;
+    color: $primary-text-color;
+}
+
+.loginButton {
+    background-color: $third-color;
+    width: calc(90% - 4px);
+    height: 30px;
+    margin: $s;
+    color: $primary-text-color;
+}
+
+.loginInput {
+    width: calc(90% - 6px);
+    margin-bottom: $s;
+    height: 30px;
+}
+
+.loginInputInfo {
+    display: flex;
+    margin-left: 5%;
+    margin-bottom: 3px;
+    padding-top: $s;
+    color: black;
+    font-size: 11px;
+}
+
+.loginHeaderInfo {
+    display: flex;
+    padding: $s 5px;
+    background-color: $secondary-color;
+}
+
+.loginContent {
+    background-color: $fourth-color;
+}
+
+.loginParent {
+    width: 310px;
+}

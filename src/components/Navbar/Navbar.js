@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 import './Navbar.css'
@@ -15,11 +15,10 @@ function expandSubNav() {
 }
 
 function Navbar(props) {
-    console.log(props)
     return (
         <div>
             <nav className="flex-row HeaderNav">
-                <h1 className='navName auto-right'>NSL</h1>
+                <Link className='auto-right navName' to='/'><h1 className='navName'>NSL</h1></Link>
                 <div className='navWeather'>-15°</div>
                 <button onClick={expandSubNav} className='navMenuButton transparent'>
                     <i className="fas fa-bars"></i>
@@ -29,19 +28,25 @@ function Navbar(props) {
 
             <nav id='SubNav' className='flex-row SubNav'>
                     {
-                        props.id == -1 ?
+                        props.id === -1 ?
                         <div className='relative flex-row headerProfilePicParentOut'>
-                            <button className='headerRegister'>
-                                Register
-                            </button>
-                            <button className='headerLogin'>
-                                Login
-                            </button>
-                            <img
-                                className='headerProfilePic'
-                                src='https://www.flynz.co.nz/wp-content/uploads/profile-placeholder.png'
-                                alt='profile_pic'
-                            />
+                            <Link className='auto-left' to='/register'>
+                                <button className='headerRegister' onClick={expandSubNav}>
+                                    Register
+                                </button>
+                            </Link>
+                            <Link to='/login'>
+                                <button className='headerLogin' onClick={expandSubNav}>
+                                    Log in
+                                </button>
+                            </Link>
+                            <Link to='/login' onClick={expandSubNav}>
+                                <img
+                                    className='headerProfilePic'
+                                    src='https://www.flynz.co.nz/wp-content/uploads/profile-placeholder.png'
+                                    alt='profile_pic'
+                                />
+                            </Link>
                         </div>
                         :
                         <div className='relative flex-row headerProfilePicParent'>

@@ -1,0 +1,51 @@
+.Login {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding: 15px;
+  color: #ffffff;
+}
+
+.loginButton {
+  background-color: #5b92f4;
+  width: calc(90% - 4px);
+  height: 30px;
+  margin: 15px;
+  color: #ffffff;
+}
+
+.loginInput {
+  width: calc(90% - 6px);
+  margin-bottom: 15px;
+  height: 30px;
+}
+
+.loginInputInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 5%;
+  margin-bottom: 3px;
+  padding-top: 15px;
+  color: black;
+  font-size: 11px;
+}
+
+.loginHeaderInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px 5px;
+  background-color: #464646;
+}
+
+.loginContent {
+  background-color: #f1f1f1;
+}
+
+.loginParent {
+  width: 310px;
+}
+/*# sourceMappingURL=Login.css.map */
