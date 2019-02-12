@@ -16,7 +16,7 @@ class Home extends Component {
         if (username) {
             //stay here
         } else {
-            axios.get('/auth/getSessionUser')
+            axios.get('/user/getSessionUser')
                 .then(res => {
                     this.props.updateUser(res.data)
                 })

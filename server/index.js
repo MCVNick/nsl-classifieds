@@ -6,6 +6,7 @@ const massive = require('massive')
 const session = require('express-session')
 const path = require('path')
 
+const userCtrl = require('./controller/user')
 const authCtrl = require('./controller/auth')
 
 const app = express()
@@ -29,4 +30,12 @@ massive(CONNECTION_STRING)
 app.post('/auth/register', authCtrl.register)
 app.post('/auth/login', authCtrl.login)
 app.post('/auth/logout', authCtrl.logout)
-app.get('/auth/getSessionUser', authCtrl.getUser)
+
+//User
+app.get('/user/getSessionUser', userCtrl.getUser)
+app.put('/user/updateEmail', userCtrl.updateEmail)
+app.put('/user/updateName', userCtrl.updateName)
+app.put('/user/updateAddress', userCtrl.updateAddress)
+app.put('/user/updatePassword', userCtrl.updatePassword)
+app.put('/user/updateProfilePic', userCtrl.updateProfilePic)
+app.delete('/user/delete', userCtrl.deleteUser)

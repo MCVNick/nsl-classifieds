@@ -1,4 +1,4 @@
-.Login {
+.userContainer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -9,7 +9,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.loginButton {
+.userContainerButton {
   background-color: #5b92f4;
   width: calc(90% - 4px);
   height: 30px;
@@ -17,13 +17,29 @@
   color: #ffffff;
 }
 
-.loginInput {
+.userContainerInput {
   width: calc(90% - 6px);
+  margin-left: 5%;
   margin-bottom: 15px;
   height: 30px;
 }
 
-.loginInputInfo {
+.userContainerSmallInput {
+  width: calc(40% - 6px);
+  margin-left: 5%;
+  margin-bottom: 15px;
+  height: 30px;
+}
+
+.userContainerVerySmallInput {
+  width: calc(20% - 6px);
+  margin-left: 5%;
+  margin-left: 10px;
+  margin-bottom: 15px;
+  height: 20px;
+}
+
+.userContainerInputInfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -34,7 +50,7 @@
   font-size: 11px;
 }
 
-.loginHeaderInfo {
+.userContainerHeaderInfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -42,11 +58,18 @@
   background-color: #464646;
 }
 
-.loginContent {
+.userContainerContent {
   background-color: #f1f1f1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.loginParent {
+.userContainerParent {
   width: 310px;
 }
-/*# sourceMappingURL=Login.css.map */
+/*# sourceMappingURL=userContainer.css.map */

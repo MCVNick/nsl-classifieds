@@ -46,16 +46,5 @@ module.exports = {
     logout: (req, res) => {
         req.session.destroy()
         res.sendStatus(200)
-    },
-    getUser: (req, res) => {
-        const {user} = req.session
-
-        console.log(user)
-        
-        if(user) {
-            res.send(user)
-        } else {
-            res.status(400).send('No user on session')
-        }
     }
 }

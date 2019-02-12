@@ -1,0 +1,15 @@
+.heightZero {
+  height: 0px;
+  -webkit-transition: height 200ms ease-in;
+  transition: height 200ms ease-in;
+  overflow: hidden;
+}
+
+.updateName, .updateEmail {
+  height: 220px;
+}
+
+.updateAddress, .updatePassword {
+  height: 300px;
+}
+/*# sourceMappingURL=Profile.css.map */

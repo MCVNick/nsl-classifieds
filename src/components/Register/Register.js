@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import { updateUser } from './../../ducks/reducer'
 import axios from 'axios';
 
-import './Register.css'
-
 class Register extends Component {
     constructor() {
         super()
@@ -82,7 +80,7 @@ class Register extends Component {
         if (username) {
             this.props.history.push('/')
         } else {
-            axios.get('/auth/getSessionUser')
+            axios.get('/user/getSessionUser')
                 .then(res => {
                     this.props.history.push('/')
                 })
@@ -147,34 +145,34 @@ class Register extends Component {
         })
         
         return (
-            <div className='Register flex-row'>
-                <div className='registerParent'>
-                    <div className='registerHeaderInfo'>Sign up for a NSL Account</div>
-                    <div className='registerContent'>
-                        <p className='registerInputInfo'>Email Address:</p>
-                        <input className='registerInput' maxLength="255" value={email} onChange={(e) => this.handleChange(e, 'email')} type='email'/>
-                        <p className='registerInputInfo'>Confirm Email:</p>
-                        <input className='registerInput' maxLength="255" value={emailVer} onChange={(e) => this.handleChange(e, 'emailVer')} type='email'/>
-                        <p className='registerInputInfo'>First Name:</p>
-                        <input className='registerInput' maxLength="50" value={first_name} onChange={(e) => this.handleChange(e, 'first_name')} type='text'/>
-                        <p className='registerInputInfo'>Last Name:</p>
-                        <input className='registerInput' maxLength="50" value={last_name} onChange={(e) => this.handleChange(e, 'last_name')} type='text'/>
-                        <p className='registerInputInfo'>Address Line:</p>
-                        <input className='registerInput' maxLength="255" value={address} onChange={(e) => this.handleChange(e, 'address')} type='text'/>
-                        <p className='registerInputInfo'>City / State:</p>
+            <div className='userContainer flex-row'>
+                <div className='userContainerParent'>
+                    <div className='userContainerHeaderInfo'>Sign up for a NSL Account</div>
+                    <div className='userContainerContent'>
+                        <p className='userContainerInputInfo'>Email Address:</p>
+                        <input className='userContainerInput' maxLength="255" value={email} onChange={(e) => this.handleChange(e, 'email')} type='email'/>
+                        <p className='userContainerInputInfo'>Confirm Email:</p>
+                        <input className='userContainerInput' maxLength="255" value={emailVer} onChange={(e) => this.handleChange(e, 'emailVer')} type='email'/>
+                        <p className='userContainerInputInfo'>First Name:</p>
+                        <input className='userContainerInput' maxLength="50" value={first_name} onChange={(e) => this.handleChange(e, 'first_name')} type='text'/>
+                        <p className='userContainerInputInfo'>Last Name:</p>
+                        <input className='userContainerInput' maxLength="50" value={last_name} onChange={(e) => this.handleChange(e, 'last_name')} type='text'/>
+                        <p className='userContainerInputInfo'>Address Line:</p>
+                        <input className='userContainerInput' maxLength="255" value={address} onChange={(e) => this.handleChange(e, 'address')} type='text'/>
+                        <p className='userContainerInputInfo'>City / State:</p>
                         <div className='flex-row'>
-                            <input className='registerSmallInput' maxLength="50" value={city} onChange={(e) => this.handleChange(e, 'city')} type='text'/>
-                            <select className='registerVerySmallInput' value={state} onChange={(e) => this.handleChange(e, 'state')} type='text'>{options}</select>
+                            <input className='userContainerSmallInput' maxLength="50" value={city} onChange={(e) => this.handleChange(e, 'city')} type='text'/>
+                            <select className='userContainerVerySmallInput' value={state} onChange={(e) => this.handleChange(e, 'state')} type='text'>{options}</select>
                         </div>
-                        <p className='registerInputInfo'>Zip</p>
-                        <input className='registerSmallInput' maxLength="25" value={zipcode} onChange={(e) => this.handleChange(e, 'zipcode')} type='text'/>
-                        <p className='registerInputInfo'>Password:</p>
-                        <input className='registerInput' type='password' maxLength="50" value={password} onChange={(e) => this.handleChange(e, 'password')}/>
-                        <p className='registerInputInfo'>Confirm Password:</p>
-                        <input className='registerInput' type='password' maxLength="50"value={passwordVer} onChange={(e) => this.handleChange(e, 'passwordVer')}/>
-                        <p className='registerInputInfo'>Display Name:</p>
-                        <input className='registerInput' maxLength="30" value={username} onChange={(e) => this.handleChange(e, 'username')} type='text'/>
-                        <button className='registerButton' onClick={this.handleRegister}>Sign Up</button>
+                        <p className='userContainerInputInfo'>Zip</p>
+                        <input className='userContainerSmallInput' maxLength="25" value={zipcode} onChange={(e) => this.handleChange(e, 'zipcode')} type='text'/>
+                        <p className='userContainerInputInfo'>Password:</p>
+                        <input className='userContainerInput' type='password' maxLength="50" value={password} onChange={(e) => this.handleChange(e, 'password')}/>
+                        <p className='userContainerInputInfo'>Confirm Password:</p>
+                        <input className='userContainerInput' type='password' maxLength="50"value={passwordVer} onChange={(e) => this.handleChange(e, 'passwordVer')}/>
+                        <p className='userContainerInputInfo'>Display Name:</p>
+                        <input className='userContainerInput' maxLength="30" value={username} onChange={(e) => this.handleChange(e, 'username')} type='text'/>
+                        <button className='userContainerButton' onClick={this.handleRegister}>Sign Up</button>
                     </div>
                 </div>
             </div>

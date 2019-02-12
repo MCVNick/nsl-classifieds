@@ -7,6 +7,7 @@ import routes from './routes'
 import HeaderNav from './components/Navbar/Navbar'
 
 import './reset.css'
+import './userContainer.css'
 import './App.css'
 
 class App extends Component {

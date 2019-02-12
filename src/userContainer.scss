@@ -1,6 +1,6 @@
-@import './../../variables.scss';
+@import './variables.scss';
 
-.Login {
+.userContainer {
     justify-content: center;
     align-content: center;
     padding: $s;
@@ -8,7 +8,7 @@
     font-family: $primary-font-family;
 }
 
-.loginButton {
+.userContainerButton {
     background-color: $third-color;
     width: calc(90% - 4px);
     height: 30px;
@@ -16,13 +16,29 @@
     color: $primary-text-color;
 }
 
-.loginInput {
+.userContainerInput {
     width: calc(90% - 6px);
+    margin-left: 5%;
     margin-bottom: $s;
     height: 30px;
 }
 
-.loginInputInfo {
+.userContainerSmallInput {
+    width: calc(40% - 6px);
+    margin-left: 5%;
+    margin-bottom: $s;
+    height: 30px;
+}
+
+.userContainerVerySmallInput {
+    width: calc(20% - 6px);
+    margin-left: 5%;    
+    margin-left: $vs;
+    margin-bottom: $s;
+    height: 20px;
+}
+
+.userContainerInputInfo {
     display: flex;
     margin-left: 5%;
     margin-bottom: 3px;
@@ -31,16 +47,18 @@
     font-size: 11px;
 }
 
-.loginHeaderInfo {
+.userContainerHeaderInfo {
     display: flex;
     padding: $s 5px;
     background-color: $secondary-color;
 }
 
-.loginContent {
+.userContainerContent {
     background-color: $fourth-color;
+    display: flex;
+    flex-direction: column;
 }
 
-.loginParent {
+.userContainerParent {
     width: 310px;
 }

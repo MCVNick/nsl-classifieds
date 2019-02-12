@@ -1,0 +1,15 @@
+@import './../../variables.scss';
+
+.heightZero {
+    height: 0px;
+    transition:height 200ms ease-in;
+    overflow: hidden;
+}
+
+.updateName, .updateEmail {
+    height: 220px;
+}
+
+.updateAddress, .updatePassword {
+    height: 300px;
+}
