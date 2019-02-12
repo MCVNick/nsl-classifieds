@@ -1,2 +1,64 @@
 @import './../../variables.scss';
 
+.Register {
+    justify-content: center;
+    align-content: center;
+    padding: $s;
+    color: $primary-text-color;
+    font-family: $primary-font-family;
+}
+
+.registerButton {
+    background-color: $third-color;
+    width: calc(90% - 4px);
+    height: 30px;
+    margin: $s;
+    color: $primary-text-color;
+}
+
+.registerInput {
+    width: calc(90% - 6px);
+    margin-left: 5%;
+    margin-bottom: $s;
+    height: 30px;
+}
+
+.registerSmallInput {
+    width: calc(40% - 6px);
+    margin-left: 5%;
+    margin-bottom: $s;
+    height: 30px;
+}
+
+.registerVerySmallInput {
+    width: calc(20% - 6px);
+    margin-left: 5%;    
+    margin-left: $vs;
+    margin-bottom: $s;
+    height: 20px;
+}
+
+.registerInputInfo {
+    display: flex;
+    margin-left: 5%;
+    margin-bottom: 3px;
+    padding-top: $s;
+    color: black;
+    font-size: 11px;
+}
+
+.registerHeaderInfo {
+    display: flex;
+    padding: $s 5px;
+    background-color: $secondary-color;
+}
+
+.registerContent {
+    background-color: $fourth-color;
+    display: flex;
+    flex-direction: column;
+}
+
+.registerParent {
+    width: 310px;
+}

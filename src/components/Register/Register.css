@@ -1,1 +1,75 @@
-/* No CSS *//*# sourceMappingURL=Register.css.map */
+.Register {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding: 15px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.registerButton {
+  background-color: #5b92f4;
+  width: calc(90% - 4px);
+  height: 30px;
+  margin: 15px;
+  color: #ffffff;
+}
+
+.registerInput {
+  width: calc(90% - 6px);
+  margin-left: 5%;
+  margin-bottom: 15px;
+  height: 30px;
+}
+
+.registerSmallInput {
+  width: calc(40% - 6px);
+  margin-left: 5%;
+  margin-bottom: 15px;
+  height: 30px;
+}
+
+.registerVerySmallInput {
+  width: calc(20% - 6px);
+  margin-left: 5%;
+  margin-left: 10px;
+  margin-bottom: 15px;
+  height: 20px;
+}
+
+.registerInputInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 5%;
+  margin-bottom: 3px;
+  padding-top: 15px;
+  color: black;
+  font-size: 11px;
+}
+
+.registerHeaderInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px 5px;
+  background-color: #464646;
+}
+
+.registerContent {
+  background-color: #f1f1f1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.registerParent {
+  width: 310px;
+}
+/*# sourceMappingURL=Register.css.map */
