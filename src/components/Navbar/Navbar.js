@@ -50,11 +50,11 @@ function Navbar(props) {
                         </div>
                         :
                         <div className='relative flex-row headerProfilePicParent'>
-                            <i className="fas fa-envelope auto-right"></i>
-                            <p>{props.username}</p>
+                            <i className="fas fa-envelope mailIcon"></i>
+                            <p className='auto-left usernameHeader'>{props.username}</p>
                             <img
                                 className='headerProfilePic'
-                                src={props.profile_pic}
+                                src='https://www.flynz.co.nz/wp-content/uploads/profile-placeholder.png'
                                 alt='profile_pic'
                             />
                             <button className='transparent navProfileStatus'>

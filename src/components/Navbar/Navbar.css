@@ -61,7 +61,7 @@
 }
 
 .headerProfilePicParent {
-  width: 75px;
+  width: 100vw;
   height: 75px;
   font-size: 20px;
 }
@@ -88,5 +88,13 @@
   padding: 10px;
   border-radius: 5px;
   background-color: #5b92f4;
+}
+
+.mailIcon {
+  margin-left: 20px;
+}
+
+.usernameHeader {
+  margin-right: 10px;
 }
 /*# sourceMappingURL=Navbar.css.map */
