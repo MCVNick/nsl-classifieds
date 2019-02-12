@@ -17,17 +17,15 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
-app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname, '../build/index.html'));
-});
 
 massive(CONNECTION_STRING)
-    .then(db => {
-        app.set('db', db)
-        const port = SERVER_PORT || 3005
-        app.listen(port, console.log('The server is running on port', port))
-    })
+.then(db => {
+    app.set('db', db)
+    const port = SERVER_PORT || 3005
+    app.listen(port, console.log('The server is running on port', port))
+})
 
 //Authentication endpoints
 app.post('/auth/register', authCtrl.register)
 app.post('/auth/login', authCtrl.login)
+app.get('/auth/getSessionUser', authCtrl.getUser)

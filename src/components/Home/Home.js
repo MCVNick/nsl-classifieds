@@ -1,10 +1,26 @@
 import React, { Component } from 'react'
+import axios from 'axios';
+import { connect } from 'react-redux'
+import { updateUser } from './../../ducks/reducer'
 
 class Home extends Component {
     constructor() {
         super()
 
         this.state = {}
+    }
+
+    componentDidMount() {
+        const { username } = this.props;
+
+        if (username) {
+            //stay here
+        } else {
+            axios.get('/auth/getSessionUser')
+                .then(res => {
+                    this.props.updateUser(res.data)
+                })
+        }
     }
 
     render() {
@@ -17,4 +33,10 @@ class Home extends Component {
     }
 }
 
-export default Home
+function mapStateToProps(reduxState) {
+    const { username } = reduxState
+    return {
+        username
+    }
+}
+export default connect(mapStateToProps, {updateUser})(Home)
