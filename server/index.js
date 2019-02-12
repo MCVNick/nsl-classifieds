@@ -28,4 +28,5 @@ massive(CONNECTION_STRING)
 //Authentication endpoints
 app.post('/auth/register', authCtrl.register)
 app.post('/auth/login', authCtrl.login)
+app.post('/auth/logout', authCtrl.logout)
 app.get('/auth/getSessionUser', authCtrl.getUser)

@@ -14,3 +14,11 @@ $s: 15px;
     flex-wrap: wrap;
     align-items: center;
 }
+
+@mixin display-flex-column() {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}

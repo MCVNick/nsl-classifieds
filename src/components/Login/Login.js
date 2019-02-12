@@ -15,6 +15,19 @@ class Login extends Component {
         }
     }
 
+    componentDidMount() {
+        const { username } = this.props;
+
+        if (username) {
+            this.props.history.push('/')
+        } else {
+            axios.get('/auth/getSessionUser')
+                .then(res => {
+                    this.props.history.push('/')
+                })
+        }
+    }
+
     handleLogin() {
         let { username, password } = this.state
         username = username.toLowerCase()

@@ -43,6 +43,10 @@ module.exports = {
             res.status(401).send('Incorrect password')
         }
     },
+    logout: (req, res) => {
+        req.session.destroy()
+        res.sendStatus(200)
+    },
     getUser: (req, res) => {
         const {user} = req.session
 

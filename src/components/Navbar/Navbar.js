@@ -1,48 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
+import axios from 'axios';
+import { updateUser } from './../../ducks/reducer'
+
 import './Navbar.css'
-
-function expandSubNav() {
-    let show = document.getElementById('SubNav')
-
-    if (show.classList.contains('SubNavExpand')) {
-        show.classList.remove('SubNavExpand')
-    }
-    else {
-        show.classList.add('SubNavExpand')
-    }
-}
-
-function changeSize(str) {
-    const { length: l } = str
-    switch (true) {
-        case (l < 9):
-            return { fontSize: '30px' }
-        case (l < 11):
-            return { fontSize: '25px' }
-        case (l < 13):
-            return { fontSize: '20px' }
-        case (l < 16):
-            return { fontSize: '16px' }
-        case (l < 18):
-            return { fontSize: '14px' }
-        case (l < 21):
-            return { fontSize: '12px' }
-        case (l < 26):
-            return { fontSize: '10px' }
-        default:
-            return { fontSize: '8px' }
-    }
-}
 
 function Navbar(props) {
     return (
         <div>
             <nav className="flex-row HeaderNav">
-                <Link className='auto-right navName' to='/'><h1 className='navName'>NSL</h1></Link>
+                <Link className='auto-right navName' to='/'><h1 className='navName' onClick={() => {expandSubNav(false); expandSubNavCog(false)}}>NSL</h1></Link>
                 <div className='navWeather'>-15°</div>
-                <button onClick={expandSubNav} className='navMenuButton transparent'>
+                <button onClick={() => { expandSubNavCog(false); expandSubNav() }} className='navMenuButton transparent'>
                     <i className="fas fa-bars"></i>
                     <p className='navMenuWords'>MENU</p>
                 </button>
@@ -53,16 +23,16 @@ function Navbar(props) {
                     props.id === -1 ?
                         <div className='relative flex-row headerProfilePicParentOut'>
                             <Link className='auto-left' to='/register'>
-                                <button className='headerRegister' onClick={expandSubNav}>
+                                <button className='headerRegister' onClick={() => { expandSubNavCog(false); expandSubNav(); }}>
                                     Register
                                 </button>
                             </Link>
                             <Link to='/login'>
-                                <button className='headerLogin' onClick={expandSubNav}>
+                                <button className='headerLogin' onClick={() => { expandSubNavCog(false); expandSubNav(); }}>
                                     Log in
                                 </button>
                             </Link>
-                            <Link to='/login' onClick={expandSubNav}>
+                            <Link to='/login' onClick={() => { expandSubNavCog(false); expandSubNav(); }}>
                                 <img
                                     className='headerProfilePic'
                                     src='https://www.flynz.co.nz/wp-content/uploads/profile-placeholder.png'
@@ -79,7 +49,7 @@ function Navbar(props) {
                                     changeSize(props.username)
                                 }
                             >{props.username}</p>
-                            <i className="fas fa-cog cogIcon"></i>
+                            <i className="fas fa-cog cogIcon" onClick={() => { expandSubNavCog() }}></i>
                             <img
                                 className='headerProfilePic'
                                 src={props.profile_pic}
@@ -91,8 +61,67 @@ function Navbar(props) {
                         </div>
                 }
             </nav>
+
+            <div id='SubNavCog' className='SubNavCog flex-column'>
+                <button className='transparent childSubNavCog' onClick={() => {expandSubNavCog(false); expandSubNav(); logout(props)}}>Logout</button>
+                <Link to='/profile' className='childSubNavCog'><button className='transparent' onClick={() => {expandSubNavCog(false); expandSubNav()}}>Settings</button></Link>
+            </div>
         </div>
     )
+}
+
+function logout(props) {
+    axios.post('/auth/logout')
+        .then(res => {
+            props.updateUser({id: -1})
+            props.history.push('/')
+        })
+}
+
+function expandSubNav(bool = true) {
+    let show = document.getElementById('SubNav')
+
+    if (show.classList.contains('SubNavExpand')) {
+        show.classList.remove('SubNavExpand')
+    }
+    else if (bool){
+        show.classList.add('SubNavExpand')
+    }
+}
+
+function expandSubNavCog(bool = true) {
+    let show = document.getElementById('SubNavCog')
+
+    if (show.classList.contains('SubNavCogExpand')) {
+        show.classList.remove('SubNavCogExpand')
+    }
+    else if (bool) {
+        show.classList.add('SubNavCogExpand')
+    }
+}
+
+function changeSize(str) {
+    if(str) {
+        const { length: l } = str
+        switch (true) {
+            case (l < 9):
+                return { fontSize: '30px' }
+            case (l < 11):
+                return { fontSize: '25px' }
+            case (l < 13):
+                return { fontSize: '20px' }
+            case (l < 16):
+                return { fontSize: '16px' }
+            case (l < 18):
+                return { fontSize: '14px' }
+            case (l < 21):
+                return { fontSize: '12px' }
+            case (l < 26):
+                return { fontSize: '10px' }
+            default:
+                return { fontSize: '8px' }
+        }
+    }
 }
 
 function mapStateToProps(reduxState) {
@@ -104,4 +133,4 @@ function mapStateToProps(reduxState) {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(Navbar))
+export default withRouter(connect(mapStateToProps, {updateUser})(Navbar))

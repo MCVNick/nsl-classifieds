@@ -12,6 +12,10 @@
     @include display-flex-row();
 }
 
+.flex-column {
+    @include display-flex-column();
+}
+
 .navName {
     font-size: 30px;
     text-decoration: none;
@@ -92,4 +96,28 @@
 .cogIcon {
     margin-right: $vs;
     font-size: 30px;
+}
+
+.SubNavCog {
+    height: 0px;
+    width: 75px;
+    background-color: $fourth-color;
+    transition:height 0ms ease-in;
+    overflow: hidden;
+    position: absolute;
+    top: 110px;
+    right: 95px;
+    z-index: 2;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+}
+
+.childSubNavCog{
+    padding: 0 $vs $vs 0;
+}
+
+.SubNavCogExpand {
+    height: 55px;
+    transition:height 200ms ease-in;
+    border: solid #AAAAAA 1px
 }

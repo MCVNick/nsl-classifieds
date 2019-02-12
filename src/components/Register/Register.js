@@ -76,6 +76,19 @@ class Register extends Component {
         }
     }
 
+    componentDidMount() {
+        const { username } = this.props;
+
+        if (username) {
+            this.props.history.push('/')
+        } else {
+            axios.get('/auth/getSessionUser')
+                .then(res => {
+                    this.props.history.push('/')
+                })
+        }
+    }
+
     handleChange(e, name) {
         const { value } = e.target
         this.setState({
@@ -170,9 +183,10 @@ class Register extends Component {
 }
 
 function mapStateToProps(reduxState) {
-    const { id } = reduxState
+    const { id, username } = reduxState
     return {
-        id
+        id,
+        username
     }
 }
 

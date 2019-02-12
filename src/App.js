@@ -16,7 +16,7 @@ class App extends Component {
         <Provider store={store}>
           <Router>
             <div>
-              <HeaderNav showSub={false}/>
+              <HeaderNav/>
               {routes}
             </div>
           </Router>
