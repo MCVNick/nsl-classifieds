@@ -41,9 +41,6 @@ module.exports = {
         session.user = user
         res.send(session.user)
     },
-    updatePassword: (req, res) => {
-
-    },
     updateProfilePic: (req, res) => {
 
     },

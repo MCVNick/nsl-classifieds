@@ -173,7 +173,7 @@ class Profile extends Component {
             })
             return;
         }
-        axios.put('/user/updateAddress', { address: this.state.address, city: this.state.city, state: this.state.state, zipcode: this.state.zipcode, id: this.props.id})
+        axios.put('/user/updateAddress', { address: this.state.address, city: this.state.city, state: this.state.state, zipcode: this.state.zipcode, id: this.props.id })
             .then(res => {
                 this.props.updateUser(res.data)
                 this.setState({
@@ -186,7 +186,6 @@ class Profile extends Component {
     }
 
     handleUpdateUserPassword() {
-        //only do this if axios request to check if initial password was correct
         if (this.state.password !== this.state.passwordVer) {
             this.setState({
                 passwordError: 'Password Mismatch'
@@ -199,7 +198,21 @@ class Profile extends Component {
             })
             return;
         }
-        //axios
+        
+        axios.post('/auth/verifyPassword', {password: this.state.oldPassword, id: this.props.id})
+            .then(res => {
+                axios.put('/auth/updatePassword', {password: this.state.password, id: this.props.id})
+                    .then(res => {
+                        this.props.updateUser(res.data)
+                        this.setState({
+                            oldPassword: '',
+                            password: '',
+                            passwordVer: ''
+                        })
+                        expand('updatePassword')
+                    })
+            })
+            .catch(error => {this.setState({passwordError: 'Incorrect Password'}); console.log(error)})
     }
 
     render() {
