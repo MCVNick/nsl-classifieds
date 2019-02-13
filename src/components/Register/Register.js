@@ -75,15 +75,16 @@ class Register extends Component {
     }
 
     componentDidMount() {
-        const { username } = this.props;
+        const { id } = this.props;
 
-        if (username) {
+        if (id) {
             this.props.history.push('/')
         } else {
             axios.get('/user/getSessionUser')
                 .then(res => {
                     this.props.history.push('/')
                 })
+                .catch(error => {})
         }
     }
 
@@ -119,21 +120,9 @@ class Register extends Component {
         axios.post('/auth/register', user)
             .then(res => {
                 this.props.updateUser(res.data)
-                this.setState({
-                    username: '',
-                    password: '',
-                    passwordVer: '',
-                    email: '',
-                    emailVer: '',
-                    first_name: '',
-                    last_name: '',
-                    address: '',
-                    city: '',
-                    state: '',
-                    zipcode: ''
-                })
                 this.props.history.push('/')
             })
+            .catch(error => {})
     }
 
     render() {

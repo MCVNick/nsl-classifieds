@@ -40,9 +40,7 @@
     padding: 0 $vs;
     background-color: $primary-color;
     color: $primary-text-color;
-    height: 0px;
-    transition:height 200ms ease-in;
-    overflow: hidden;
+    @include ease-in();
     position: absolute;
     top: 40px;
     right: 0px;
@@ -60,7 +58,7 @@
 }
 
 .headerProfilePic {
-    height: 75px;
+    height: $profile_pic_size;
     border-radius: 100%;
 }
 

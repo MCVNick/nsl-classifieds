@@ -72,21 +72,29 @@ class Profile extends Component {
             address: '',
             city: '',
             state: '',
-            zipcode: ''
+            zipcode: '',
+            emailError: '',
+            nameError: '',
+            addressError: '',
+            passwordError: ''
         }
     }
 
     handleChange(e, name) {
         const { value } = e.target
         this.setState({
-            [name]: value
+            [name]: value,
+            emailError: '',
+            nameError: '',
+            addressError: '',
+            passwordError: ''
         })
     }
 
     componentDidMount() {
-        const { username } = this.props;
+        const { id } = this.props;
 
-        if (username) {
+        if (id) {
             //stay here
         } else {
             axios.get('/user/getSessionUser')
@@ -98,51 +106,81 @@ class Profile extends Component {
     }
 
     handleUpdateUserEmail() {
-        if (this.state.email !== this.state.emailVer) {
-            return 'Emails do not match'
+        if (this.state.email.toLowerCase() !== this.state.emailVer.toLowerCase()) {
+            this.setState({
+                emailError: 'Email Mismatch'
+            })
+            return;
         }
         if (!this.state.email && !this.state.emailVer) {
-            return 'Please fill in both email fields'
+            this.setState({
+                emailError: 'Must Not Be Empty'
+            })
+            return;
         }
-        axios.put('/user/updateEmail', { email: this.state.email })
+
+        axios.put('/user/updateEmail', { email: this.state.email.toLowerCase(), id: this.props.id })
             .then(res => {
+                console.log(res.data)
                 this.props.updateUser(res.data)
                 this.setState({
                     email: '',
                     emailVer: ''
                 })
+                expand('updateEmail')
             })
     }
 
     handleUpdateUserName() {
         if (!this.state.first_name) {
-            return 'Please enter a first name'
+            this.setState({
+                nameError: 'Enter First Name'
+            })
+            return;
         }
         if (!this.state.last_name) {
-            return 'Please enter a last name'
+            this.setState({
+                nameError: 'Enter Last Name'
+            })
+            return;
         }
         //axios
     }
 
     handleUpdateUserAddress() {
         if (!this.state.address) {
-            return 'Please enter an address'
+            this.setState({
+                addressError: 'Enter Address'
+            })
+            return;
         }
         if (!this.state.city) {
-            return 'Please enter a city'
+            this.setState({
+                addressError: 'Enter City'
+            })
+            return;
         }
         if (!this.state.zipcode) {
-            return 'Please enter a zipcode'
+            this.setState({
+                addressError: 'Enter Zipcode'
+            })
+            return;
         }
         //axios
     }
 
     handleUpdateUserPassword() {
         if (this.state.password !== this.state.passwordVer) {
-            return 'Passwords do not match'
+            this.setState({
+                passwordError: 'Password Mismatch'
+            })
+            return;
         }
         if (!this.state.password && !this.state.passwordVer) {
-            return 'Please fill in both password fields'
+            this.setState({
+                passwordError: 'Fields Require Input'
+            })
+            return;
         }
         //axios
     }
@@ -159,31 +197,38 @@ class Profile extends Component {
             <div>
                 <div className='userContainer flex-row'>
                     <div className='userContainerParent'>
-                        <div onClick={() => { expandSubNavCog('updateEmail') }} className='userContainerHeaderInfo'>Update Email</div>
+                        <div>
+                            <div onClick={() => { expand('updateEmail') }} className='userContainerHeaderInfo'>Update Email</div>
+                            {
+                                this.state.emailError ?
+                                <div className='flex-row heightZero slide-in'>{this.state.emailError}</div> :
+                                <div className='flex-row heightZero'>{this.state.emailError}</div>
+                            }
+                        </div>
                         <div id='updateEmail' className='userContainerContent heightZero'>
                             <p className='userContainerInputInfo'>New Email:</p>
                             <input className='userContainerInput' maxLength="255" value={email} onChange={(e) => this.handleChange(e, 'email')} type='email' />
                             <p className='userContainerInputInfo'>Confirm New Email:</p>
                             <input className='userContainerInput' maxLength="255" value={emailVer} onChange={(e) => this.handleChange(e, 'emailVer')} type='email' />
-                            <button className='userContainerButton' onClick={this.handleUpdateUserEmail}>Update</button>
+                            <button className='userContainerButton' onClick={() => this.handleUpdateUserEmail()}>Update</button>
                         </div>
                     </div>
                 </div>
                 <div className='userContainer flex-row'>
                     <div className='userContainerParent'>
-                        <div onClick={() => { expandSubNavCog('updateName') }} className='userContainerHeaderInfo'>Update Name</div>
+                        <div onClick={() => { expand('updateName') }} className='userContainerHeaderInfo'>Update Name {this.state.nameError}</div>
                         <div id='updateName' className='userContainerContent heightZero'>
                             <p className='userContainerInputInfo'>New First Name:</p>
                             <input className='userContainerInput' maxLength="50" value={first_name} onChange={(e) => this.handleChange(e, 'first_name')} type='text' />
                             <p className='userContainerInputInfo'>New Last Name:</p>
                             <input className='userContainerInput' maxLength="50" value={last_name} onChange={(e) => this.handleChange(e, 'last_name')} type='text' />
-                            <button className='userContainerButton' onClick={this.handleUpdateUserName}>Update</button>
+                            <button className='userContainerButton' onClick={() => this.handleUpdateUserName()}>Update</button>
                         </div>
                     </div>
                 </div>
                 <div className='userContainer flex-row'>
                     <div className='userContainerParent'>
-                        <div onClick={() => { expandSubNavCog('updateAddress') }} className='userContainerHeaderInfo'>Update Address</div>
+                        <div onClick={() => { expand('updateAddress') }} className='userContainerHeaderInfo'>Update Address {this.state.addressError}</div>
                         <div id='updateAddress' className='userContainerContent heightZero'>
                             <p className='userContainerInputInfo'>Address Line:</p>
                             <input className='userContainerInput' maxLength="255" value={address} onChange={(e) => this.handleChange(e, 'address')} type='text' />
@@ -194,13 +239,13 @@ class Profile extends Component {
                             </div>
                             <p className='userContainerInputInfo'>Zip</p>
                             <input className='userContainerSmallInput' maxLength="25" value={zipcode} onChange={(e) => this.handleChange(e, 'zipcode')} type='text' />
-                            <button className='userContainerButton' onClick={this.handleUpdateUserAddress}>Update</button>
+                            <button className='userContainerButton' onClick={() => this.handleUpdateUserAddress()}>Update</button>
                         </div>
                     </div>
                 </div>
                 <div className='userContainer flex-row'>
                     <div className='userContainerParent'>
-                        <div onClick={() => { expandSubNavCog('updatePassword') }} className='userContainerHeaderInfo'>Update Password</div>
+                        <div onClick={() => { expand('updatePassword') }} className='userContainerHeaderInfo'>Update Password {this.state.passwordError}</div>
                         <div id='updatePassword' className='userContainerContent heightZero'>
                             <p className='userContainerInputInfo'>Old Password:</p>
                             <input className='userContainerInput' type='password' maxLength="50" value={oldPassword} onChange={(e) => this.handleChange(e, 'oldPassword')} />
@@ -208,7 +253,7 @@ class Profile extends Component {
                             <input className='userContainerInput' type='password' maxLength="50" value={password} onChange={(e) => this.handleChange(e, 'password')} />
                             <p className='userContainerInputInfo'>Confirm New Password:</p>
                             <input className='userContainerInput' type='password' maxLength="50" value={passwordVer} onChange={(e) => this.handleChange(e, 'passwordVer')} />
-                            <button className='userContainerButton' onClick={this.handleUpdateUserPassword}>Update</button>
+                            <button className='userContainerButton' onClick={() => this.handleUpdateUserPassword()}>Update</button>
                         </div>
                     </div>
                 </div>
@@ -217,7 +262,7 @@ class Profile extends Component {
     }
 }
 
-function expandSubNavCog(idName, bool = true) {
+function expand(idName, bool = true) {
     let show = document.getElementById(idName)
 
     if (show.classList.contains(idName)) {
@@ -229,9 +274,10 @@ function expandSubNavCog(idName, bool = true) {
 }
 
 function mapStateToProps(reduxState) {
-    const { username } = reduxState
+    const { username, id } = reduxState
     return {
-        username
+        username,
+        id
     }
 }
 

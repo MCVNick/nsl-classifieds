@@ -3,9 +3,12 @@ $primary-text-color: #ffffff;
 $secondary-color: #464646;
 $third-color: #5b92f4;
 $fourth-color: #f1f1f1;
+$success: green;
+$fail: red;
 $primary-font-family: Arial, Helvetica, sans-serif;
 $vs: 10px;
 $s: 15px;
+$profile_pic_size: 75px;
 
 @mixin display-flex-row() {
     position: relative;
@@ -21,4 +24,10 @@ $s: 15px;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+}
+
+@mixin ease-in() {
+    height: 0px;
+    transition:height 200ms ease-in;
+    overflow: hidden;
 }

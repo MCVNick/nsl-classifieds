@@ -20,7 +20,7 @@ function Navbar(props) {
 
             <nav id='SubNav' className='flex-row SubNav'>
                 {
-                    props.id === -1 ?
+                    props.id === 0 ?
                         <div className='relative flex-row headerProfilePicParentOut'>
                             <Link className='auto-left' to='/register'>
                                 <button className='headerRegister' onClick={() => { expandSubNavCog(false); expandSubNav(); }}>
@@ -73,7 +73,7 @@ function Navbar(props) {
 function logout(props) {
     axios.post('/auth/logout')
         .then(res => {
-            props.updateUser({id: -1})
+            props.updateUser({id: 0})
             props.history.push('/')
         })
 }

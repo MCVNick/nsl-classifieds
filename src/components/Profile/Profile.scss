@@ -1,9 +1,7 @@
 @import './../../variables.scss';
 
 .heightZero {
-    height: 0px;
-    transition:height 200ms ease-in;
-    overflow: hidden;
+    @include ease-in()
 }
 
 .updateName, .updateEmail {
@@ -12,4 +10,11 @@
 
 .updateAddress, .updatePassword {
     height: 300px;
+}
+
+.slide-in {
+    background-color: $secondary-color;
+    height: 40px;
+    padding: 5px;
+    color: $fail;
 }

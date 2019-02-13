@@ -14,15 +14,16 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        const { username } = this.props;
+        const { id } = this.props;
 
-        if (username) {
+        if (id) {
             this.props.history.push('/')
         } else {
             axios.get('/user/getSessionUser')
                 .then(res => {
                     this.props.history.push('/')
                 })
+                .catch(error => {})
         }
     }
 
@@ -61,4 +62,11 @@ class Login extends Component {
     }
 }
 
-export default connect(null, { updateUser })(Login)
+function mapStateToProps(reduxState) {
+    const { id } = reduxState
+    return {
+        id
+    }
+}
+
+export default connect(mapStateToProps, { updateUser })(Login)

@@ -11,15 +11,16 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        const { username } = this.props;
+        const { id } = this.props;
 
-        if (username) {
+        if (id) {
             //stay here
         } else {
             axios.get('/user/getSessionUser')
                 .then(res => {
                     this.props.updateUser(res.data)
                 })
+                .catch(error => {})
         }
     }
 
@@ -34,9 +35,9 @@ class Home extends Component {
 }
 
 function mapStateToProps(reduxState) {
-    const { username } = reduxState
+    const { id } = reduxState
     return {
-        username
+        id
     }
 }
 export default connect(mapStateToProps, {updateUser})(Home)
