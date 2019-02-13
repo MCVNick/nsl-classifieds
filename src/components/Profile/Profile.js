@@ -71,7 +71,7 @@ class Profile extends Component {
             last_name: '',
             address: '',
             city: '',
-            state: '',
+            state: 'AL',
             zipcode: '',
             emailError: '',
             nameError: '',
@@ -121,7 +121,6 @@ class Profile extends Component {
 
         axios.put('/user/updateEmail', { email: this.state.email.toLowerCase(), id: this.props.id })
             .then(res => {
-                console.log(res.data)
                 this.props.updateUser(res.data)
                 this.setState({
                     email: '',
@@ -144,7 +143,15 @@ class Profile extends Component {
             })
             return;
         }
-        //axios
+        axios.put('/user/updateName', { first_name: this.state.first_name, last_name: this.state.last_name, id: this.props.id })
+            .then(res => {
+                this.props.updateUser(res.data)
+                this.setState({
+                    first_name: '',
+                    last_name: ''
+                })
+                expand('updateName')
+            })
     }
 
     handleUpdateUserAddress() {
@@ -166,10 +173,20 @@ class Profile extends Component {
             })
             return;
         }
-        //axios
+        axios.put('/user/updateAddress', { address: this.state.address, city: this.state.city, state: this.state.state, zipcode: this.state.zipcode, id: this.props.id})
+            .then(res => {
+                this.props.updateUser(res.data)
+                this.setState({
+                    address: '',
+                    city: '',
+                    zipcode: ''
+                })
+                expand('updateAddress')
+            })
     }
 
     handleUpdateUserPassword() {
+        //only do this if axios request to check if initial password was correct
         if (this.state.password !== this.state.passwordVer) {
             this.setState({
                 passwordError: 'Password Mismatch'
@@ -198,11 +215,11 @@ class Profile extends Component {
                 <div className='userContainer flex-row'>
                     <div className='userContainerParent'>
                         <div>
-                            <div onClick={() => { expand('updateEmail') }} className='userContainerHeaderInfo'>Update Email</div>
+                            <div onClick={() => { expand('updateEmail'); this.setState({ emailError: '', email: '', emailVer: '' }) }} className='userContainerHeaderInfo'>Update Email</div>
                             {
                                 this.state.emailError ?
-                                <div className='flex-row heightZero slide-in'>{this.state.emailError}</div> :
-                                <div className='flex-row heightZero'>{this.state.emailError}</div>
+                                    <div className='flex-row heightZero slide-in'>{this.state.emailError}</div> :
+                                    <div className='flex-row heightZero'>{this.state.emailError}</div>
                             }
                         </div>
                         <div id='updateEmail' className='userContainerContent heightZero'>
@@ -216,7 +233,14 @@ class Profile extends Component {
                 </div>
                 <div className='userContainer flex-row'>
                     <div className='userContainerParent'>
-                        <div onClick={() => { expand('updateName') }} className='userContainerHeaderInfo'>Update Name {this.state.nameError}</div>
+                        <div>
+                            <div onClick={() => { expand('updateName'); this.setState({ nameError: '', first_name: '', last_name: '' }) }} className='userContainerHeaderInfo'>Update Name</div>
+                            {
+                                this.state.nameError ?
+                                    <div className='flex-row heightZero slide-in'>{this.state.nameError}</div> :
+                                    <div className='flex-row heightZero'>{this.state.nameError}</div>
+                            }
+                        </div>
                         <div id='updateName' className='userContainerContent heightZero'>
                             <p className='userContainerInputInfo'>New First Name:</p>
                             <input className='userContainerInput' maxLength="50" value={first_name} onChange={(e) => this.handleChange(e, 'first_name')} type='text' />
@@ -228,7 +252,14 @@ class Profile extends Component {
                 </div>
                 <div className='userContainer flex-row'>
                     <div className='userContainerParent'>
-                        <div onClick={() => { expand('updateAddress') }} className='userContainerHeaderInfo'>Update Address {this.state.addressError}</div>
+                        <div>
+                            <div onClick={() => { expand('updateAddress'); this.setState({ addressError: '', address: '', city: '', zipcode: '' }) }} className='userContainerHeaderInfo'>Update Address</div>
+                            {
+                                this.state.addressError ?
+                                    <div className='flex-row heightZero slide-in'>{this.state.addressError}</div> :
+                                    <div className='flex-row heightZero'>{this.state.addressError}</div>
+                            }
+                        </div>
                         <div id='updateAddress' className='userContainerContent heightZero'>
                             <p className='userContainerInputInfo'>Address Line:</p>
                             <input className='userContainerInput' maxLength="255" value={address} onChange={(e) => this.handleChange(e, 'address')} type='text' />
@@ -245,7 +276,14 @@ class Profile extends Component {
                 </div>
                 <div className='userContainer flex-row'>
                     <div className='userContainerParent'>
-                        <div onClick={() => { expand('updatePassword') }} className='userContainerHeaderInfo'>Update Password {this.state.passwordError}</div>
+                        <div>
+                            <div onClick={() => { expand('updatePassword'); this.setState({ passwordError: '', password: '', passwordVer: '' }) }} className='userContainerHeaderInfo'>Update Password</div>
+                            {
+                                this.state.passwordError ?
+                                    <div className='flex-row heightZero slide-in'>{this.state.passwordError}</div> :
+                                    <div className='flex-row heightZero'>{this.state.passwordError}</div>
+                            }
+                        </div>
                         <div id='updatePassword' className='userContainerContent heightZero'>
                             <p className='userContainerInputInfo'>Old Password:</p>
                             <input className='userContainerInput' type='password' maxLength="50" value={oldPassword} onChange={(e) => this.handleChange(e, 'oldPassword')} />

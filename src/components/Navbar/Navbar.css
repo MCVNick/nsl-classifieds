@@ -137,10 +137,13 @@
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .childSubNavCog {
-  padding: 0 10px 10px 0;
+  padding: 0 10px 0 0;
 }
 
 .SubNavCogExpand {

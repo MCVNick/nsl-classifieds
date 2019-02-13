@@ -1,8 +1,8 @@
 module.exports = {
     getUser: (req, res) => {
-        const {user} = req.session
-        
-        if(user) {
+        const { user } = req.session
+
+        if (user) {
             res.send(user)
         } else {
             res.status(400).send('No user on session')
@@ -13,25 +13,41 @@ module.exports = {
         const db = req.app.get('db')
         const { session } = req
 
-        let user = await db.user.update_email({id, email})
+        let user = await db.user.update_email({ id, email })
         user = user[0]
 
         session.user = user
         res.send(session.user)
     },
-    updateName: (req, res) => {
-        
+    updateName: async (req, res) => {
+        const { id, first_name, last_name } = req.body
+        const db = req.app.get('db')
+        const { session } = req
+
+        let user = await db.user.update_name({ id, first_name, last_name })
+        user = user[0]
+
+        session.user = user
+        res.send(session.user)
     },
-    updateAddress: (req, res) => {
-        
+    updateAddress: async (req, res) => {
+        const { id, address, city, state, zipcode } = req.body
+        const db = req.app.get('db')
+        const { session } = req
+
+        let user = await db.user.update_address({ id, address, city, state, zipcode })
+        user = user[0]
+
+        session.user = user
+        res.send(session.user)
     },
     updatePassword: (req, res) => {
-        
+
     },
     updateProfilePic: (req, res) => {
-        
+
     },
     deleteUser: (req, res) => {
-        
+
     }
 }

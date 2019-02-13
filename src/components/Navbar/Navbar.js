@@ -63,7 +63,7 @@ function Navbar(props) {
             </nav>
 
             <div id='SubNavCog' className='SubNavCog flex-column'>
-                <button className='transparent childSubNavCog' onClick={() => {expandSubNavCog(false); expandSubNav(); logout(props)}}>Logout</button>
+                <div className='childSubNavCog'><button className='transparent' onClick={() => {expandSubNavCog(false); expandSubNav(); logout(props)}}>Logout</button></div>
                 <Link to='/profile' className='childSubNavCog'><button className='transparent' onClick={() => {expandSubNavCog(false); expandSubNav()}}>Settings</button></Link>
             </div>
         </div>

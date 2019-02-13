@@ -98,7 +98,7 @@ class Register extends Component {
     handleRegister = () => {
         const { username, password, passwordVer, email, emailVer, first_name, last_name, address, city, state, zipcode } = this.state
         const user = {
-            username: username.toLowerCase(),
+            username: username,
             password: password,
             email: email.toLowerCase(),
             first_name: first_name,
