@@ -1,18 +1,17 @@
 @import './../../variables.scss';
 
 .AsideNav {
-    width: 0px;
+    min-width: 80vw;
     height: 100vh;
     font-size: 60px;
-    background-color: $primary-color;
+    background-color: $fourth-color;
     color: $primary-text-color;
     overflow: scroll;
     transition: $slide;
 }
 
 .AsideNavExpand {
-    width: 80vw;
-    background-color: $fourth-color;
+    min-width: 80vw;
     transition: $slide;
 }
 
@@ -22,53 +21,101 @@
     justify-content: center;
     font-size: $m;
     font-family: $primary-font-family;
-    width: 90%;
+    min-width: 90%;
+    white-space: nowrap;
     
-    li {
-        width: 100%;
+    .x-button-right {
+        justify-content: flex-end;
     }
-    div {
+    li {
+        min-width: 100%;
+    }
+    .aside-item-boarder {
         border-top: $aside-boarder;
-        width: 100%;
+        min-width: 100%;
     }
     ul, p {
         @include display-flex-column-nowrap;
         align-items: flex-start;
         justify-content: center;
-        font-size: $m;
+        font-size: 19px;
         font-family: $primary-font-family;
-        width: 100%;
+        min-width: 73vw;
     }
     p {
-        padding: $xxs 0;
+        padding: 7px 0;
+        position: relative;
+        span {
+            position: absolute;
+            right: 1vw;
+            font-size: $s;
+        }
     }
     .aside-header {
         border-top: $aside-boarder;
-        padding-top: $xs;
+        padding-top: 14px;
         color: $secondary-color;
         font-weight: 900;
     }
     ul > li > div > ul > li{
         font-size: 17px;
         display: flex;
-        padding: $xxs $xs;
+        padding: 7px $xs;
+    }
+    ul > li > div > ul {
+        height: 0px;
+        overflow: hidden;
     }
     .aside-account-buttons-parent {
         display: flex;
         flex-wrap: nowrap;
         flex-direction: column;
         align-items: center;
-        button {
+        padding-top: $xs;
+        min-width: 73vw;
+
+        .blue-button {
             padding: 7px;
             background-color: $secondary-color;
+            margin-bottom: $xxs;
+            font-size: $s;
+        }
+        .blue-button:active {
+            background-color: $blue-highlight;
+        }
+        button {
+            color: $third-color;
+            position: relative;
+            margin-top: $xxs;
+            outline-color: transparent;
+            font-size: 14px;
             color: $primary-text-color;
+            display: flex;
+            outline-color: $third-color;
             font-size: 17px;
+    
+            div {
+                border-top: none;
+            }
+            .carrots-forward {
+                font-size: $xs;
+                padding: 4px;
+                padding-left: 4px;
+            }
         }
     }
-    button {
-        color: $third-color;
-        position: relative;
-        margin-top: $xxs;
+    button:active {
+        background-color: $blue-highlight;
+    }
+    .nav-new-item{
+        flex-direction: row;
+        .nav-new-item-span {
+            margin-right: auto;
+            position: static;
+            font-size: 19px;
+            padding-left: 4px;
+            color: $orange-highlight;
+        }
     }
 }
 
@@ -79,11 +126,15 @@
 }
 
 .x-line {
-    width: $xxl;
+    min-width: $l;
     height: $xxl;
+    margin-bottom: 3px;
+    margin-left: 66vw;
+    align-items: center;
+    justify-content: center;
 
     div {
-        width: $xxl;
+        min-width: 27px;
         height: 1px;
         background-color: $third-color;
         position: absolute;
@@ -96,8 +147,4 @@
 
 .x-line-two {
     transform: rotate(-45deg)
-}
-
-#transparent {
-    background: transparent;
 }

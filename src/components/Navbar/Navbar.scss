@@ -42,6 +42,15 @@
     margin-right: $xs;
 }
 
+.nav-menu-button {
+    outline-color: $third-color;
+    padding: $xxs;
+}
+
+.nav-menu-button:active {
+    background-color: $blue-highlight;
+}
+
 .headerLogin, .headerRegister {
     margin-right: $xs;
     padding: $xs;

@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { updateUser } from './../../ducks/reducer'
 import axios from 'axios'
 
+import './Login.scss'
+
 class Login extends Component {
     constructor() {
         super()

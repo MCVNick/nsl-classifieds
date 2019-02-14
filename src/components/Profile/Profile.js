@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { updateUser } from './../../ducks/reducer'
 import axios from 'axios'
 
-import './Profile.css'
+import './Profile.scss'
 
 class Profile extends Component {
     constructor() {

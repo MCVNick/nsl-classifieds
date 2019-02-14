@@ -3,6 +3,8 @@ import axios from 'axios';
 import { connect } from 'react-redux'
 import { updateUser } from './../../ducks/reducer'
 
+import './Home.scss'
+
 class Home extends Component {
     constructor() {
         super()

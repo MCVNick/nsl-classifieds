@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 import { updateUser } from './../../ducks/reducer'
 
-import './Navbar.css'
+import './Navbar.scss'
 
 function Navbar(props) {
     return (
@@ -26,7 +26,7 @@ function Navbar(props) {
                 </Link>
                 <img className='nav-weather-icon' src='https://www.cleveland19.com/pb/resources/images/weather/weather-condition-icons/400x400/74_daily_forecast.png' alt='weather'></img>
                 <div className='nav-weather'>-15°</div>
-                <button onClick={() => { props.expandAsideNav() }} className='transparent'>
+                <button onClick={() => { props.expandAsideNav() }} className='transparent nav-menu-button'>
                     <div className='menu-bars'></div>
                     <div className='menu-bars'></div>
                     <div className='menu-bars'></div>

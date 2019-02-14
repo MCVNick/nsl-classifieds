@@ -10,30 +10,30 @@
 
 .userContainerButton {
     background-color: $third-color;
-    width: calc(90% - 4px);
+    min-width: calc(90% - 4px);
     height: 30px;
     margin: $s;
     color: $primary-text-color;
 }
 
 .userContainerInput {
-    width: calc(90% - 6px);
+    min-width: calc(90% - 6px);
     margin-left: 5%;
     margin-bottom: $s;
     height: 30px;
 }
 
 .userContainerSmallInput {
-    width: calc(40% - 6px);
+    min-width: calc(40% - 6px);
     margin-left: 5%;
     margin-bottom: $s;
     height: 30px;
 }
 
 .userContainerVerySmallInput {
-    width: calc(20% - 6px);
+    min-width: calc(20% - 6px);
     margin-left: 5%;    
-    margin-left: $vs;
+    margin-left: $xs;
     margin-bottom: $s;
     height: 20px;
 }
@@ -60,5 +60,5 @@
 }
 
 .userContainerParent {
-    width: 310px;
+    min-width: 310px;
 }

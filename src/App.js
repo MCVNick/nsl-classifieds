@@ -8,8 +8,8 @@ import HeaderNav from './components/Navbar/Navbar'
 import Aside from './components/Aside/Aside'
 
 import './reset.css'
-import './userContainer.css'
-import './App.css'
+import './userContainer.scss'
+import './App.scss'
 
 class App extends Component {
   constructor() {
