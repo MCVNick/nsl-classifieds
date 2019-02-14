@@ -31,6 +31,7 @@ class Home extends Component {
             <div>
                 <p>This page is useless right now</p>
                 <p>click the menu for functioning stuff</p>
+                <p>aw man</p>
             </div>
         )
     }
