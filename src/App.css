@@ -1,13 +1,9 @@
-.App {
-  text-align: center;
+.relative {
+  position: relative;
 }
 
 .transparent {
   background-color: transparent;
-}
-
-.relative {
-  position: relative;
 }
 
 .auto-right {
@@ -21,3 +17,33 @@
 .none {
   display: none;
 }
+
+.App {
+  text-align: center;
+}
+
+.flex-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.main-content-parent {
+  margin-left: 0;
+  width: 100vw;
+  -webkit-transition: margin 200ms linear;
+  transition: margin 200ms linear;
+}
+
+.main-content-slid {
+  margin-left: -80%;
+  -webkit-transition: margin 200ms linear;
+  transition: margin 200ms linear;
+}
+/*# sourceMappingURL=App.css.map */

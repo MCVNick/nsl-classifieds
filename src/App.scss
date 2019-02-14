@@ -1,0 +1,20 @@
+@import './variables.scss';
+
+.App {
+  text-align: center;
+}
+
+.flex-row {
+  @include display-flex-row-nowrap;
+}
+
+.main-content-parent {
+  margin-left: 0;
+  width: 100vw;
+  transition: $slide;
+}
+
+.main-content-slid {
+  margin-left: -80%;
+  transition: $slide;
+}

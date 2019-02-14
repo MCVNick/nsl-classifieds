@@ -5,20 +5,51 @@ import store from './ducks/store'
 import routes from './routes'
 
 import HeaderNav from './components/Navbar/Navbar'
+import Aside from './components/Aside/Aside'
 
 import './reset.css'
 import './userContainer.css'
 import './App.css'
 
 class App extends Component {
+  constructor() {
+    super()
+
+    this.state = {}
+
+    this.expandAsideNav = this.expandAsideNav.bind( this )
+  }
+
+  expandAsideNav(bool = true) {
+    let aside = document.getElementById('AsideNav')
+    let main = document.getElementById('NavAndContent')
+
+    if (aside.classList.contains('AsideNavExpand')) {
+      aside.classList.remove('AsideNavExpand')
+    }
+    else if (bool) {
+      aside.classList.add('AsideNavExpand')
+    }
+
+    if (main.classList.contains('main-content-slid')) {
+      main.classList.remove('main-content-slid')
+    }
+    else if (bool) {
+      main.classList.add('main-content-slid')
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <Provider store={store}>
           <Router>
-            <div>
-              <HeaderNav/>
-              {routes}
+            <div className='flex-row'>
+              <div id='NavAndContent' className='main-content-parent'>
+                <HeaderNav expandAsideNav={this.expandAsideNav}/>
+                {routes}
+              </div>
+              <Aside expandAsideNav={this.expandAsideNav}/>
             </div>
           </Router>
         </Provider>

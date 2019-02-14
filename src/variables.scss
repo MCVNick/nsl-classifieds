@@ -1,33 +1,68 @@
 $primary-color: #0b162f;
+$secondary-color: #5b92f4;
+$third-color: #959595;
+$fourth-color: #555;
+$fifth-color: #363636;
+$sixth-color: #f1f1f1;
 $primary-text-color: #ffffff;
-$secondary-color: #464646;
-$third-color: #5b92f4;
-$fourth-color: #f1f1f1;
 $success: green;
 $fail: red;
-$primary-font-family: Arial, Helvetica, sans-serif;
-$vs: 10px;
+$primary-font-family: 'Raleway', sans-serif;
+$xxs: 5px;
+$xs: 10px;
 $s: 15px;
-$profile_pic_size: 75px;
+$m: 20px;
+$l: 25px;
+$xl: 30px;
+$xxl: 35px;
+$slide: margin 100ms linear;
+$aside-boarder: 1px solid $third-color;
 
-@mixin display-flex-row() {
-    position: relative;
+
+@mixin display-flex-row-wrap {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
 }
 
-@mixin display-flex-column() {
-    position: relative;
+@mixin display-flex-row-nowrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+@mixin display-flex-column-wrap {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-items: center;
 }
 
-@mixin ease-in() {
-    height: 0px;
-    transition:height 200ms ease-in;
-    overflow: hidden;
+@mixin display-flex-column-nowrap {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+@mixin flex-items-center {
+  align-items: center;
+}
+
+.relative {
+    position: relative;
+}
+
+.transparent {
+  background-color: transparent;
+}
+
+.auto-right {
+  margin-right: auto;
+}
+
+.auto-left {
+  margin-left: auto;
+}
+
+.none {
+  display: none;
 }

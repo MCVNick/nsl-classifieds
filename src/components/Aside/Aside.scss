@@ -1,0 +1,103 @@
+@import './../../variables.scss';
+
+.AsideNav {
+    width: 0px;
+    height: 100vh;
+    font-size: 60px;
+    background-color: $primary-color;
+    color: $primary-text-color;
+    overflow: scroll;
+    transition: $slide;
+}
+
+.AsideNavExpand {
+    width: 80vw;
+    background-color: $fourth-color;
+    transition: $slide;
+}
+
+.aside-flex-column {
+    @include display-flex-column-nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: $m;
+    font-family: $primary-font-family;
+    width: 90%;
+    
+    li {
+        width: 100%;
+    }
+    div {
+        border-top: $aside-boarder;
+        width: 100%;
+    }
+    ul, p {
+        @include display-flex-column-nowrap;
+        align-items: flex-start;
+        justify-content: center;
+        font-size: $m;
+        font-family: $primary-font-family;
+        width: 100%;
+    }
+    p {
+        padding: $xxs 0;
+    }
+    .aside-header {
+        border-top: $aside-boarder;
+        padding-top: $xs;
+        color: $secondary-color;
+        font-weight: 900;
+    }
+    ul > li > div > ul > li{
+        font-size: 17px;
+        display: flex;
+        padding: $xxs $xs;
+    }
+    .aside-account-buttons-parent {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: center;
+        button {
+            padding: 7px;
+            background-color: $secondary-color;
+            color: $primary-text-color;
+            font-size: 17px;
+        }
+    }
+    button {
+        color: $third-color;
+        position: relative;
+        margin-top: $xxs;
+    }
+}
+
+.aside-flex-row {
+    @include display-flex-row-nowrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.x-line {
+    width: $xxl;
+    height: $xxl;
+
+    div {
+        width: $xxl;
+        height: 1px;
+        background-color: $third-color;
+        position: absolute;
+    }
+}  
+
+.x-line-one {
+    transform: rotate(45deg)
+}
+
+.x-line-two {
+    transform: rotate(-45deg)
+}
+
+#transparent {
+    background: transparent;
+}

@@ -65,6 +65,8 @@ class Profile extends Component {
             oldPassword: '',
             password: '',
             passwordVer: '',
+            delPasswordVer: '',
+            delPassword: '',
             email: '',
             emailVer: '',
             first_name: '',
@@ -76,7 +78,8 @@ class Profile extends Component {
             emailError: '',
             nameError: '',
             addressError: '',
-            passwordError: ''
+            passwordError: '',
+            delPasswordError: ''
         }
     }
 
@@ -87,7 +90,8 @@ class Profile extends Component {
             emailError: '',
             nameError: '',
             addressError: '',
-            passwordError: ''
+            passwordError: '',
+            delPasswordError: ''
         })
     }
 
@@ -198,10 +202,10 @@ class Profile extends Component {
             })
             return;
         }
-        
-        axios.post('/auth/verifyPassword', {password: this.state.oldPassword, id: this.props.id})
+
+        axios.post('/auth/verifyPassword', { password: this.state.oldPassword, id: this.props.id })
             .then(res => {
-                axios.put('/auth/updatePassword', {password: this.state.password, id: this.props.id})
+                axios.put('/auth/updatePassword', { password: this.state.password, id: this.props.id })
                     .then(res => {
                         this.props.updateUser(res.data)
                         this.setState({
@@ -212,11 +216,36 @@ class Profile extends Component {
                         expand('updatePassword')
                     })
             })
-            .catch(error => {this.setState({passwordError: 'Incorrect Password'}); console.log(error)})
+            .catch(error => { this.setState({ passwordError: 'Incorrect Password' }) })
+    }
+
+    handleDeleteAccount() {
+        if (this.state.delPassword !== this.state.delPasswordVer) {
+            this.setState({
+                delPasswordError: 'Password Mismatch'
+            })
+            return;
+        }
+        if (!this.state.delPassword && !this.state.delPasswordVer) {
+            this.setState({
+                delPasswordError: 'Fields Require Input'
+            })
+            return;
+        }
+
+        axios.post('/auth/verifyPassword', { password: this.state.delPassword, id: this.props.id })
+            .then(res => {
+                axios.delete(`/user/delete/${this.props.id}`)
+                    .then(res => {
+                        this.props.updateUser({ id: 0 })
+                        this.props.history.push('/')
+                    })
+            })
+            .catch(error => { this.setState({ delPasswordError: 'Incorrect Password' }) })
     }
 
     render() {
-        const { oldPassword, password, passwordVer, email, emailVer, first_name, last_name, address, city, state, zipcode, statesList } = this.state
+        const { delPassword, delPasswordVer, oldPassword, password, passwordVer, email, emailVer, first_name, last_name, address, city, state, zipcode, statesList } = this.state
         const options = statesList.map((state, index) => {
             return (
                 <option key={index} value={state.name}>{state}</option>
@@ -227,14 +256,12 @@ class Profile extends Component {
             <div>
                 <div className='userContainer flex-row'>
                     <div className='userContainerParent'>
-                        <div>
-                            <div onClick={() => { expand('updateEmail'); this.setState({ emailError: '', email: '', emailVer: '' }) }} className='userContainerHeaderInfo'>Update Email</div>
-                            {
-                                this.state.emailError ?
-                                    <div className='flex-row heightZero slide-in'>{this.state.emailError}</div> :
-                                    <div className='flex-row heightZero'>{this.state.emailError}</div>
-                            }
-                        </div>
+                        <div onClick={() => { expand('updateEmail'); this.setState({ emailError: '', email: '', emailVer: '' }) }} className='userContainerHeaderInfo'>Update Email</div>
+                        {
+                            this.state.emailError ?
+                                <div className='flex-row heightZero slide-in'>{this.state.emailError}</div> :
+                                <div className='flex-row heightZero'>{this.state.emailError}</div>
+                        }
                         <div id='updateEmail' className='userContainerContent heightZero'>
                             <p className='userContainerInputInfo'>New Email:</p>
                             <input className='userContainerInput' maxLength="255" value={email} onChange={(e) => this.handleChange(e, 'email')} type='email' />
@@ -246,14 +273,12 @@ class Profile extends Component {
                 </div>
                 <div className='userContainer flex-row'>
                     <div className='userContainerParent'>
-                        <div>
-                            <div onClick={() => { expand('updateName'); this.setState({ nameError: '', first_name: '', last_name: '' }) }} className='userContainerHeaderInfo'>Update Name</div>
-                            {
-                                this.state.nameError ?
-                                    <div className='flex-row heightZero slide-in'>{this.state.nameError}</div> :
-                                    <div className='flex-row heightZero'>{this.state.nameError}</div>
-                            }
-                        </div>
+                        <div onClick={() => { expand('updateName'); this.setState({ nameError: '', first_name: '', last_name: '' }) }} className='userContainerHeaderInfo'>Update Name</div>
+                        {
+                            this.state.nameError ?
+                                <div className='flex-row heightZero slide-in'>{this.state.nameError}</div> :
+                                <div className='flex-row heightZero'>{this.state.nameError}</div>
+                        }
                         <div id='updateName' className='userContainerContent heightZero'>
                             <p className='userContainerInputInfo'>New First Name:</p>
                             <input className='userContainerInput' maxLength="50" value={first_name} onChange={(e) => this.handleChange(e, 'first_name')} type='text' />
@@ -265,14 +290,12 @@ class Profile extends Component {
                 </div>
                 <div className='userContainer flex-row'>
                     <div className='userContainerParent'>
-                        <div>
-                            <div onClick={() => { expand('updateAddress'); this.setState({ addressError: '', address: '', city: '', zipcode: '' }) }} className='userContainerHeaderInfo'>Update Address</div>
-                            {
-                                this.state.addressError ?
-                                    <div className='flex-row heightZero slide-in'>{this.state.addressError}</div> :
-                                    <div className='flex-row heightZero'>{this.state.addressError}</div>
-                            }
-                        </div>
+                        <div onClick={() => { expand('updateAddress'); this.setState({ addressError: '', address: '', city: '', zipcode: '' }) }} className='userContainerHeaderInfo'>Update Address</div>
+                        {
+                            this.state.addressError ?
+                                <div className='flex-row heightZero slide-in'>{this.state.addressError}</div> :
+                                <div className='flex-row heightZero'>{this.state.addressError}</div>
+                        }
                         <div id='updateAddress' className='userContainerContent heightZero'>
                             <p className='userContainerInputInfo'>Address Line:</p>
                             <input className='userContainerInput' maxLength="255" value={address} onChange={(e) => this.handleChange(e, 'address')} type='text' />
@@ -289,14 +312,12 @@ class Profile extends Component {
                 </div>
                 <div className='userContainer flex-row'>
                     <div className='userContainerParent'>
-                        <div>
-                            <div onClick={() => { expand('updatePassword'); this.setState({ passwordError: '', password: '', passwordVer: '' }) }} className='userContainerHeaderInfo'>Update Password</div>
-                            {
-                                this.state.passwordError ?
-                                    <div className='flex-row heightZero slide-in'>{this.state.passwordError}</div> :
-                                    <div className='flex-row heightZero'>{this.state.passwordError}</div>
-                            }
-                        </div>
+                        <div onClick={() => { expand('updatePassword'); this.setState({ passwordError: '', password: '', passwordVer: '' }) }} className='userContainerHeaderInfo'>Update Password</div>
+                        {
+                            this.state.passwordError ?
+                                <div className='flex-row heightZero slide-in'>{this.state.passwordError}</div> :
+                                <div className='flex-row heightZero'>{this.state.passwordError}</div>
+                        }
                         <div id='updatePassword' className='userContainerContent heightZero'>
                             <p className='userContainerInputInfo'>Old Password:</p>
                             <input className='userContainerInput' type='password' maxLength="50" value={oldPassword} onChange={(e) => this.handleChange(e, 'oldPassword')} />
@@ -305,6 +326,23 @@ class Profile extends Component {
                             <p className='userContainerInputInfo'>Confirm New Password:</p>
                             <input className='userContainerInput' type='password' maxLength="50" value={passwordVer} onChange={(e) => this.handleChange(e, 'passwordVer')} />
                             <button className='userContainerButton' onClick={() => this.handleUpdateUserPassword()}>Update</button>
+                        </div>
+                    </div>
+                </div>
+                <div className='userContainer flex-row'>
+                    <div className='userContainerParent'>
+                        <div onClick={() => { expand('deleteAccount') }} className='userContainerHeaderInfo'>Delete Account</div>
+                        {
+                            this.state.delPasswordError ?
+                                <div className='flex-row heightZero slide-in'>{this.state.delPasswordError}</div> :
+                                <div className='flex-row heightZero'>{this.state.delPasswordError}</div>
+                        }
+                        <div id='deleteAccount' className='userContainerContent heightZero'>
+                            <p className='userContainerInputInfo'>Password:</p>
+                            <input className='userContainerInput' type='password' maxLength="50" value={delPassword} onChange={(e) => this.handleChange(e, 'delPassword')} />
+                            <p className='userContainerInputInfo'>Confirm Password:</p>
+                            <input className='userContainerInput' type='password' maxLength="50" value={delPasswordVer} onChange={(e) => this.handleChange(e, 'delPasswordVer')} />
+                            <button className='userContainerButton' onClick={() => this.handleDeleteAccount()}>Delete Account</button>
                         </div>
                     </div>
                 </div>

@@ -45,6 +45,11 @@ module.exports = {
 
     },
     deleteUser: (req, res) => {
+        const { id } = req.params
+        const db = req.app.get('db')
+        req.session.destroy()
 
+        db.user.delete_user({ id })
+        res.sendStatus(200)
     }
 }
