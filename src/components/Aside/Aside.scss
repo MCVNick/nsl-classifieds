@@ -79,10 +79,16 @@
                 position: absolute;
                 font-size: $s;
                 right: 6px;
-                top: 7px;
+                top: 10px;
                 transform: rotate(0deg);
-                font-weight: 900;
                 transition: all 200ms linear;
+            }
+
+            .aside-new-tag {
+                font-size: 19px;
+                color: $orange-highlight;
+                left: -35px;
+                top: 7px;
             }
         }
 
@@ -99,12 +105,90 @@
                 font-size: 17px;
             }
         }
+
+        .aside-big-header {
+            color: $secondary-color;
+            font-weight: 900;
+            width: 100%;
+            justify-content: flex-start;
+            padding: 7px 0px;
+            padding-top: 16px;
+        }
+
+    }
+    
+    .aside-account-buttons-parent {
+        border-top: $aside-border;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: $xxs;
+
+        
+        button {
+            outline-color: transparent;
+            color: $primary-text-color;
+            padding: $xxs;
+            font-size: 17px;
+
+            span {
+                font-size: $xs;
+                position: absolute;
+                padding-left: 6px;
+                padding-top: 4px;
+            }
+        }
+        
+        button:active {
+            background-color: $blue-highlight;            
+        }
+        
+        .blue-button {
+            margin-top: $xs;
+            background: $secondary-color;
+        }
     }
 }
 
 .aside-news-h2s {
     height: 375px !important;
-    transition: all 200ms linear !important;
+    transition: $aside-drop-transition;
+}
+
+.aside-sports-h2s {
+    height: 440px !important;
+    transition: $aside-drop-transition;
+}
+
+.aside-brandview-h2s {
+    height: 200px !important;
+    transition: $aside-drop-transition;
+}
+
+.aside-tv-h2s, .aside-weather-h2s {
+    height: 350px !important;
+    transition: $aside-drop-transition;
+}
+
+.aside-radio-h2s, .aside-cars-h2s {
+    height: 160px !important;
+    transition: $aside-drop-transition;
+}
+
+.aside-obituaries-h2s {
+    height: 70px !important;
+    transition: $aside-drop-transition;
+}
+
+.aside-classifieds-h2s, .aside-homes-h2s, .aside-jobs-h2s {
+    height: 130px !important;
+    transition: $aside-drop-transition;
+}
+
+.aside-services-h2s {
+    height: 100px !important;
+    transition: $aside-drop-transition;
 }
 
 .rotate90 {

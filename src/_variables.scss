@@ -19,7 +19,7 @@ $xl: 30px;
 $xxl: 35px;
 $slide: all 200ms linear;
 $aside-border: 1px solid $third-color;
-
+$aside-drop-transition: all 200ms linear !important;
 
 @mixin create-grid($columns, $c-width, $rows, $r-width) {
   position: relative;
