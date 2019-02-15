@@ -1,18 +1,52 @@
 @import './../../variables.scss';
 
-.AsideNav {
-    min-width: 80vw;
+.aside-nav {
+    width: 100%;
+    position: sticky;
+    top: 0px;
+    right: 0px;
     height: 100vh;
-    font-size: 60px;
+    overflow: scroll;
     background-color: $fourth-color;
     color: $primary-text-color;
-    overflow: scroll;
-    transition: $slide;
+
+    .transparent {
+        @include transparent;
+    }
 }
 
-.AsideNavExpand {
-    min-width: 80vw;
-    transition: $slide;
+//for the x button
+.aside-nav {
+    .x-line {
+        min-width: $l;
+        height: $xxl;
+        margin-bottom: 3px;
+        margin-left: 66vw;
+        align-items: center;
+        justify-content: center;
+    
+        div {
+            min-width: 27px;
+            height: 1px;
+            background-color: $third-color;
+            position: absolute;
+        }
+    }  
+    
+    .x-line-one {
+        transform: rotate(45deg)
+    }
+    
+    .x-line-two {
+        transform: rotate(-45deg)
+    }
+}
+
+//the aside grid
+.aside-grid {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 40px 270px 250px 130px;
 }
 
 .aside-flex-column {
@@ -24,9 +58,6 @@
     min-width: 90%;
     white-space: nowrap;
     
-    .x-button-right {
-        justify-content: flex-end;
-    }
     li {
         min-width: 100%;
     }
@@ -63,8 +94,8 @@
         padding: 7px $xs;
     }
     ul > li > div > ul {
-        height: 0px;
-        overflow: hidden;
+        // height: 0px;
+        // overflow: hidden;
     }
     .aside-account-buttons-parent {
         display: flex;
@@ -123,28 +154,4 @@
     @include display-flex-row-nowrap;
     justify-content: center;
     align-items: flex-start;
-}
-
-.x-line {
-    min-width: $l;
-    height: $xxl;
-    margin-bottom: 3px;
-    margin-left: 66vw;
-    align-items: center;
-    justify-content: center;
-
-    div {
-        min-width: 27px;
-        height: 1px;
-        background-color: $third-color;
-        position: absolute;
-    }
-}  
-
-.x-line-one {
-    transform: rotate(45deg)
-}
-
-.x-line-two {
-    transform: rotate(-45deg)
 }

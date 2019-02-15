@@ -21,21 +21,15 @@ class App extends Component {
   }
 
   expandAsideNav(bool = true) {
-    let aside = document.getElementById('AsideNav')
-    let main = document.getElementById('NavAndContent')
+    let masterGrid = document.getElementById('master-grid')
 
-    if (aside.classList.contains('AsideNavExpand')) {
-      aside.classList.remove('AsideNavExpand')
+    if (masterGrid.classList.contains('master-grid-slid')) {
+      masterGrid.classList.remove('master-grid-slid')
+      masterGrid.classList.add('delay-overflow')
+      setTimeout(function() {masterGrid.classList.remove('delay-overflow');},200)
     }
     else if (bool) {
-      aside.classList.add('AsideNavExpand')
-    }
-
-    if (main.classList.contains('main-content-slid')) {
-      main.classList.remove('main-content-slid')
-    }
-    else if (bool) {
-      main.classList.add('main-content-slid')
+      masterGrid.classList.add('master-grid-slid')
     }
   }
 
@@ -44,12 +38,113 @@ class App extends Component {
       <div className="App">
         <Provider store={store}>
           <Router>
-            <div className='flex-row'>
-              <div id='NavAndContent' className='main-content-parent'>
+            <div id='master-grid' className='master-grid'>
+              {/* main content, nav, footer */}
+              <div>
                 <HeaderNav expandAsideNav={this.expandAsideNav}/>
-                {routes}
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
+                <p>word</p>
               </div>
-              <Aside expandAsideNav={this.expandAsideNav}/>
+              {/* aside that cannot be seen unless we do something */}
+              <div className='aside-parent'>
+                <Aside expandAsideNav={this.expandAsideNav}/>
+              </div>
             </div>
           </Router>
         </Provider>

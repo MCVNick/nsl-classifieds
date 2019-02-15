@@ -7,7 +7,7 @@ import './Aside.scss'
 
 function Aside(props) {
     return (
-        <aside id='AsideNav' className='AsideNav aside-flex-row'>
+        <aside id='aside-nav' className='aside-nav aside-flex-row'>
             <div className='aside-flex-column'>
                 <button className='transparent x-line' onClick={() => { props.expandAsideNav(); }}>
                     <div className='x-line-one'></div>

@@ -2,19 +2,30 @@
 
 .App {
   text-align: center;
-}
+  width: 100%;
+  height: 100%;
 
-.flex-row {
-  @include display-flex-row-nowrap;
-}
+  .master-grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100% 80%;
+    transition: $slide;
+    overflow: hidden;
+  }
+  
+  .master-grid-slid{
+    overflow: visible;
+    margin-left: -80%;
+    grid-template-columns: 100% 80%;
+    transition: $slide;
+  }
 
-.main-content-parent {
-  margin-left: 0;
-  min-width: 100vw;
-  transition: $slide;
-}
+  .aside-parent {
+    height: 100%;
+  }
 
-.main-content-slid {
-  margin-left: -80%;
-  transition: $slide;
+  .delay-overflow {
+    overflow: visible;
+  }
 }

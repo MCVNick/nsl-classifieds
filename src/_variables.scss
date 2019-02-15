@@ -17,9 +17,15 @@ $m: 20px;
 $l: 25px;
 $xl: 30px;
 $xxl: 35px;
-$slide: margin 200ms linear;
+$slide: all 200ms linear;
 $aside-boarder: 1px solid $third-color;
 
+@mixin create-grid($columns, $c-width, $rows, $r-width) {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat($columns, $c-width);
+  grid-template-rows: repeat($rows, $r-width);
+}
 
 @mixin display-flex-row-wrap {
     display: flex;
@@ -53,7 +59,7 @@ $aside-boarder: 1px solid $third-color;
     position: relative;
 }
 
-.transparent {
+@mixin transparent {
   background-color: transparent;
 }
 
