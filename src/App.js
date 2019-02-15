@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { HashRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './ducks/store'
-import routes from './routes'
+// import routes from './routes'
 
 import HeaderNav from './components/Navbar/Navbar'
 import Aside from './components/Aside/Aside'
@@ -42,104 +42,7 @@ class App extends Component {
               {/* main content, nav, footer */}
               <div>
                 <HeaderNav expandAsideNav={this.expandAsideNav}/>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
-                <p>word</p>
+                {/* {routes} */}
               </div>
               {/* aside that cannot be seen unless we do something */}
               <div className='aside-parent'>

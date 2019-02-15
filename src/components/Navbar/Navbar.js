@@ -17,7 +17,7 @@ function Navbar(props) {
                             <p>S</p>
                             <p>L</p>
                         </div>
-                        <p className='nav-name-dot'><div></div></p>
+                        <div className='nav-name-dot'><div></div></div>
                         <div className='flex-row low-weight'>
                             <p>c</p>
                             <p>o</p>

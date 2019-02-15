@@ -13,6 +13,17 @@
     .transparent {
         @include transparent;
     }
+
+    .aside-flex-column {
+        @include display-flex-column-nowrap;
+        align-items: flex-start;
+        justify-content: center;
+        font-size: $m;
+        font-family: $primary-font-family;
+        min-width: 90%;
+        white-space: nowrap;
+        
+    }
 }
 
 //for the x button
@@ -20,18 +31,24 @@
     .x-line {
         min-width: $l;
         height: $xxl;
-        margin-bottom: 3px;
-        margin-left: 66vw;
+        position: absolute;
+        top: 4px;
+        right: 4px;
         align-items: center;
         justify-content: center;
+        outline-color: $third-color;
     
         div {
-            min-width: 27px;
+            min-width: 29px;
             height: 1px;
             background-color: $third-color;
             position: absolute;
         }
-    }  
+    }
+
+    .x-line:active {
+        background-color: $blue-highlight;
+    }
     
     .x-line-one {
         transform: rotate(45deg)
@@ -42,6 +59,59 @@
     }
 }
 
+//for the content of the aside
+.aside-content-parent {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    color: $primary-text-color;
+    
+    .aside-content-single {
+        border-top: $aside-border;
+        
+        h1 {
+            width: 100%;
+            font-size: 19px;
+            justify-content: flex-start;
+            padding: 7px 0px;
+            
+            span {
+                position: absolute;
+                font-size: $s;
+                right: 6px;
+                top: 7px;
+                transform: rotate(0deg);
+                font-weight: 900;
+                transition: all 200ms linear;
+            }
+        }
+
+        div {
+            height: 0px;
+            overflow: hidden;
+            transition: all 400ms linear;
+
+            h2 {
+                display: flex;
+                justify-content: flex-start;
+                padding: 7px;
+                width: 100%;
+                font-size: 17px;
+            }
+        }
+    }
+}
+
+.aside-news-h2s {
+    height: 375px !important;
+    transition: all 200ms linear !important;
+}
+
+.rotate90 {
+    transform: rotate(90deg) !important;
+    transition: all 200ms linear;
+}
+
 //the aside grid
 .aside-grid {
     display: grid;
@@ -49,107 +119,7 @@
     grid-template-rows: 40px 270px 250px 130px;
 }
 
-.aside-flex-column {
-    @include display-flex-column-nowrap;
-    align-items: flex-start;
-    justify-content: center;
-    font-size: $m;
-    font-family: $primary-font-family;
-    min-width: 90%;
-    white-space: nowrap;
-    
-    li {
-        min-width: 100%;
-    }
-    .aside-item-boarder {
-        border-top: $aside-boarder;
-        min-width: 100%;
-    }
-    ul, p {
-        @include display-flex-column-nowrap;
-        align-items: flex-start;
-        justify-content: center;
-        font-size: 19px;
-        font-family: $primary-font-family;
-        min-width: 73vw;
-    }
-    p {
-        padding: 7px 0;
-        position: relative;
-        span {
-            position: absolute;
-            right: 1vw;
-            font-size: $s;
-        }
-    }
-    .aside-header {
-        border-top: $aside-boarder;
-        padding-top: 14px;
-        color: $secondary-color;
-        font-weight: 900;
-    }
-    ul > li > div > ul > li{
-        font-size: 17px;
-        display: flex;
-        padding: 7px $xs;
-    }
-    ul > li > div > ul {
-        // height: 0px;
-        // overflow: hidden;
-    }
-    .aside-account-buttons-parent {
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction: column;
-        align-items: center;
-        padding-top: $xs;
-        min-width: 73vw;
-
-        .blue-button {
-            padding: 7px;
-            background-color: $secondary-color;
-            margin-bottom: $xxs;
-            font-size: $s;
-        }
-        .blue-button:active {
-            background-color: $blue-highlight;
-        }
-        button {
-            color: $third-color;
-            position: relative;
-            margin-top: $xxs;
-            outline-color: transparent;
-            font-size: 14px;
-            color: $primary-text-color;
-            display: flex;
-            outline-color: $third-color;
-            font-size: 17px;
-    
-            div {
-                border-top: none;
-            }
-            .carrots-forward {
-                font-size: $xs;
-                padding: 4px;
-                padding-left: 4px;
-            }
-        }
-    }
-    button:active {
-        background-color: $blue-highlight;
-    }
-    .nav-new-item{
-        flex-direction: row;
-        .nav-new-item-span {
-            margin-right: auto;
-            position: static;
-            font-size: 19px;
-            padding-left: 4px;
-            color: $orange-highlight;
-        }
-    }
-}
-
+//flex-row
 .aside-flex-row {
     @include display-flex-row-nowrap;
     justify-content: center;
