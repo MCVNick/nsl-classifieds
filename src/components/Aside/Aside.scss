@@ -68,6 +68,11 @@
     
     .aside-content-single {
         border-top: $aside-border;
+
+        a {
+            text-decoration: none;
+            color: $primary-text-color;
+        }
         
         h1 {
             width: 100%;
@@ -147,6 +152,15 @@
         .blue-button {
             margin-top: $xs;
             background: $secondary-color;
+        }
+    }
+
+    .aside-logged-in {
+        padding: $xs 0;
+
+        button {
+            margin-bottom: $xxs;
+            margin-right: auto;
         }
     }
 }

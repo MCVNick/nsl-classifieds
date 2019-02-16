@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
-import { updateUser } from './../../ducks/reducer'
 
 import './Navbar.scss'
 
@@ -26,8 +25,13 @@ function Navbar(props) {
                     </h1>
                 </Link>
                 <div className='flex-row center-all'>
-                    <div className='flex-row center-all'><img className='nav-weather-icon' src='https://www.cleveland19.com/pb/resources/images/weather/weather-condition-icons/400x400/74_daily_forecast.png' alt='weather'></img></div>
+                    <div className='flex-row center-all weather-icon-parent'><img className='nav-weather-icon' src='https://www.cleveland19.com/pb/resources/images/weather/weather-condition-icons/400x400/74_daily_forecast.png' alt='weather'></img></div>
                     <div className='flex-row center-all weather-temp'>-15°</div>
+                    {
+                        props.location.pathname.includes('/classifieds') ?
+                        null :
+                        <div className='nav-search'><div className='search-circle'></div><div className='search-line'></div></div>
+                    }
                     <button onClick={() => { props.expandAsideNav() }} className='transparent nav-menu-button'>
                         <div className='menu-bars'></div>
                         <div className='menu-bars'></div>
@@ -42,12 +46,10 @@ function Navbar(props) {
 }
 
 function mapStateToProps(reduxState) {
-    const { username, profile_pic, id } = reduxState
+    const { url } = reduxState
     return {
-        username,
-        profile_pic,
-        id
+        url
     }
 }
 
-export default withRouter(connect(mapStateToProps, { updateUser })(Navbar))
+export default withRouter(connect(mapStateToProps)(Navbar))

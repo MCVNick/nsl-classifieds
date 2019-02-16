@@ -62,6 +62,10 @@
 
 //dealing with the weather icon
 .header-nav {
+    .weather-icon-parent {
+        margin-left: auto;
+    }
+
     .nav-weather-icon {
         width: $xl;
     }
@@ -77,6 +81,29 @@
 .header-nav {
     .weather-temp {
         margin: 0 $xs;
+    }
+}
+
+//this is the search item
+.nav-search {
+    margin: 0 $s 0 $xxs;
+    width: 24px;
+    height: 24px;
+    .search-circle {
+        width: 17px;
+        height: 17px;
+        border: 2px solid $primary-text-color;
+        border-radius: 100%;
+    }
+
+    .search-line {
+        position: absolute;
+        top: 18px;
+        right: -2px;
+        width: 14px;
+        border: 1px solid $primary-text-color;
+        border-radius: 2px;
+        transform: rotate(45deg);
     }
 }
 
@@ -106,6 +133,6 @@
 
 .header-grid {
     display: grid;
-    grid-template-columns:  2% 68% 28% 2%;
+    grid-template-columns:  2% 53% 43% 2%;
     grid-template-rows: 40px;
 }

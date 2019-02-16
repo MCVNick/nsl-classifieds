@@ -23,11 +23,11 @@ module.exports = {
         res.status(201).send(session.user)
     },
     login: async (req, res) => {
-        const { username, password } = req.body
+        const { email, password } = req.body
         const db = req.app.get('db')
         const { session } = req
 
-        let user = await db.user.login({username})
+        let user = await db.user.login({email})
         user = user[0]
         if(!user) {
             return res.status(400).send('User not found')

@@ -1,0 +1,105 @@
+@import './variables.scss';
+
+.user-auth-master {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+
+}
+
+.transparent {
+    @include transparent;
+}
+
+.user-auth-container-parent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.user-auth-box {
+    width: 90%;
+    min-width: 310px;
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+    margin: $xs 0;
+    margin-bottom: $m;
+    color: $primary-text-color;
+    font-family: $primary-font-family;
+    background-color: $light-box;
+
+    .auth-box-error {
+        background-color: $light-error;
+        margin-bottom: $xs;
+        font-size: 12px;
+        
+        span {
+            position: absolute;
+            top: 12px;
+            left: 60px;
+            color: black;
+        }
+        
+        p {
+            width: 100%;
+            height: 100%;
+            color: $dark-error;
+            font-weight: bold;
+            display: flex;
+            padding: $xs;
+            border: 2px solid $dark-error;
+        }
+    }
+    
+    .auth-box-header {
+        background-color: $fifth-color;
+        height: 50px;
+        font-size: 18px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+
+        h1 {
+            margin-left: $xs;
+        }
+    }
+
+    .auth-box-content {
+        display: flex;
+        flex-direction: column;
+        padding: 0 $s;
+        color: black;
+
+        h2 {
+            display: flex;
+            margin-top: $m;
+        }
+
+        input {
+            font-size:$s;
+            height: $l;
+        }
+
+        button {
+            background: $secondary-color;
+            padding: $xs;
+            margin: $s 0;
+        }
+        
+        a {
+            display: flex;
+            font-size: 13px;
+            margin-bottom: $s;
+        }
+
+        p {
+            display: flex;
+            font-size: 13px;
+            margin-bottom: $xs;
+        }
+    }
+}

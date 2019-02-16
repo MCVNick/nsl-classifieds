@@ -1,80 +1,10 @@
 import React from 'react'
-// import { connect } from 'react-redux'
-// import { withRouter, Link } from 'react-router-dom'
-// import axios from 'axios'
+import { connect } from 'react-redux'
+import { withRouter, Link } from 'react-router-dom'
+import axios from 'axios'
+import { updateUser } from './../../ducks/reducer'
 
 import './Aside.scss'
-
-function handleExpand(name1, name2) {
-    let rotateArr = document.getElementsByClassName('aside-expand-arrow')
-    let rotateMarket = document.getElementsByClassName('aside-expand-arrow-marketplace')
-    let first = document.getElementById(name1)
-    let second = document.getElementById(name2)
-    let allUnsortedTabs = ['aside-news-h2s', 'aside-sports-h2s', 'aside-brandview-h2s', 'aside-tv-h2s', 'aside-radio-h2s', 'aside-obituaries-h2s', 'aside-weather-h2s']
-    let allMarketplaceTabs = ['aside-classifieds-h2s', 'aside-cars-h2s', 'aside-homes-h2s', 'aside-jobs-h2s', 'aside-services-h2s']
-    
-    if(allUnsortedTabs.includes(name1)) {
-        for(let x = 0; x < rotateArr.length; x++) {
-            if(rotateArr[x].classList.contains('rotate90')) {
-                if(rotateArr[x].id !== name2) {
-                    rotateArr[x].classList.remove('rotate90')
-                    document.getElementById('aside-news-h2s')
-                }
-            }
-        }
-        
-        allUnsortedTabs.forEach(elementName => {
-            if(elementName !== name1) {
-                document.getElementById(elementName).classList.remove(elementName)
-            }
-        });
-        
-        if(first.classList.contains(name1)) {
-            first.classList.remove(name1)
-        }
-        else {
-            first.classList.add(name1)
-        }
-        
-        if(second.classList.contains('rotate90')) {
-            second.classList.remove('rotate90')
-        }
-        else {
-            second.classList.add('rotate90')
-        }
-    }
-    else {
-        for(let x = 0; x < rotateMarket.length; x++) {
-            if(rotateMarket[x].classList.contains('rotate90')) {
-                if(rotateMarket[x].id !== name2) {
-                    rotateMarket[x].classList.remove('rotate90')
-                    document.getElementById('aside-news-h2s')
-                }
-            }
-        }
-        
-        allMarketplaceTabs.forEach(elementName => {
-            if(elementName !== name1) {
-                document.getElementById(elementName).classList.remove(elementName)
-            }
-        });
-        
-        if(first.classList.contains(name1)) {
-            first.classList.remove(name1)
-        }
-        else {
-            first.classList.add(name1)
-        }
-        
-        if(second.classList.contains('rotate90')) {
-            second.classList.remove('rotate90')
-        }
-        else {
-            second.classList.add('rotate90')
-        }
-    }
-    
-}
 
 function Aside(props) {
     return (
@@ -197,7 +127,7 @@ function Aside(props) {
                     </div>
 
                     <div className='aside-content-single' onClick={() => handleExpand('aside-classifieds-h2s', 'aside-classifieds-span')}>
-                        <h1 className='aside-flex-row'>Classifieds <span id='aside-classifieds-span' className='aside-expand-arrow-marketplace'>►</span></h1>
+                        <h1 className='aside-flex-row'><Link to='/classifieds' onClick={() => props.expandAsideNav()}>Classifieds</Link><span id='aside-classifieds-span' className='aside-expand-arrow-marketplace'>►</span></h1>
 
                         <div id='aside-classifieds-h2s'>
                             <h2>My Listings</h2>
@@ -253,23 +183,108 @@ function Aside(props) {
                     <div className='aside-content-single'>
                         <h1 className='aside-flex-row aside-big-header'>ACCOUNT</h1>
                     </div>
-
-                    <div className='aside-account-buttons-parent'>
-                        <button className='blue-button'>Login</button>
-                        <button className='transparent'>Create Account <span className='carrots'>>></span></button>
-                    </div>
+                    {
+                        props.id === 0 ?
+                            <div className='aside-account-buttons-parent'>
+                                <Link to='/login'><button className='blue-button' onClick={() => props.expandAsideNav()}>Login</button></Link>
+                                <Link to='/register'><button className='transparent' onClick={() => props.expandAsideNav()}>Create Account <span className='carrots'>>></span></button></Link>
+                            </div>
+                            :
+                            <div className='aside-content-single aside-account-buttons-parent aside-logged-in'>
+                                <h1 className='aside-flex-row'>Welcome {props.username}</h1>
+                                <button className='blue-button' onClick={() => logout(props)}>Logout</button>
+                            </div>
+                    }
                 </div>
             </div>
         </aside >
     )
 }
 
-// function logout(props) {
-//     axios.post('/auth/logout')
-//         .then(res => {
-//             props.updateUser({ id: 0 })
-//             props.history.push('/')
-//         })
-// }
+function handleExpand(name1, name2) {
+    let rotateArr = document.getElementsByClassName('aside-expand-arrow')
+    let rotateMarket = document.getElementsByClassName('aside-expand-arrow-marketplace')
+    let first = document.getElementById(name1)
+    let second = document.getElementById(name2)
+    let allUnsortedTabs = ['aside-news-h2s', 'aside-sports-h2s', 'aside-brandview-h2s', 'aside-tv-h2s', 'aside-radio-h2s', 'aside-obituaries-h2s', 'aside-weather-h2s']
+    let allMarketplaceTabs = ['aside-classifieds-h2s', 'aside-cars-h2s', 'aside-homes-h2s', 'aside-jobs-h2s', 'aside-services-h2s']
 
-export default Aside
+    if (allUnsortedTabs.includes(name1)) {
+        for (let x = 0; x < rotateArr.length; x++) {
+            if (rotateArr[x].classList.contains('rotate90')) {
+                if (rotateArr[x].id !== name2) {
+                    rotateArr[x].classList.remove('rotate90')
+                }
+            }
+        }
+
+        allUnsortedTabs.forEach(elementName => {
+            if (elementName !== name1) {
+                document.getElementById(elementName).classList.remove(elementName)
+            }
+        });
+
+        if (first.classList.contains(name1)) {
+            first.classList.remove(name1)
+        }
+        else {
+            first.classList.add(name1)
+        }
+
+        if (second.classList.contains('rotate90')) {
+            second.classList.remove('rotate90')
+        }
+        else {
+            second.classList.add('rotate90')
+        }
+    }
+    else {
+        for (let x = 0; x < rotateMarket.length; x++) {
+            if (rotateMarket[x].classList.contains('rotate90')) {
+                if (rotateMarket[x].id !== name2) {
+                    rotateMarket[x].classList.remove('rotate90')
+                }
+            }
+        }
+
+        allMarketplaceTabs.forEach(elementName => {
+            if (elementName !== name1) {
+                document.getElementById(elementName).classList.remove(elementName)
+            }
+        });
+
+        if (first.classList.contains(name1)) {
+            first.classList.remove(name1)
+        }
+        else {
+            first.classList.add(name1)
+        }
+
+        if (second.classList.contains('rotate90')) {
+            second.classList.remove('rotate90')
+        }
+        else {
+            second.classList.add('rotate90')
+        }
+    }
+
+}
+
+function logout(props) {
+    axios.post('/auth/logout')
+        .then(res => {
+            props.expandAsideNav()
+            props.updateUser({ id: 0 })
+            props.history.push('/')
+        })
+}
+
+function mapStateToProps(reduxState) {
+    const { username, id } = reduxState
+    return {
+        username,
+        id
+    }
+}
+
+export default withRouter(connect(mapStateToProps, { updateUser })(Aside))
