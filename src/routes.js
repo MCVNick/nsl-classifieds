@@ -6,6 +6,7 @@ import Login from './components/Login/Login'
 import Register from './components/Register/Register'
 import Profile from './components/Profile/Profile'
 import Classifieds from './components/Classifieds/Classifieds'
+import Member from './components/Member/Member'
 
 export default (
     <Switch>
@@ -14,5 +15,6 @@ export default (
         <Route path='/register' component={Register} />
         <Route path='/profile' component={Profile} />
         <Route path='/classifieds' component={Classifieds} />
+        <Route path='/member/profile' component={Member} />
     </Switch>
 )

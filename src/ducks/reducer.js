@@ -18,8 +18,8 @@ export default function reducer(state = initialState, action) {
     const { type, payload } = action
     switch (type) {
         case UPDATE_USER:
-            const { id, username, profile_pic } = payload
-            return { ...state, id, username, profile_pic }
+            const { id, username, profile_pic, first_name, last_name } = payload
+            return { ...state, id, username, profile_pic, first_name, last_name }
         default:
             return state
     }

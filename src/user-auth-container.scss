@@ -33,8 +33,6 @@
     background-color: $light-box;
 
     .auth-box-error {
-        background-color: $light-error;
-        margin-bottom: $xs;
         font-size: 12px;
         
         span {
@@ -51,7 +49,9 @@
             font-weight: bold;
             display: flex;
             padding: $xs;
+            background-color: $light-error;
             border: 2px solid $dark-error;
+            margin-bottom: $xs;
         }
     }
     

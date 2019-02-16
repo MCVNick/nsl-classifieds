@@ -5,7 +5,7 @@ module.exports = {
         if (user) {
             res.send(user)
         } else {
-            res.status(400).send('No user on session')
+            res.status(400).send('Could not find session user')
         }
     },
     updateEmail: async (req, res) => {

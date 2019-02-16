@@ -19,7 +19,7 @@ function Aside(props) {
                         <h1 className='aside-flex-row'><Link to='/' onClick={() => props.expandAsideNav()}>News</Link> <span id='aside-news-span' className='aside-expand-arrow'>►</span></h1>
 
                         <div id='aside-news-h2s'>
-                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()} onClick={() => props.expandAsideNav()}>Utah</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Utah</a></h2>
                             <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Southern Utah</a></h2>
                             <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Idaho</a></h2>
                             <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Features</a></h2>
@@ -191,7 +191,7 @@ function Aside(props) {
                             </div>
                             :
                             <div className='aside-content-single aside-account-buttons-parent aside-logged-in'>
-                                <h1 className='aside-flex-row'>Welcome {props.username}</h1>
+                                <h1 className='aside-flex-row'><Link to='/member/profile' onClick={() => props.expandAsideNav()}>Welcome {props.username}</Link></h1>
                                 <button className='blue-button' onClick={() => logout(props)}>Logout</button>
                             </div>
                     }

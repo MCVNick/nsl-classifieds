@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import { updateUser } from './../../ducks/reducer'
 import axios from 'axios';
 
+import './../../user-auth-container.scss'
+import './Register.scss'
+
 class Register extends Component {
     constructor() {
         super()
@@ -68,6 +71,7 @@ class Register extends Component {
             first_name: '',
             last_name: '',
             address: '',
+            address2: '',
             city: '',
             state: '',
             zipcode: ''
@@ -96,7 +100,7 @@ class Register extends Component {
     }
 
     handleRegister = () => {
-        const { username, password, passwordVer, email, emailVer, first_name, last_name, address, city, state, zipcode } = this.state
+        const { username, password, passwordVer, email, emailVer, first_name, last_name, address, address2, city, state, zipcode } = this.state
         const user = {
             username: username,
             password: password,
@@ -104,6 +108,7 @@ class Register extends Component {
             first_name: first_name,
             last_name: last_name,
             address: address,
+            address: address2,
             city: city,
             state: state,
             zipcode: zipcode,
@@ -126,7 +131,7 @@ class Register extends Component {
     }
 
     render() {
-        const { username, password, passwordVer, email, emailVer, first_name, last_name, address, city, state, zipcode, statesList } = this.state
+        const { username, password, passwordVer, email, emailVer, first_name, last_name, address, address2, city, state, zipcode, statesList } = this.state
         const options = statesList.map((state, index) => {
             return (
                 <option key={index} value={state.name}>{state}</option>
@@ -134,10 +139,37 @@ class Register extends Component {
         })
         
         return (
-            <div className='userContainer flex-row'>
-                <div className='userContainerParent'>
-                    <div className='userContainerHeaderInfo'>Sign up for a NSL Account</div>
-                    <div className='userContainerContent'>
+            <div className='user-auth-container-master'>
+                <div className='user-auth-container-parent'>
+                    <div className='user-auth-box'>
+                        <div className='auth-box-error'>
+                            {
+                                this.state.signInError ?
+                                <h3><p>ERROR :</p><span>{this.state.signInError}</span></h3> :
+                                null
+                            }
+                        </div>
+                        <div className='auth-box-header'>
+                            <h1>Sign up for a KSL.com Account</h1>
+                        </div>
+                        <div className='auth-box-content'>
+                            <h2><span>*</span>Email Address:</h2>
+                            <input type='email' maxLength='255' value={email} onChange={(e) => this.handleChange(e, 'email')}/>
+                            <p className='remove-margin'>(this is your login name)</p>
+                            <h2><span>*</span>Confirm Email:</h2>
+                            <input type='email' maxLength='255' value={emailVer} onChange={(e) => this.handleChange(e, 'emailVer')}/>
+                            <h2><span>*</span>First Name:</h2>
+                            <input type='text' maxLength="50" value={first_name} onChange={(e) => this.handleChange(e, 'first_name')}/>
+                            <h2><span>*</span>Last Name:</h2>
+                            <input type='text' maxLength="50" value={last_name} onChange={(e) => this.handleChange(e, 'last_name')}/>
+                            <h2><span>*</span>Address Line 1:</h2>
+                            <input type='text' maxLength="255" value={address} onChange={(e) => this.handleChange(e, 'address')}/>
+                            <h2>Address Line 2:</h2>
+                            <input type='text' maxLength="255" value={address2} onChange={(e) => this.handleChange(e, 'address2')}/>
+                        </div>
+                    </div>
+                    {/* <div className='userContainerHeaderInfo'>Sign up for a NSL Account</div> */}
+                    {/* <div className='userContainerContent'>
                         <p className='userContainerInputInfo'>Email Address:</p>
                         <input className='userContainerInput' maxLength="255" value={email} onChange={(e) => this.handleChange(e, 'email')} type='email'/>
                         <p className='userContainerInputInfo'>Confirm Email:</p>
@@ -162,7 +194,7 @@ class Register extends Component {
                         <p className='userContainerInputInfo'>Display Name:</p>
                         <input className='userContainerInput' maxLength="30" value={username} onChange={(e) => this.handleChange(e, 'username')} type='text'/>
                         <button className='userContainerButton' onClick={this.handleRegister}>Sign Up</button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )

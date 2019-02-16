@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 
 import './Navbar.scss'
@@ -45,11 +44,4 @@ function Navbar(props) {
     )
 }
 
-function mapStateToProps(reduxState) {
-    const { url } = reduxState
-    return {
-        url
-    }
-}
-
-export default withRouter(connect(mapStateToProps)(Navbar))
+export default withRouter(Navbar)

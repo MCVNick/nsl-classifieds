@@ -22,7 +22,6 @@ class Home extends Component {
                 .then(res => {
                     this.props.updateUser(res.data)
                 })
-                .catch(error => {})
         }
     }
 
