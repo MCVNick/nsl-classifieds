@@ -1,0 +1,175 @@
+@import './../../variables.scss';
+
+.home-grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 26.5vh auto auto auto;
+    font-family: $primary-font-family;
+}
+
+//main headline
+.home-grid {
+    .home-front-header {
+        background-image: url("https://img.ksl.com/slc/2550/255048/25504809.jpg?filter=ksl/responsive_story_lg");
+        background-size: cover;
+
+        div {
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+            background: rgba(0, 0, 0, .5);
+            display: flex;
+            justify-content: center;
+            padding: $xs 0;
+            
+            h1 {
+                width: 90%;
+                color: $primary-text-color;
+                font-size: $m;
+                text-align: left;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+//sub headlines
+.home-grid {
+    .home-secondary-headers {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        text-align: left;
+        border-bottom: 1px $third-color dotted;
+        
+        img {
+            padding: $xs;
+            width: 100%;
+        }
+
+        h2 {
+            padding: 0 $xs $xs $xs;
+            font-weight: bold;
+        }
+    }
+}
+
+//Sub heading introducing other headings
+.home-grid {
+    .latest-news-header {
+        text-align: left;
+        padding: $xxs $xs $l $xs;
+    }
+}
+
+//The latest other headlines
+.home-grid {
+    a {
+        text-decoration: none !important;
+        color: black !important;
+    }
+    
+    .latest-other-headlines {
+        .image-other-headline-a {
+            grid-area: ia;
+        }
+        .image-other-headline-b {
+            grid-area: ib;
+        }
+        .image-other-headline-c {
+            grid-area: ic;
+        }
+        .image-other-headline-d {
+            grid-area: id;
+        }
+        .image-other-headline-e {
+            grid-area: ie;
+        }
+        .image-other-headline-f {
+            grid-area: if;
+        }
+
+        .h2-other-headline-a {
+            grid-area: h2a;
+        }
+        .h2-other-headline-b {
+            grid-area: h2b;
+        }
+        .h2-other-headline-c {
+            grid-area: h2c;
+        }
+        .h2-other-headline-d {
+            grid-area: h2d;
+        }
+        .h2-other-headline-e {
+            grid-area: h2e;
+        }
+        .h2-other-headline-f {
+            grid-area: h2f;
+        }
+        
+        .h3-other-headline-a {
+            grid-area: h3a;
+        }
+        .h3-other-headline-b {
+            grid-area: h3b;
+        }
+        .h3-other-headline-c {
+            grid-area: h3c;
+        }
+        .h3-other-headline-d {
+            grid-area: h3d;
+        }
+        .h3-other-headline-e {
+            grid-area: h3e;
+        }
+        .h3-other-headline-f {
+            grid-area: h3f;
+        }
+
+        display: grid;
+        grid-template-columns: 25% 75%;
+        grid-template-areas: 
+            "ia h2a"
+            "ia h3a"
+            "ib h2b"
+            "ib h3b"
+            "ic h2c"
+            "ic h3c"
+            "id h2d"
+            "id h3d"
+            "ie h2e"
+            "ie h3e"
+            "if h2f"
+            "if h3f";
+        text-align: left;
+        padding: $xs;
+        
+        img {
+            width: 75px;
+            padding: $xxs;
+        }
+
+        h2 {
+            font-weight: bold;
+            padding: $xxs;
+        }
+
+        h3 {
+            display: flex;
+            align-items: flex-end;
+            color: $third-color;
+            font-size: 12px;
+            padding: $xxs;
+        }
+    }
+}
+
+.rick-roll-warning {
+    font-family: $primary-font-family;
+    color: $dark-error;
+    font-weight: bold;
+}
