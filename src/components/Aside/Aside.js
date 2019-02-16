@@ -16,109 +16,109 @@ function Aside(props) {
                 </button>
                 <div className='aside-content-parent'>
                     <div className='aside-content-single' onClick={() => handleExpand('aside-news-h2s', 'aside-news-span')}>
-                        <h1 className='aside-flex-row'>News <span id='aside-news-span' className='aside-expand-arrow'>►</span></h1>
+                        <h1 className='aside-flex-row'><Link to='/' onClick={() => props.expandAsideNav()}>News</Link> <span id='aside-news-span' className='aside-expand-arrow'>►</span></h1>
 
                         <div id='aside-news-h2s'>
-                            <h2>Utah</h2>
-                            <h2>Southern Utah</h2>
-                            <h2>Idaho</h2>
-                            <h2>Features</h2>
-                            <h2>U.S.</h2>
-                            <h2>World</h2>
-                            <h2>Politics</h2>
-                            <h2>Traffic</h2>
-                            <h2>Business</h2>
-                            <h2>Entertainment</h2>
-                            <h2>Outdoors</h2>
-                            <h2>Latino</h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()} onClick={() => props.expandAsideNav()}>Utah</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Southern Utah</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Idaho</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Features</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>U.S.</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>World</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Politics</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Traffic</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Business</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Entertainment</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Outdoors</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Latino</a></h2>
                         </div>
                     </div>
                     <div className='aside-content-single' onClick={() => handleExpand('aside-sports-h2s', 'aside-sports-span')}>
-                        <h1 className='aside-flex-row'>Sports <span id='aside-sports-span' className='aside-expand-arrow'>►</span></h1>
+                        <h1 className='aside-flex-row'><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Sports</a> <span id='aside-sports-span' className='aside-expand-arrow'>►</span></h1>
 
                         <div id='aside-sports-h2s'>
-                            <h2>BYU</h2>
-                            <h2>U of U</h2>
-                            <h2>Utah Jazz</h2>
-                            <h2>USU</h2>
-                            <h2>RSL</h2>
-                            <h2>Prep</h2>
-                            <h2>Pickem</h2>
-                            <h2>NFL</h2>
-                            <h2>Weber St.</h2>
-                            <h2>SUU</h2>
-                            <h2>UVU</h2>
-                            <h2>Stats/Scores</h2>
-                            <h2>Great Clips of the Week</h2>
-                            <h2>More</h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>BYU</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>U of U</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Utah Jazz</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>USU</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>RSL</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Prep</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Pickem</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>NFL</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Weber St.</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>SUU</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>UVU</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Stats/Scores</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Great Clips of the Week</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>More</a></h2>
                         </div>
                     </div>
                     <div className='aside-content-single' onClick={() => handleExpand('aside-brandview-h2s', 'aside-brandview-span')}>
-                        <h1 className='aside-flex-row'>Brandview <span id='aside-brandview-span' className='aside-expand-arrow'>►</span></h1>
+                        <h1 className='aside-flex-row'><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Brandview</a> <span id='aside-brandview-span' className='aside-expand-arrow'>►</span></h1>
 
                         <div id='aside-brandview-h2s'>
-                            <h2>Robert J DeBry</h2>
-                            <h2>U of U Health</h2>
-                            <h2>MountainStar Healthcare</h2>
-                            <h2>Steward Healthcare</h2>
-                            <h2>Intermountain Healthcare</h2>
-                            <h2>Salt Lake Chamber</h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Robert J DeBry</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>U of U Health</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>MountainStar Healthcare</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Steward Healthcare</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Intermountain Healthcare</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Salt Lake Chamber</a></h2>
                         </div>
                     </div>
                     <div className='aside-content-single' onClick={() => handleExpand('aside-tv-h2s', 'aside-tv-span')}>
-                        <h1 className='aside-flex-row'>TV <span id='aside-tv-span' className='aside-expand-arrow'>►</span></h1>
+                        <h1 className='aside-flex-row'><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>TV</a> <span id='aside-tv-span' className='aside-expand-arrow'>►</span></h1>
 
                         <div id='aside-tv-h2s'>
-                            <h2>Watch Live</h2>
-                            <h2>Meet Our Team</h2>
-                            <h2>Contests & Promotions</h2>
-                            <h2>KSL Investigators</h2>
-                            <h2>High 5</h2>
-                            <h2>Studio 5</h2>
-                            <h2>Outdoors with Adam Eakle</h2>
-                            <h2>Your Life Your Health</h2>
-                            <h2>Wednesday's Child</h2>
-                            <h2>Read Today</h2>
-                            <h2>Program Guide</h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Watch Live</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Meet Our Team</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Contests & Promotions</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>KSL Investigators</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>High 5</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Studio 5</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Outdoors with Adam Eakle</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Your Life Your Health</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Wednesday's Child</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Read Today</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Program Guide</a></h2>
                         </div>
                     </div>
                     <div className='aside-content-single' onClick={() => handleExpand('aside-radio-h2s', 'aside-radio-span')}>
-                        <h1 className='aside-flex-row'>Radio <span id='aside-radio-span' className='aside-expand-arrow'>►</span></h1>
+                        <h1 className='aside-flex-row'><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Radio</a> <span id='aside-radio-span' className='aside-expand-arrow'>►</span></h1>
 
                         <div id='aside-radio-h2s'>
-                            <h2>Listen Live</h2>
-                            <h2>Story Audio</h2>
-                            <h2>KSL Schedule</h2>
-                            <h2>Meet Our Team</h2>
-                            <h2>Contests & Promotions</h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Listen Live</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Story Audio</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>KSL Schedule</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Meet Our Team</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Contests & Promotions</a></h2>
                         </div>
                     </div>
                     <div className='aside-content-single'>
-                        <h1 className='aside-flex-row'>Live</h1>
+                        <h1 className='aside-flex-row'><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Live</a></h1>
                     </div>
                     <div className='aside-content-single' onClick={() => handleExpand('aside-obituaries-h2s', 'aside-obituaries-span')}>
-                        <h1 className='aside-flex-row'>Obituaries <span className='aside-new-tag'>New</span><span id='aside-obituaries-span' className='aside-expand-arrow'>►</span></h1>
+                        <h1 className='aside-flex-row'><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Obituaries</a><span className='aside-new-tag'>New</span><span id='aside-obituaries-span' className='aside-expand-arrow'>►</span></h1>
 
                         <div id='aside-obituaries-h2s'>
-                            <h2>Create Life Story</h2>
-                            <h2>My Life Story</h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Create Life Story</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>My Life Story</a></h2>
                         </div>
                     </div>
                     <div className='aside-content-single' onClick={() => handleExpand('aside-weather-h2s', 'aside-weather-span')}>
-                        <h1 className='aside-flex-row'>Weather <span id='aside-weather-span' className='aside-expand-arrow'>►</span></h1>
+                        <h1 className='aside-flex-row'><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Weather</a><span id='aside-weather-span' className='aside-expand-arrow'>►</span></h1>
 
                         <div id='aside-weather-h2s'>
-                            <h2>VORTEX</h2>
-                            <h2>Microcast</h2>
-                            <h2>Current Conditions</h2>
-                            <h2>Cameras</h2>
-                            <h2>Photo Contest</h2>
-                            <h2>Ski Report</h2>
-                            <h2>Snowpack</h2>
-                            <h2>Weather Alerts</h2>
-                            <h2>Outdoor Weather Planner</h2>
-                            <h2>Air Quality</h2>
-                            <h2>Weather Works</h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>VORTEX</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Microcast</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Current Conditions</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Cameras</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Photo Contest</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Ski Report</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Snowpack</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Weather Alerts</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Outdoor Weather Planner</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Air Quality</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Weather Works</a></h2>
                         </div>
                     </div>
 
@@ -137,47 +137,47 @@ function Aside(props) {
                         </div>
                     </div>
                     <div className='aside-content-single' onClick={() => handleExpand('aside-cars-h2s', 'aside-cars-span')}>
-                        <h1 className='aside-flex-row'>Cars <span id='aside-cars-span' className='aside-expand-arrow-marketplace'>►</span></h1>
+                        <h1 className='aside-flex-row'><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Cars</a><span id='aside-cars-span' className='aside-expand-arrow-marketplace'>►</span></h1>
 
                         <div id='aside-cars-h2s'>
-                            <h2>My Listings</h2>
-                            <h2>My Favorites</h2>
-                            <h2>Saved Searches</h2>
-                            <h2>Create Listing</h2>
-                            <h2>Support</h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>My Listings</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>My Favorites</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Saved Searches</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Create Listing</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Support</a></h2>
                         </div>
                     </div>
                     <div className='aside-content-single' onClick={() => handleExpand('aside-homes-h2s', 'aside-homes-span')}>
-                        <h1 className='aside-flex-row'>Homes <span id='aside-homes-span' className='aside-expand-arrow-marketplace'>►</span></h1>
+                        <h1 className='aside-flex-row'><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Homes</a><span id='aside-homes-span' className='aside-expand-arrow-marketplace'>►</span></h1>
 
                         <div id='aside-homes-h2s'>
-                            <h2>My Listings</h2>
-                            <h2>My Favorites</h2>
-                            <h2>Create Listing</h2>
-                            <h2>Support</h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>My Listings</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>My Favorites</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Create Listing</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Support</a></h2>
                         </div>
                     </div>
                     <div className='aside-content-single' onClick={() => handleExpand('aside-jobs-h2s', 'aside-jobs-span')}>
-                        <h1 className='aside-flex-row'>Jobs <span id='aside-jobs-span' className='aside-expand-arrow-marketplace'>►</span></h1>
+                        <h1 className='aside-flex-row'><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Jobs</a><span id='aside-jobs-span' className='aside-expand-arrow-marketplace'>►</span></h1>
 
                         <div id='aside-jobs-h2s'>
-                            <h2>My Listings</h2>
-                            <h2>My Favorites</h2>
-                            <h2>Saved Searches</h2>
-                            <h2>Create Listing</h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>My Listings</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>My Favorites</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Saved Searches</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Create Listing</a></h2>
                         </div>
                     </div>
                     <div className='aside-content-single' onClick={() => handleExpand('aside-services-h2s', 'aside-services-span')}>
-                        <h1 className='aside-flex-row'>Support <span id='aside-services-span' className='aside-expand-arrow-marketplace'>►</span></h1>
+                        <h1 className='aside-flex-row'><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Support</a><span id='aside-services-span' className='aside-expand-arrow-marketplace'>►</span></h1>
 
                         <div id='aside-services-h2s'>
-                            <h2>My Ads</h2>
-                            <h2>List a Business</h2>
-                            <h2>Support</h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>My Ads</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>List a Business</a></h2>
+                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Support</a></h2>
                         </div>
                     </div>
                     <div className='aside-content-single'>
-                        <h1 className='aside-flex-row'>Deals</h1>
+                        <h1 className='aside-flex-row'><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Deals</a></h1>
                     </div>
 
                     <div className='aside-content-single'>
