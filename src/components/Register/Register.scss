@@ -1,3 +1,27 @@
+@import './../../variables.scss';
+
 .remove-margin {
     margin: 0 !important;
+}
+
+.terms-of-agreement {
+    text-align: left;
+    a {
+        display: inline !important;
+        margin: 0 !important;
+        color: $dark-blue-link !important;
+        font-weight: bold !important;
+    }
+}
+
+.already-have-account {
+    text-align: left;
+    margin-bottom: $m;
+    a {
+        display: inline !important;
+    }
+}
+
+.sign-up-button {
+    width: 90%;
 }

@@ -191,7 +191,7 @@ function Aside(props) {
                             </div>
                             :
                             <div className='aside-content-single aside-account-buttons-parent aside-logged-in'>
-                                <h1 className='aside-flex-row'><Link to='/member/profile' onClick={() => props.expandAsideNav()}>Welcome {props.username}</Link></h1>
+                                <h1 className='aside-flex-row'><Link to='/member/profile' onClick={() => props.expandAsideNav()}>Welcome {props.first_name}</Link></h1>
                                 <button className='blue-button' onClick={() => logout(props)}>Logout</button>
                             </div>
                     }
@@ -280,9 +280,9 @@ function logout(props) {
 }
 
 function mapStateToProps(reduxState) {
-    const { username, id } = reduxState
+    const { first_name, id } = reduxState.user
     return {
-        username,
+        first_name,
         id
     }
 }

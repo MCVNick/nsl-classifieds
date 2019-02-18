@@ -1,2 +1,2 @@
 select * from users
-where username ilike ${username}
+where email ilike ${email}

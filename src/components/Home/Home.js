@@ -75,7 +75,7 @@ class Home extends Component {
 }
 
 function mapStateToProps(reduxState) {
-    const { id } = reduxState
+    const { id } = reduxState.user
     return {
         id
     }

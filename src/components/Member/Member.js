@@ -123,7 +123,7 @@ class Home extends Component {
 }
 
 function mapStateToProps(reduxState) {
-    const { first_name, last_name, id } = reduxState
+    const { first_name, last_name, id } = reduxState.user
     return {
         first_name,
         last_name,

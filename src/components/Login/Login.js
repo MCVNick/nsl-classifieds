@@ -32,12 +32,23 @@ class Login extends Component {
         }
     }
 
+    componentDidUpdate() {
+        let errors = document.getElementById('auth-box-error')
+
+        if (this.state.signInError) {
+            errors.classList.remove('none')
+        }
+        else {
+            errors.classList.add('none')
+        }
+    }
+
     handleLogin() {
         if (!this.state.password || !this.state.email) {
             this.setState({
                 signInError: 'A Username and Password are Required'
             })
-            return;
+            return
         }
 
         let { email, password } = this.state
@@ -65,10 +76,10 @@ class Login extends Component {
             <div className='user-auth-container-master'>
                 <div className='user-auth-container-parent'>
                     <div className='user-auth-box'>
-                        <div className='auth-box-error'>
+                        <div id='auth-box-error' className='auth-box-error none'>
                             {
                                 this.state.signInError ?
-                                <h3><p>ERROR :</p><span>{this.state.signInError}</span></h3> :
+                                <ul><li>ERROR :<span>{this.state.signInError}</span></li></ul> :
                                 null
                             }
                         </div>
@@ -77,12 +88,12 @@ class Login extends Component {
                         </div>
                         <div className='auth-box-content'>
                             <h2>E-mail Address:</h2>
-                            <input type='email' maxLength='255' value={this.state.email} onChange={(e) => this.handleChange(e, 'email')}/>
+                            <input type='email' maxLength='255' value={this.state.email} onChange={(e) => {this.handleChange(e, 'email')}}/>
                             <h2>Password:</h2>
-                            <input type='password' maxLength='50' value={this.state.password} onChange={(e) => this.handleChange(e, 'password')}/>
-                            <button className='transparent' onClick={() => this.handleLogin()}>Log In</button>
+                            <input type='password' maxLength='50' value={this.state.password} onChange={(e) => {this.handleChange(e, 'password')}}/>
+                            <button className='transparent' onClick={() => {this.handleLogin()}}>Log In</button>
                             <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Forgot your password?</a>
-                            <p>Don't have an account?<span><Link to='/register'>Sign up now</Link></span></p>
+                            <p>Don't have an account?<Link className='sign-up-now' to='/register'>Sign up now</Link></p>
                         </div>
                     </div>
                 </div>
@@ -92,7 +103,7 @@ class Login extends Component {
 }
 
 function mapStateToProps(reduxState) {
-    const { id } = reduxState
+    const { id } = reduxState.user
     return {
         id
     }

@@ -34,24 +34,27 @@
 
     .auth-box-error {
         font-size: 12px;
+        background-color: $light-error;
+        border: 2px solid $dark-error;
+        padding: $xs;
+        margin-bottom: $xs;
+        text-align: left;
+        white-space: nowrap;
         
         span {
-            position: absolute;
-            top: 12px;
-            left: 60px;
+            display: inline;
             color: black;
+            font-weight: 100;
+            margin-left: $xxs;
+            white-space: normal;
         }
         
-        p {
+        li {
             width: 100%;
             height: 100%;
             color: $dark-error;
             font-weight: bold;
             display: flex;
-            padding: $xs;
-            background-color: $light-error;
-            border: 2px solid $dark-error;
-            margin-bottom: $xs;
         }
     }
     
@@ -73,10 +76,20 @@
         flex-direction: column;
         padding: 0 $s;
         color: black;
+        font-size: 13px;
+
+        span {
+            color: $dark-error;
+            font-size: 50px;
+            position: absolute;
+            top: -10px;
+            left: -15px;
+        }
 
         h2 {
             display: flex;
             margin-top: $m;
+            margin-left: $s;
         }
 
         input {
@@ -88,6 +101,8 @@
             background: $secondary-color;
             padding: $xs;
             margin: $s 0;
+            color: $primary-text-color;
+            font-size: 20px;
         }
         
         a {
@@ -98,8 +113,59 @@
 
         p {
             display: flex;
-            font-size: 13px;
+            font-size: 11px;
             margin-bottom: $xs;
+            margin-top: $xxs;
+        }
+
+        h3 {
+            text-align: left;
+            margin: $m 0;
+        }
+
+        .newsletter-subscribe-gird {
+            display: grid;
+            grid-template-columns: 38% 12% 38% 12%;
+            grid-template-rows: 50px;
+            text-align: left;
+            
+            input {
+                width: 18px;
+            }
+        }
+
+        .user-invalid-input {
+            background-color: $light-error !important;
+            border: 1px solid $dark-error !important;
+        }
+    }
+
+    .auth-box-small-input {
+        width: 40%;
+        margin-bottom: $s;
+    }
+
+    .auth-box-smaller-input {
+        width: 20%;
+        margin-left: $xs;
+        margin-bottom: $s;
+        height: $m;
+        background: white;
+    }
+
+    .smaller-boxes-parent {
+        display: flex;
+        align-items: center;
+    }
+
+    .same-line {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        input {
+            margin-top: $m;
         }
     }
 }
