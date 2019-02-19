@@ -10,17 +10,21 @@ class Navbar extends Component {
 
         this.state = {
             call: '',
-            temp: ''
+            temp: '',
+            icon: '',
+            currentLocation: false
         }
     }
 
     getWeatherTemp() {
-        let newTemp = ''
+        let newTemp = '', icon = ''
         axios.get(`https://${this.state.call}`)
             .then(res => {
                 newTemp = res.data.main.temp
+                icon = res.data.weather[0].icon
                 this.setState({
-                    temp: newTemp >= 0 ? Math.floor(newTemp) : Math.roof(newTemp)
+                    temp: newTemp >= 0 ? Math.floor(newTemp) : Math.roof(newTemp),
+                    icon: `http://openweathermap.org/img/w/${icon}.png`
                 })
             })
             .catch((error) => {})
@@ -57,16 +61,16 @@ class Navbar extends Component {
                                         
                                         this.setState({
                                             call: `api.openweathermap.org/data/2.5/weather?units=imperial&lat=${lat}&lon=${lon}&appid=3567d421dc1f8bdf2054d84b758403f1`,
-                                            allowed: true
+                                            currentLocation: true
                                         })
 
                                         this.getWeatherTemp()
                                     })
                                 }
                                 {
-                                    this.state.allowed ?
+                                    this.state.currentLocation ?
                                     <div className='flex-row auto-left'>
-                                        <div className='flex-row center-all weather-icon-parent'><img className='nav-weather-icon' src='https://www.cleveland19.com/pb/resources/images/weather/weather-condition-icons/400x400/74_daily_forecast.png' alt='weather'></img></div>
+                                        <div className='flex-row center-all weather-icon-parent'><img className='nav-weather-icon' src={this.state.icon} alt='weather'></img></div>
                                         <div className='flex-row center-all weather-temp'>{this.state.temp}°</div>
                                     </div>
                                     :
@@ -74,9 +78,7 @@ class Navbar extends Component {
                                 }
                             </div>
                             :
-                            <div>
-                                
-                            </div>
+                            null
                         }
                         {
                             this.props.location.pathname.includes('/classifieds') ?
