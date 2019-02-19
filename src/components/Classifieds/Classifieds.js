@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios';
+// import axios from 'axios';
 import { connect } from 'react-redux'
 import { updateUser } from './../../ducks/reducer'
 
@@ -10,20 +10,6 @@ class Classifieds extends Component {
         super()
 
         this.state = {}
-    }
-
-    componentDidMount() {
-        const { id } = this.props;
-
-        if (id) {
-            //stay here
-        } else {
-            axios.get('/user/getSessionUser')
-                .then(res => {
-                    this.props.updateUser(res.data)
-                })
-                .catch(error => {})
-        }
     }
 
     render() {
