@@ -1,4 +1,4 @@
 update users
-set password = ${password}
+set primary_phone = ${primary_phone}
 where id = ${id}
 returning *;

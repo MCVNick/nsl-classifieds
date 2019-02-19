@@ -32,7 +32,7 @@ module.exports = {
         let newUser = await db.user.register({email, first_name, last_name, address, address2, city, state, zipcode, password: hash, username, NSLNewsradio, NSL5Television, NSLDeals, NSLcom, time})
         newUser = newUser[0]
 
-        session.user = {newUser}
+        session.user = newUser
 
         res.status(201).send(session.user)
     },
@@ -40,8 +40,9 @@ module.exports = {
         const { email, password } = req.body
         const db = req.app.get('db')
         const { session } = req
+        const time = getDate()
 
-        let user = await db.user.login({email})
+        let user = await db.user.login({email, time})
         user = user[0]
         if(!user) {
             return res.status(400).send('User not found')
@@ -65,12 +66,12 @@ module.exports = {
         const { id, password } = req.body
         const db = req.app.get('db')
 
+        
         let user = await db.user.check_password({id})
         user = user[0]
 
         const foundUser = bcrypt.compareSync(password, user.password)
         if(foundUser) {
-            delete user.password
             res.sendStatus(200)
         }
         else {
@@ -81,6 +82,7 @@ module.exports = {
         const { id, password } = req.body
         const db = req.app.get('db')
         const { session } = req
+        const { user: oldUser } = session
 
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password, salt)
@@ -88,7 +90,7 @@ module.exports = {
         let user = await db.user.update_password({ id, password: hash })
         user = user[0]
 
-        session.user = user
+        session.user = {...oldUser, ...user}
         res.send(session.user)
     }
 }

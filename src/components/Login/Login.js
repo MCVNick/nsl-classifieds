@@ -87,9 +87,9 @@ class Login extends Component {
                             <h1>Log in here</h1>
                         </div>
                         <div className='auth-box-content'>
-                            <h2>E-mail Address:</h2>
+                            <h2 className='margin-fix'>E-mail Address:</h2>
                             <input type='email' maxLength='255' value={this.state.email} onChange={(e) => {this.handleChange(e, 'email')}}/>
-                            <h2>Password:</h2>
+                            <h2 className='margin-fix'>Password:</h2>
                             <input type='password' maxLength='50' value={this.state.password} onChange={(e) => {this.handleChange(e, 'password')}}/>
                             <button className='transparent' onClick={() => {this.handleLogin()}}>Log In</button>
                             <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Forgot your password?</a>

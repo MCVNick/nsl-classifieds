@@ -8,41 +8,65 @@ module.exports = {
             res.status(400).send('Could not find session user')
         }
     },
-    updateEmail: async (req, res) => {
-        const { id, email } = req.body
-        const db = req.app.get('db')
-        const { session } = req
-
-        let user = await db.user.update_email({ id, email })
-        user = user[0]
-
-        session.user = user
-        res.send(session.user)
-    },
-    updateName: async (req, res) => {
-        const { id, first_name, last_name } = req.body
-        const db = req.app.get('db')
-        const { session } = req
-
-        let user = await db.user.update_name({ id, first_name, last_name })
-        user = user[0]
-
-        session.user = user
-        res.send(session.user)
-    },
     updateAddress: async (req, res) => {
-        const { id, address, city, state, zipcode } = req.body
+        const { id, address, address2 } = req.body
         const db = req.app.get('db')
         const { session } = req
+        const { user: oldUser } = session
 
-        let user = await db.user.update_address({ id, address, city, state, zipcode })
+        let user = await db.user.update_address({ id, address, address2 })
         user = user[0]
 
-        session.user = user
+        session.user = {...oldUser, ...user}
         res.send(session.user)
     },
-    updateProfilePic: (req, res) => {
+    updateCity: async (req, res) => {
+        const { id, city, state, zipcode } = req.body
+        const db = req.app.get('db')
+        const { session } = req
+        const { user: oldUser } = session
 
+        let user = await db.user.update_city({ id, city, state, zipcode })
+        user = user[0]
+
+        session.user = {...oldUser, ...user}
+        res.send(session.user)
+    },
+    updatePrimaryPhone: async (req, res) => {
+        const { id, primary_phone } = req.body
+        const db = req.app.get('db')
+        const { session } = req
+        const { user: oldUser } = session
+
+        let user = await db.user.update_primary_phone({ id, primary_phone })
+        user = user[0]
+
+        session.user = {...oldUser, ...user}
+        res.send(session.user)
+    },
+    updateAltPhone: async (req, res) => {
+        const { id, alt_phone } = req.body
+        const db = req.app.get('db')
+        const { session } = req
+        const { user: oldUser } = session
+
+        let user = await db.user.update_alt_phone({ id, alt_phone })
+        user = user[0]
+
+        session.user = {...oldUser, ...user}
+        res.send(session.user)
+    },
+    updateNewsletters: async (req, res) => {
+        const { id, nslnewsradio, nsl5television, nsldeals, nslcom } = req.body
+        const db = req.app.get('db')
+        const { session } = req
+        const { user: oldUser } = session
+
+        let user = await db.user.update_newsletters({ id, nsl5television, nslnewsradio, nsldeals, nslcom })
+        user = user[0]
+
+        session.user = {...oldUser, ...user}
+        res.send(session.user)
     },
     deleteUser: (req, res) => {
         const { id } = req.params

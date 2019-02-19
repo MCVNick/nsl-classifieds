@@ -1,4 +1,4 @@
 update users
-set address = ${address}, city = ${city}, state = ${state}, zipcode = ${zipcode}
+set address = ${address}, address2 = ${address2}
 where id = ${id}
-returning id, username, profile_pic, email, first_name, last_name, address, city, state, zipcode;
+returning *;

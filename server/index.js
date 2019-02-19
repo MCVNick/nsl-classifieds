@@ -35,8 +35,9 @@ app.put('/auth/updatePassword', authCtrl.updatePassword)
 
 //User
 app.get('/user/getSessionUser', userCtrl.getUser)
-app.put('/user/updateEmail', userCtrl.updateEmail)
-app.put('/user/updateName', userCtrl.updateName)
 app.put('/user/updateAddress', userCtrl.updateAddress)
-app.put('/user/updateProfilePic', userCtrl.updateProfilePic)
+app.put('/user/updateCity', userCtrl.updateCity)
+app.put('/user/updatePrimaryPhone', userCtrl.updatePrimaryPhone)
+app.put('/user/updateAltPhone', userCtrl.updateAltPhone)
+app.put('/user/updateNewsletters', userCtrl.updateNewsletters)
 app.delete('/user/delete/:id', userCtrl.deleteUser)
