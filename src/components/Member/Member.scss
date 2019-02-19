@@ -1,5 +1,230 @@
 @import './../../variables.scss';
 
 .member-home-grid {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(6, auto);
+    text-align: left;
+    font-family: $primary-font-family;
+    
+    h1 {
+        margin: $xxs $s;
+        font-size: 18px;
+        font-weight: 900;
+    }
 
+    h3 {
+        color: $dark-blue-link;
+        text-decoration: underline;
+        margin: $xxs 0;
+        margin: $xxs $s;
+    }
+
+    .account-options-selected {
+        font-weight: 900;
+        color: $success;
+        text-decoration: none;
+    }
+    
+    #account-options-expanded {
+        margin-top: $xxl;
+
+        .edit-stuff {
+            position: absolute;
+            background-color: white;
+            border: 2px solid #2354AC;
+            width: 90%;
+            top: 170px;
+            left: 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+    
+            div{
+                height: 20px;
+    
+                h1 {
+                    position: absolute;
+                    left: -170px;
+                }
+            }
+    
+            h1 {
+                font-size: 16px;
+                width: 40%;
+            }
+    
+            input {
+                width: 40%;
+            }
+        }
+    }
+
+    .account-options-home-parent {
+        background-color: #eee;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        padding: $xs;
+        border: 1px solid black;
+        margin-bottom: $xs;
+    }
+
+    .account-options-account-parent {
+        display: grid;
+        
+        h6 {
+            margin: 0 $s;
+            font-size: 12px;
+            font-weight: bold;
+            padding: $xs 0;
+            background: #e3e3e3;
+            width: 125px;
+            text-align: center;
+        }
+
+        h2 {
+            font-weight: bold;
+            font-size: $m;
+            background-color: #eee;
+            padding: $xs 0;
+            padding-left: $xxs;
+        }
+
+        p {
+            color: $success;
+            padding: $s 0;
+            font-size: 9px;            
+        }
+
+        div {
+            p, h2{margin: 0 $s;}
+            
+            h1 {
+                margin: $xxs $s;
+                font-size: $l;
+            }
+
+            h3 {
+                text-decoration: none;
+                color: black;
+                margin: 0;
+                padding: $xs 0;
+            }
+
+            .personal-info-grid {
+                display: grid;
+                grid-template-columns: 45% 55%;
+                grid-template-rows: repeat(10, auto);
+                
+                h4 {
+                    margin-left: $s;
+                    font-weight: bold;
+                    font-size: 16px;
+                }
+                h5 {
+                    margin-right: $s;
+                    font-size: 16px;
+                }
+
+                .not-displayed-info {
+                    font-style: italic;
+                    font-size: 11px;
+                }
+
+                span {
+                    color: $dark-blue-link;
+                    font-weight: 100;
+                }
+            }
+        }
+
+        .comment-history {
+            background: transparent;
+            text-align: left;
+            padding-left: 0px;
+            border-top: 2px solid #eee;
+            border-bottom: 2px solid #eee;
+            margin: $xs;
+        }
+
+        button {
+            background-color: $secondary-color;
+            color: $primary-text-color;
+            padding: $xxs;
+            font-size: 12px;
+            font-weight: bold;
+            margin: $xs;
+        }
+
+        .bottom-line-personal-info {
+            border-top: 2px solid #eee;
+            border-bottom: 2px solid #eee;
+            margin: 0 $xs;
+            margin-bottom: 3em;
+        }
+    }
+
+    .account-options-newsletters-parent {
+        div {
+            display: grid;
+            grid-template-columns: 36% 50%;
+            grid-template-rows: auto auto auto auto;
+        }
+
+        h1 {
+            text-align: left;
+            margin: 0px;
+            padding: $xs 0;
+            border-bottom: 1px dotted black;
+            margin-left: 3px;
+        }
+
+        h2 {
+            font-size: $s;
+            margin-left: 3px;
+        }
+        
+        input {
+            width: 17px;
+            height: 17px;
+        }
+
+        button {
+            margin-bottom: 3em;
+            height: 28px;
+            width: 160px;
+            border-radius: 6px;
+            background: darkred;
+            font-size: 14px;
+            color: $primary-text-color;
+            font-weight: bold;
+            border: 1px solid black;
+            margin-left: 3px;
+            margin-top: $xs;
+            box-shadow: 1px 1px black;
+        }
+    }
+
+    .account-options-email-alerts-parent {
+        div {
+            text-align: left;
+            margin: $s;
+            margin-bottom: $m;
+
+            h1 {
+                font-weight: 100;
+                font-size: 13px;
+                display: inline;
+                margin: $xxs;
+            }
+        }
+
+        h2 {
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: $xxs;
+        }
+    }
 }

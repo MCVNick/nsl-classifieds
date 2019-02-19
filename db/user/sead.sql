@@ -32,3 +32,9 @@ create table user_info (
     creation_time varchar(100),
     last_log_in_time varchar(100)
 );
+
+alter table users
+add column primary_phone varchar(20);
+
+alter table users
+add column alt_phone varchar(20);

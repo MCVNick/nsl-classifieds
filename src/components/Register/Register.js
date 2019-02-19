@@ -124,7 +124,7 @@ class Register extends Component {
     }
 
     handleRegister = () => {
-        const { email, emailVer, first_name, last_name, address, address2, city, state, zipcode, password, passwordVer, username, NSLNewsradio, NSL5Television, NSLDeals, NSLcom, errorList, eighteen } = this.state
+        const { email, emailVer, first_name, last_name, address, address2, city, state, zipcode, password, passwordVer, username, NSLNewsradio, NSL5Television, NSLDeals, NSLcom, eighteen } = this.state
         let errors = []
         
         if (!password) {
