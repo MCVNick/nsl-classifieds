@@ -8,6 +8,7 @@ const path = require('path')
 
 const userCtrl = require('./controller/user')
 const authCtrl = require('./controller/auth')
+const weatherCtrl = require('./controller/weather')
 
 const app = express()
 
@@ -41,3 +42,6 @@ app.put('/user/updatePrimaryPhone', userCtrl.updatePrimaryPhone)
 app.put('/user/updateAltPhone', userCtrl.updateAltPhone)
 app.put('/user/updateNewsletters', userCtrl.updateNewsletters)
 app.delete('/user/delete/:id', userCtrl.deleteUser)
+
+//Weather
+app.get('/weather/handleCalls', weatherCtrl.handleCalls)
