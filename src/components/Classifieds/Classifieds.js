@@ -14,7 +14,7 @@ class Classifieds extends Component {
 
     render() {
         return (
-            <div>
+            <div className='classifieds-component'>
                 <p>classifieds</p>
             </div>
         )

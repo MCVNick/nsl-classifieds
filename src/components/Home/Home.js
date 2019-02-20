@@ -28,7 +28,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
+            <div className='home-component'>
                 <h1 className='rick-roll-warning'>This is only a clone of the classifieds part of KSL, all other links MAY result in a Rick Roll. If they don't it is because I had extra time to make it not. Also things like logging in work because they are needed to do some stuff in the classifieds section</h1>
                 <main className='home-grid'>
                     <a href='https://m.youtube.com/watch?v=dQw4w9WgXcQ' className='home-front-header'>

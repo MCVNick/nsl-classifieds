@@ -260,7 +260,7 @@ class Register extends Component {
         })
 
         return (
-            <div className='user-auth-container-master'>
+            <div className='user-auth-container-master register-component'>
                 <div className='user-auth-container-parent'>
                     <div className='user-auth-box'>
                         <div id='auth-box-error' className='auth-box-error none'>

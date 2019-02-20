@@ -1,5 +1,9 @@
 @import './../../variables.scss';
 
+.member-component {
+    margin-top: 40px;
+}
+
 .member-home-grid {
     display: grid;
     grid-template-columns: 100%;

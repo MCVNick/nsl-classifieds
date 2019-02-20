@@ -11,18 +11,18 @@ class Navbar extends Component {
 
         this.state = {
             gotWeathers: false,
-            saltLakeURL: `api.openweathermap.org/data/2.5/weather?units=imperial&id=5781004&appid=${REACT_APP_APIID}`,
-            saltLakeIcon: '',
-            saltLakeTemp: '',
-            ogdenURL: `api.openweathermap.org/data/2.5/weather?units=imperial&id=5779206&appid=${REACT_APP_APIID}`,
-            ogdenIcon: '',
-            ogdenTemp: '',
-            stGeorgeURL: `api.openweathermap.org/data/2.5/weather?units=imperial&id=5546220&appid=${REACT_APP_APIID}`,
-            stGeorgeIcon: '',
-            stGeorgeTemp: '',
-            loganURL: `api.openweathermap.org/data/2.5/weather?units=imperial&id=5777544&appid=${REACT_APP_APIID}`,
-            loganIcon: '',
-            loganTemp: '',
+            selectedTemp: 'saltLakeObj',
+            selectedTempName: 'Salt Lake',
+            saltLakeURL: `api.openweathermap.org/data/2.5/forecast?units=imperial&id=5781004&appid=${REACT_APP_APIID}`,
+            saltLakeObj: {},
+            provoURL: `api.openweathermap.org/data/2.5/forecast?units=imperial&id=5781004&appid=${REACT_APP_APIID}`,
+            provoObj: {},
+            ogdenURL: `api.openweathermap.org/data/2.5/forecast?units=imperial&id=5779206&appid=${REACT_APP_APIID}`,
+            ogdenObj: {},
+            stGeorgeURL: `api.openweathermap.org/data/2.5/forecast?units=imperial&id=5546220&appid=${REACT_APP_APIID}`,
+            stGeorgeObj: {},
+            loganURL: `api.openweathermap.org/data/2.5/forecast?units=imperial&id=5777544&appid=${REACT_APP_APIID}`,
+            loganObj: {}
         }
     }
 
@@ -37,50 +37,53 @@ class Navbar extends Component {
                     gotWeathers: true
                 })
 
-                let saltLakeTemp = '', saltLakeIcon = ''
+                let saltLakeObj = {}
                 axios.get(`https://${this.state.saltLakeURL}`)
                     .then(res => {
-                        saltLakeTemp = res.data.main.temp
-                        saltLakeIcon = res.data.weather[0].icon
+                        saltLakeObj = res.data
                         this.setState({
-                            saltLakeTemp: saltLakeTemp >= 0 ? Math.floor(saltLakeTemp) : Math.roof(saltLakeTemp),
-                            saltLakeIcon: `http://openweathermap.org/img/w/${saltLakeIcon}.png`
+                            saltLakeObj: saltLakeObj
                         })
                     })
                     .catch((error) => { })
 
-                let ogdenTemp = '', ogdenIcon = ''
+                let provoObj = {}
+                axios.get(`https://${this.state.provoURL}`)
+                    .then(res => {
+                        provoObj = res.data
+                        this.setState({
+                            provoObj: provoObj
+                        })
+                    })
+                    .catch((error) => { })
+
+                let ogdenObj = {}
                 axios.get(`https://${this.state.ogdenURL}`)
                     .then(res => {
-                        ogdenTemp = res.data.main.temp
-                        ogdenIcon = res.data.weather[0].icon
+                        ogdenObj = res.data
                         this.setState({
-                            ogdenTemp: ogdenTemp >= 0 ? Math.floor(ogdenTemp) : Math.roof(ogdenTemp),
-                            ogdenIcon: `http://openweathermap.org/img/w/${ogdenIcon}.png`
+                            ogdenObj: ogdenObj
                         })
                     })
                     .catch((error) => { })
 
-                let stGeorgeTemp = '', stGeorgeIcon = ''
+                let stGeorgeObj = {}
                 axios.get(`https://${this.state.stGeorgeURL}`)
                     .then(res => {
-                        stGeorgeTemp = res.data.main.temp
-                        stGeorgeIcon = res.data.weather[0].icon
+                        stGeorgeObj = res.data
                         this.setState({
-                            stGeorgeTemp: stGeorgeTemp >= 0 ? Math.floor(stGeorgeTemp) : Math.roof(stGeorgeTemp),
-                            stGeorgeIcon: `http://openweathermap.org/img/w/${stGeorgeIcon}.png`
+                            stGeorgeObj: stGeorgeObj
                         })
                     })
                     .catch((error) => { })
 
-                let loganTemp = '', loganIcon = ''
+                let loganObj = {}
                 axios.get(`https://${this.state.loganURL}`)
                     .then(res => {
-                        loganTemp = res.data.main.temp
-                        loganIcon = res.data.weather[0].icon
+                        loganObj = res.data
                         this.setState({
-                            loganTemp: loganTemp >= 0 ? Math.floor(loganTemp) : Math.roof(loganTemp),
-                            loganIcon: `http://openweathermap.org/img/w/${loganIcon}.png`
+                            // loganTemp: loganTemp >= 0 ? Math.floor(loganTemp) : Math.roof(loganTemp),
+                            loganObj: loganObj
                         })
                     })
                     .catch((error) => { })
@@ -88,9 +91,15 @@ class Navbar extends Component {
             .catch(error => this.setState({ gotWeathers: false }))
     }
 
+    getWeatherIcon(icon) {
+        return `http://openweathermap.org/img/w/${icon}.png`
+    }
+
     render() {
+        const { selectedTemp } = this.state
+
         return (
-            <div>
+            <div className='header-parent-top'>
                 <nav className='header-nav header-grid'>
                     <div></div>
                     <Link className='nav-name' to='/'>
@@ -110,13 +119,23 @@ class Navbar extends Component {
                     </Link>
                     <div className='flex-row center-all'>
                         {
-                            this.state.gotWeathers?
-                            <div className='flex-row auto-left'>
-                                <div className='flex-row center-all weather-icon-parent'><img className='nav-weather-icon' src={this.state.saltLakeIcon} alt='weather'></img></div>
-                                <div className='flex-row center-all weather-temp'>{this.state.saltLakeTemp}°</div>
-                            </div>
-                            :
-                            <div className='flex-row auto-left'></div>
+                            this.state.gotWeathers ?
+                                <div className='flex-row auto-left'>
+                                    <div className='flex-row center-all weather-icon-parent'><img className='nav-weather-icon' src={this.getWeatherIcon(this.state[selectedTemp].list?this.state[selectedTemp].list[0].weather[0].icon:null)} alt='weather'></img></div>
+                                    <div className='flex-row center-all weather-temp'>{this.state[selectedTemp].list?Math.round(this.state[selectedTemp].list[0].main.temp):null}°</div>
+                                    <div id='weather-overlay' className='flex-row auto-left'>
+                                        <h1>{this.state.selectedTempName}</h1>
+                                        <ul>
+                                            <li>Salt Lake</li>
+                                            <li>Provo</li>
+                                            <li>Ogden</li>
+                                            <li>St. George</li>
+                                            <li>Logan</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                :
+                                <div className='flex-row auto-left'></div>
                         }
                         {
                             this.props.location.pathname.includes('/classifieds') ?

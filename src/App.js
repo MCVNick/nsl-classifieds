@@ -22,9 +22,13 @@ class App extends Component {
 
   expandAsideNav(bool = true) {
     let masterGrid = document.getElementById('master-grid')
+    let aside = document.getElementById('aside-nav')
+    let asideParent = document.getElementById('aside-parent')
 
     if (masterGrid.classList.contains('master-grid-slid')) {
       masterGrid.classList.remove('master-grid-slid')
+      aside.classList.remove('aside-nav-slid')
+      asideParent.classList.remove('aside-parent-slid')
       masterGrid.classList.add('delay-overflow')
       setTimeout(function () {
         masterGrid.classList.remove('delay-overflow');
@@ -54,6 +58,8 @@ class App extends Component {
     }
     else if (bool) {
       masterGrid.classList.add('master-grid-slid')
+      aside.classList.add('aside-nav-slid')
+      asideParent.classList.add('aside-parent-slid')
     }
   }
 
@@ -62,15 +68,17 @@ class App extends Component {
       <div className="App">
         <Provider store={store}>
           <Router>
-            <div id='master-grid' className='master-grid'>
+            <div className='everything'>
               {/* main content, nav, footer */}
               <div>
-                <HeaderNav expandAsideNav={this.expandAsideNav} />
-                {routes}
-                <Footer />
+                <div id='master-grid' className='master-grid'>
+                  <HeaderNav expandAsideNav={this.expandAsideNav} />
+                  {routes}
+                  <Footer />
+                </div>
               </div>
               {/* aside that cannot be seen unless we do something */}
-              <div className='aside-parent'>
+              <div id='aside-parent' className='aside-parent'>
                 <Aside expandAsideNav={this.expandAsideNav} />
               </div>
             </div>

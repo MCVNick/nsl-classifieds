@@ -20,7 +20,7 @@ $m: 20px;
 $l: 25px;
 $xl: 30px;
 $xxl: 35px;
-$slide: all 200ms linear;
+$slide: margin 200ms linear;
 $aside-border: 1px solid $third-color;
 $aside-drop-transition: all 200ms linear !important;
 
@@ -67,14 +67,26 @@ $aside-drop-transition: all 200ms linear !important;
   background-color: transparent;
 }
 
-.auto-right {
+%auto-right {
   margin-right: auto !important;
 }
 
+.auto-right {
+  @extend %auto-right
+}
+
+%auto-left {
+  margin-left: auto !important;
+}
+
 .auto-left {
-  margin-left: auto;
+  @extend %auto-left
+}
+
+%none {
+  display: none !important;
 }
 
 .none {
-  display: none !important;
+  @extend %none;
 }

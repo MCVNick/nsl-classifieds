@@ -1,12 +1,19 @@
 @import './../../variables.scss';
 
+.header-parent-top {
+    position: fixed;
+    z-index: 90;
+    width: 100vw;
+    // height: 100vh;
+}
+
 .header-nav {
     background-color: $primary-color;
     height: 40px;
     color: $primary-text-color;
     font-family: $primary-font-family;
     width: 100%;
-    height: 100%;
+    height: 40px;
 
     .transparent {
         @include transparent();
@@ -135,4 +142,16 @@
     display: grid;
     grid-template-columns:  2% 53% 43% 2%;
     grid-template-rows: 40px;
+}
+
+//dealing with the handling of clicking on the weather
+#weather-overlay {
+    position: absolute;
+    background: $fourth-color;
+    top: -5px;
+    right: -90px;
+    width: 272px;
+    z-index: 100;
+    padding: 12px;
+    display: none;
 }

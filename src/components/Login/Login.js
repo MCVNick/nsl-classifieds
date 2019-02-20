@@ -73,7 +73,7 @@ class Login extends Component {
 
     render() {
         return (
-            <div className='user-auth-container-master'>
+            <div className='user-auth-container-master login-component'>
                 <div className='user-auth-container-parent'>
                     <div className='user-auth-box'>
                         <div id='auth-box-error' className='auth-box-error none'>

@@ -4,6 +4,8 @@ import { updateUser } from './../../../ducks/reducer'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
+import './Delete.scss'
+
 class Delete extends Component {
     constructor() {
         super()
@@ -87,7 +89,7 @@ class Delete extends Component {
         const { password, passwordVer } = this.state
     
         return (
-            <div className='user-auth-container-master'>
+            <div className='user-auth-container-master delete-account-component'>
                 <div className='user-auth-container-parent'>
                     <div className='user-auth-box'>
                         <div id='auth-box-error' className='auth-box-error none'>

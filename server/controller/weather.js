@@ -12,12 +12,13 @@ module.exports = {
 
         let getCalls = await db.weather.get_calls()
         getCalls = getCalls[0]
+        console.log(getCalls)
 
         if (getCalls.time !== time) {
-            db.weather.increment_calls({time})
-            res.sendStatus(200)
-        } else if (getCalls < 2) {
             db.weather.reset_calls({time})
+            res.sendStatus(200)
+        } else if (getCalls.calls < 7) {
+            db.weather.increment_calls({time})
             res.sendStatus(200)
         }
         else {

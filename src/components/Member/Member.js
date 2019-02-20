@@ -288,7 +288,7 @@ class Home extends Component {
 
 
         return (
-            <div className='member-home-grid'>
+            <div className='member-home-grid member-component'>
                 <h1>Account Options</h1>
                 <h3 id='account-options-home' onClick={() => { this.changeSelected('account-options-home') }} className='account-options-selected'>Home</h3>
                 <h3 id='account-options-account' onClick={() => { this.changeSelected('account-options-account') }}>Account</h3>
