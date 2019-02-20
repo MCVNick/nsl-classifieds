@@ -12,7 +12,8 @@ class Navbar extends Component {
             call: '',
             temp: '',
             icon: '',
-            currentLocation: false
+            allowedLocation: false,
+            goneThrough: false
         }
     }
 
@@ -27,7 +28,7 @@ class Navbar extends Component {
                     icon: `http://openweathermap.org/img/w/${icon}.png`
                 })
             })
-            .catch((error) => {})
+            .catch((error) => { })
     }
 
     render() {
@@ -53,32 +54,27 @@ class Navbar extends Component {
                     <div className='flex-row center-all'>
                         {
                             navigator.geolocation ?
-                            <div className='auto-left'>
-                                {
-                                    navigator.geolocation.getCurrentPosition((position) => {
-                                        const lat = position.coords.latitude;
-                                        const lon = position.coords.longitude
-                                        
-                                        this.setState({
-                                            call: `api.openweathermap.org/data/2.5/weather?units=imperial&lat=${lat}&lon=${lon}&appid=3567d421dc1f8bdf2054d84b758403f1`,
-                                            currentLocation: true
-                                        })
+                                <div className='auto-left'>
+                                    {
+                                        navigator.geolocation.getCurrentPosition((position) => {
+                                            const lat = position.coords.latitude;
+                                            const lon = position.coords.longitude
 
-                                        this.getWeatherTemp()
-                                    })
-                                }
-                                {
-                                    this.state.currentLocation ?
+                                            this.setState({
+                                                call: `api.openweathermap.org/data/2.5/weather?units=imperial&lat=${lat}&lon=${lon}&appid=3567d421dc1f8bdf2054d84b758403f1`,
+                                                allowedLocation: true
+                                            })
+
+                                            this.getWeatherTemp()
+                                        })
+                                    }
                                     <div className='flex-row auto-left'>
                                         <div className='flex-row center-all weather-icon-parent'><img className='nav-weather-icon' src={this.state.icon} alt='weather'></img></div>
                                         <div className='flex-row center-all weather-temp'>{this.state.temp}°</div>
                                     </div>
-                                    :
-                                    null
-                                }
-                            </div>
-                            :
-                            null
+                                </div>
+                                :
+                                null
                         }
                         {
                             this.props.location.pathname.includes('/classifieds') ?
