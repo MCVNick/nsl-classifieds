@@ -7,21 +7,14 @@ import './Navbar.scss'
 class Navbar extends Component {
     constructor() {
         super()
-        const { REACT_APP_APIID } = process.env
 
         this.state = {
-            gotWeathers: false,
             selectedTemp: 'saltLakeObj',
             selectedTempName: 'Salt Lake',
-            saltLakeURL: `api.openweathermap.org/data/2.5/forecast?units=imperial&id=5781004&appid=${REACT_APP_APIID}`,
             saltLakeObj: {},
-            provoURL: `api.openweathermap.org/data/2.5/forecast?units=imperial&id=5781004&appid=${REACT_APP_APIID}`,
             provoObj: {},
-            ogdenURL: `api.openweathermap.org/data/2.5/forecast?units=imperial&id=5779206&appid=${REACT_APP_APIID}`,
             ogdenObj: {},
-            stGeorgeURL: `api.openweathermap.org/data/2.5/forecast?units=imperial&id=5546220&appid=${REACT_APP_APIID}`,
             stGeorgeObj: {},
-            loganURL: `api.openweathermap.org/data/2.5/forecast?units=imperial&id=5777544&appid=${REACT_APP_APIID}`,
             loganObj: {}
         }
     }
@@ -33,62 +26,16 @@ class Navbar extends Component {
     getOtherWeathers() {
         axios.get('/weather/handleCalls')
             .then(res => {
+                const { saltLakeObj, provoObj, ogdenObj, stGeorgeObj, loganObj } = res.data
                 this.setState({
-                    gotWeathers: true
+                    saltLakeObj,
+                    provoObj,
+                    ogdenObj,
+                    stGeorgeObj,
+                    loganObj
                 })
-
-                let saltLakeObj = {}
-                axios.get(`https://${this.state.saltLakeURL}`)
-                    .then(res => {
-                        saltLakeObj = res.data
-                        this.setState({
-                            saltLakeObj: saltLakeObj
-                        })
-                    })
-                    .catch((error) => { })
-
-                let provoObj = {}
-                axios.get(`https://${this.state.provoURL}`)
-                    .then(res => {
-                        provoObj = res.data
-                        this.setState({
-                            provoObj: provoObj
-                        })
-                    })
-                    .catch((error) => { })
-
-                let ogdenObj = {}
-                axios.get(`https://${this.state.ogdenURL}`)
-                    .then(res => {
-                        ogdenObj = res.data
-                        this.setState({
-                            ogdenObj: ogdenObj
-                        })
-                    })
-                    .catch((error) => { })
-
-                let stGeorgeObj = {}
-                axios.get(`https://${this.state.stGeorgeURL}`)
-                    .then(res => {
-                        stGeorgeObj = res.data
-                        this.setState({
-                            stGeorgeObj: stGeorgeObj
-                        })
-                    })
-                    .catch((error) => { })
-
-                let loganObj = {}
-                axios.get(`https://${this.state.loganURL}`)
-                    .then(res => {
-                        loganObj = res.data
-                        this.setState({
-                            // loganTemp: loganTemp >= 0 ? Math.floor(loganTemp) : Math.roof(loganTemp),
-                            loganObj: loganObj
-                        })
-                    })
-                    .catch((error) => { })
             })
-            .catch(error => this.setState({ gotWeathers: false }))
+            .catch(error => {})
     }
 
     getWeatherIcon(icon) {
@@ -118,25 +65,39 @@ class Navbar extends Component {
                         </h1>
                     </Link>
                     <div className='flex-row center-all'>
-                        {
-                            this.state.gotWeathers ?
-                                <div className='flex-row auto-left'>
-                                    <div className='flex-row center-all weather-icon-parent'><img className='nav-weather-icon' src={this.getWeatherIcon(this.state[selectedTemp].list?this.state[selectedTemp].list[0].weather[0].icon:null)} alt='weather'></img></div>
-                                    <div className='flex-row center-all weather-temp'>{this.state[selectedTemp].list?Math.round(this.state[selectedTemp].list[0].main.temp):null}°</div>
-                                    <div id='weather-overlay' className='flex-row auto-left'>
-                                        <h1>{this.state.selectedTempName}</h1>
-                                        <ul>
-                                            <li>Salt Lake</li>
-                                            <li>Provo</li>
-                                            <li>Ogden</li>
-                                            <li>St. George</li>
-                                            <li>Logan</li>
-                                        </ul>
-                                    </div>
+                        <div className='flex-row auto-left'>
+                            <div className='flex-row center-all weather-icon-parent'><img className='nav-weather-icon' src={this.getWeatherIcon(this.state[selectedTemp].list ? this.state[selectedTemp].list[0].weather[0].icon : null)} alt='weather'></img></div>
+                            <div className='flex-row center-all weather-temp'>{this.state[selectedTemp].list ? Math.round(this.state[selectedTemp].list[0].main.temp) : null}°</div>
+                            <div id='weather-overlay' className='flex-row auto-left'>
+                                <div className='selected-location'>
+                                    <h1>{this.state.selectedTempName}</h1>
+                                    <i className="fas fa-pencil-alt auto-left"></i>
                                 </div>
-                                :
-                                <div className='flex-row auto-left'></div>
-                        }
+                                <ul>
+                                    <li>Salt Lake</li>
+                                    <li>Provo</li>
+                                    <li>Ogden</li>
+                                    <li>St. George</li>
+                                    <li>Logan</li>
+                                </ul>
+                                <div className='weather-forecast-expanded'>
+                                    <img className='forecast-large-weather' src={this.getWeatherIcon(this.state[selectedTemp].list ? this.state[selectedTemp].list[0].weather[0].icon : null)} alt='weather'></img>
+                                    <h1 className='forecast-large-temp'>{this.state[selectedTemp].list ? Math.round(this.state[selectedTemp].list[0].main.temp) : null}°</h1>
+                                    <h2 className='forecast-time-a'></h2>
+                                    <img className='forecast-img-a'></img>
+                                    <h2 className='forecast-temp-a'>°</h2>
+                                    <h2 className='forecast-time-b'></h2>
+                                    <img className='forecast-img-b'></img>
+                                    <h2 className='forecast-temp-b'>°</h2>
+                                    <h2 className='forecast-time-c'></h2>
+                                    <img className='forecast-img-c'></img>
+                                    <h2 className='forecast-temp-c'>°</h2>
+                                    <h2 className='forecast-humidity'></h2>
+                                    <h2 className='forecast-info'></h2>
+                                    <button className='forecast-button'>Full Forecast</button>
+                                </div>
+                            </div>
+                        </div>
                         {
                             this.props.location.pathname.includes('/classifieds') ?
                                 null :

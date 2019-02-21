@@ -146,12 +146,97 @@
 
 //dealing with the handling of clicking on the weather
 #weather-overlay {
-    position: absolute;
+    position: fixed;
     background: $fourth-color;
-    top: -5px;
-    right: -90px;
+    top: 0px;
+    right: 0px;
     width: 272px;
     z-index: 100;
-    padding: 12px;
-    display: none;
+    padding: $m;
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    display: none; //this is the display none
+
+    .selected-location {
+        display: flex;
+        font-size: 17px;
+        margin-bottom: $xs;
+    }
+    
+    ul {
+        padding-bottom: $xxs;
+        margin-bottom: $xs;
+        border-bottom: 1px solid $third-color;
+
+        li {
+            margin: $xs;
+        }
+    }
+
+    .weather-forecast-expanded {
+        display: grid;
+
+        .forecast-large-weather {
+            grid-area: lw;
+            display: flex;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .forecast-large-temp {
+            grid-area: lt;
+            display: flex;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+        }
+        .forecast-time-a {
+            grid-area: ta;
+        }
+        .forecast-img-a {
+            grid-area: ia;
+        }
+        .forecast-temp-a {
+            grid-area: tea;
+        }
+        .forecast-time-b {
+            grid-area: tb;
+        }
+        .forecast-img-b {
+            grid-area: ib;
+        }
+        .forecast-temp-b {
+            grid-area: teb;
+        }
+        .forecast-time-c {
+            grid-area: tc;
+        }
+        .forecast-img-c {
+            grid-area: ic;
+        }
+        .forecast-temp-c {
+            grid-area: tec;
+        }
+        .forecast-humidity {
+            grid-area: h;
+        }
+        .forecast-info {
+            grid-area: i;
+        }
+        .forecast-button {
+            grid-area: b
+        }
+
+        grid-template-columns: 25% 25% 17% 16% 16%;
+        grid-template-rows: 22px 22px 22px 14px 14px;
+        grid-template-areas:
+            "lw lt ta ia tea"
+            "lw lt tb ib teb"
+            "lw lt tc ic tec"
+            "h h b b b"
+            "i i b b b";
+    }
 }
