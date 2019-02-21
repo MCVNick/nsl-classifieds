@@ -144,6 +144,15 @@
     grid-template-rows: 40px;
 }
 
+.weather-overlay-slid {
+    margin-top: -325px !important;
+    
+    .prevent-click-on-other-content {
+        width: 0px !important;
+        height: 0px !important;
+    }
+}
+
 //dealing with the handling of clicking on the weather
 #weather-overlay {
     position: fixed;
@@ -157,7 +166,20 @@
     display: flex;
     flex-direction: column;
     text-align: left;
-    display: none; //this is the display none
+    margin-top: 0px;
+    z-index: 100;
+
+    .prevent-click-on-other-content {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+    }
+
+    .weather-overlay-content {
+        z-index: 100;
+    }
 
     .selected-location {
         display: flex;
@@ -169,10 +191,17 @@
         padding-bottom: $xxs;
         margin-bottom: $xs;
         border-bottom: 1px solid $third-color;
+        height: 0px;
+        overflow: hidden;
+        transition: all 200ms linear;
 
         li {
             margin: $xs;
         }
+    }
+
+    .expand-select-city {
+        height: 146px;
     }
 
     .weather-forecast-expanded {
@@ -198,6 +227,9 @@
         }
         .forecast-img-a {
             grid-area: ia;
+            height: 37.11px;
+            position: absolute;
+            top: -7px;
         }
         .forecast-temp-a {
             grid-area: tea;
@@ -207,6 +239,9 @@
         }
         .forecast-img-b {
             grid-area: ib;
+            height: 37.11px;
+            position: absolute;
+            top: -7px;
         }
         .forecast-temp-b {
             grid-area: teb;
@@ -216,6 +251,9 @@
         }
         .forecast-img-c {
             grid-area: ic;
+            height: 37.11px;
+            position: absolute;
+            top: -7px;
         }
         .forecast-temp-c {
             grid-area: tec;
@@ -227,11 +265,21 @@
             grid-area: i;
         }
         .forecast-button {
-            grid-area: b
+            grid-area: b;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+
+            button {
+                margin: 4px;
+                @include standard-button;
+            }
         }
 
         grid-template-columns: 25% 25% 17% 16% 16%;
-        grid-template-rows: 22px 22px 22px 14px 14px;
+        grid-template-rows: 22px 22px 22px 22px 22px;
         grid-template-areas:
             "lw lt ta ia tea"
             "lw lt tb ib teb"

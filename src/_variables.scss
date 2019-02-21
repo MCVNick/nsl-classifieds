@@ -90,3 +90,13 @@ $aside-drop-transition: all 200ms linear !important;
 .none {
   @extend %none;
 }
+
+%standard-button {
+  background-color: $secondary-color;
+  color: $primary-text-color;
+  padding: 4px;
+}
+
+@mixin standard-button{
+  @extend %standard-button
+}
