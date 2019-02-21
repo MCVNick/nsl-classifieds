@@ -34,7 +34,6 @@ class Navbar extends Component {
                     stGeorgeObj,
                     loganObj
                 })
-                console.log({ saltLakeObj, provoObj, ogdenObj, stGeorgeObj, loganObj })
             })
             .catch(error => {})
     }
