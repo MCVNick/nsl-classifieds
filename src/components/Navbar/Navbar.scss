@@ -168,6 +168,7 @@
     text-align: left;
     margin-top: 0px;
     z-index: 100;
+    transition: all 200ms linear;
 
     .prevent-click-on-other-content {
         width: 100vw;

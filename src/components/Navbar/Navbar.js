@@ -15,8 +15,7 @@ class Navbar extends Component {
             provoObj: {},
             ogdenObj: {},
             stGeorgeObj: {},
-            loganObj: {},
-            pencilClicks: 0
+            loganObj: {}
         }
     }
 
@@ -66,18 +65,12 @@ class Navbar extends Component {
         }
     }
 
-    handleExpandCity() {
-        const { pencilClicks } = this.state
+    handleExpandCity(bool = false) {
         let expand = document.getElementById('expand-select-city')
-        let weather = document.getElementById('weather-overlay')
-
-        this.setState({
-            pencilClicks: pencilClicks + 1
-        })
 
         if(expand.classList.contains('expand-select-city')) {
             expand.classList.remove('expand-select-city')
-        } else {
+        } else if (bool) {
             expand.classList.add('expand-select-city')
         }
     }
@@ -119,9 +112,9 @@ class Navbar extends Component {
                             <div className='flex-row center-all weather-icon-parent' onClick={() => this.openWeather()}><img className='nav-weather-icon' src={this.getWeatherIcon(this.state[selectedTemp].list ? this.state[selectedTemp].list[0].weather[0].icon : null)} alt='weather'></img></div>
                             <div className='flex-row center-all weather-temp' onClick={() => this.openWeather()}>{this.state[selectedTemp].list ? Math.round(this.state[selectedTemp].list[0].main.temp) : null}°</div>
                             <div id='weather-overlay' className='flex-row auto-left weather-overlay-slid'>
-                                <div className='prevent-click-on-other-content' onClick={() => this.openWeather()}></div>
+                                <div className='prevent-click-on-other-content' onClick={() => {this.openWeather(); this.handleExpandCity()}}></div>
                                 <div className='weather-overlay-content'>
-                                    <div className='selected-location' onClick={() => this.handleExpandCity()}>
+                                    <div className='selected-location' onClick={() => this.handleExpandCity(true)}>
                                         <h1>{this.state.selectedTempName}</h1>
                                         <i className="fas fa-pencil-alt auto-left"></i>
                                     </div>
