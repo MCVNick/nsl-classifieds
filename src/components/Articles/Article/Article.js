@@ -24,6 +24,7 @@ class Article extends Component {
         this.setState({
             article: obj
         })
+        console.log(obj)
     }
 
     fixDate(date) {
@@ -66,17 +67,21 @@ class Article extends Component {
 
     render() {
         const { article } = this.state
-        const { urlToImage, title, publishedAt, content } = article
+        const { urlToImage, title, publishedAt, content, author, description, url } = article
         return (
             <div className='article-component'>
                 {
                     article.content
                     ?
                     <div>
-                        <img src={urlToImage} alt='img' />
-                        <h2>{title}</h2>
-                        <h3>{this.fixDate(publishedAt)}</h3>
-                        <p>{content}</p>
+                        <a href={`${url}`}><img src={urlToImage} alt='img' /></a>
+                        <a href={`${url}`}><h1>{title}</h1></a>
+                        <div className='sub-header-article'>
+                            <h2>By {author} |</h2>
+                            <h2>&nbsp;{this.fixDate(publishedAt)}</h2>
+                        </div>
+                        <p>{description}</p>
+                        <a href={`${url}`}><p>{content}</p></a>
                     </div>
                     :
                     null
