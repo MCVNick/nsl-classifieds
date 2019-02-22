@@ -7,6 +7,7 @@ import Register from './components/Register/Register'
 import Classifieds from './components/Classifieds/Classifieds'
 import Member from './components/Member/Member'
 import DeleteProfile from './components/Member/Delete/Delete'
+import Article from './components/Articles/Article/Article'
 
 export default (
     <Switch>
@@ -16,5 +17,6 @@ export default (
         <Route path='/classifieds' component={Classifieds} />
         <Route path='/member/profile/delete' component={DeleteProfile} />
         <Route path='/member/profile/' component={Member} />
+        <Route path='/news/:objName/:time' component={Article} />
     </Switch>
 )

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function fixDate(date) {
     const monthNames = [
@@ -41,8 +42,8 @@ function fixDate(date) {
 function ThirdHeadlines(props) {
     return (
         <div>
-            <a href='https://m.youtube.com/watch?v=dQw4w9WgXcQ' className='image-other-headline-a'><img src={props.imgURL} alt='img' /></a>
-            <a href='https://m.youtube.com/watch?v=dQw4w9WgXcQ' className='h2-other-headline-a'><h2>{props.title}</h2></a>
+            <Link to={`/news/${props.objName}/${props.publishedAt}`} className='image-other-headline-a'><img src={props.imgURL} alt='img' /></Link>
+            <Link to={`/news/${props.objName}/${props.publishedAt}`} className='h2-other-headline-a'><h2>{props.title}</h2></Link>
             <h3 className='h3-other-headline-a'>{fixDate(props.publishedAt)}</h3>
         </div>
     )

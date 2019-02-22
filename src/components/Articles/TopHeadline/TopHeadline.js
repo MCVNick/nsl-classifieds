@@ -1,13 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function TopHeadline(props) {
     return (
-        <a href={'https://m.youtube.com/watch?v=dQw4w9WgXcQ'} className='home-front-header'>
+        <Link to={`/news/${props.objName}/${props.publishedAt}`} className='home-front-header'>
             <img src={props.imgURL} alt='main_header' />
             <div>
                 <h1>{props.title}</h1>
             </div>
-        </a>
+        </Link>
     )
 }
 
