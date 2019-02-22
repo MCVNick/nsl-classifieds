@@ -46,7 +46,7 @@ class Home extends Component {
         let otherArticles
         try {
             otherArticles = articles.map((article, index) => {
-                return <ThirdHeadline key={index} imgURL={article.urlToImage} title={article.title} publishedAt={article.publishedAt}/>
+                return index > 3 ? <ThirdHeadline key={index} imgURL={article.urlToImage} title={article.title} publishedAt={article.publishedAt}/> : null
             })
         } catch {}
 
