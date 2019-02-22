@@ -9,6 +9,7 @@ const path = require('path')
 const userCtrl = require('./controller/user')
 const authCtrl = require('./controller/auth')
 const weatherCtrl = require('./controller/weather')
+const newsCtrl = require('./controller/news')
 
 const app = express()
 
@@ -45,3 +46,6 @@ app.delete('/user/delete/:id', userCtrl.deleteUser)
 
 //Weather
 app.get('/weather/handleCalls', weatherCtrl.handleCalls)
+
+//News
+app.get('/news/handleGetNews', newsCtrl.getNews)
