@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { connect } from 'react-redux'
-import { updateUser } from './../../ducks/reducer'
+import { updateUser } from './../../../ducks/reducer'
 
-import TopHeadline from './../Articles/TopHeadline/TopHeadline'
-import SecondaryHeadline from './../Articles/SecondaryHeadline/SecondaryHeadline'
-import ThirdHeadline from './../Articles/ThirdHeadlines/ThirdHeadlines'
+import TopHeadline from './../TopHeadline/TopHeadline'
+import SecondaryHeadline from './../SecondaryHeadline/SecondaryHeadline'
+import ThirdHeadline from './../ThirdHeadlines/ThirdHeadlines'
 
-import './Home.scss'
+import './Articles.scss'
 
-class Home extends Component {
+class Articles extends Component {
     constructor() {
         super()
 
@@ -29,14 +29,23 @@ class Home extends Component {
                     this.props.updateUser(res.data)
                 })
                 .catch(() => {})
-            }
-            
-            axios.get('/news/handleGetNews')
+        }
+
+        axios.get('/news/handleGetNews')
             .then(res => {
                 this.setState({
-                    newsObj: res.data.utahNewsObj
+                    newsObj: res.data[this.props.match.params.objName]
                 })
-                console.log(res.data)
+            })
+            .catch(() => {})
+    }
+
+    componentDidUpdate() {
+        axios.get('/news/handleGetNews')
+            .then(res => {
+                this.setState({
+                    newsObj: res.data[this.props.match.params.objName]
+                })
             })
             .catch(() => {})
     }
@@ -86,4 +95,4 @@ function mapStateToProps(reduxState) {
         id
     }
 }
-export default connect(mapStateToProps, {updateUser})(Home)
+export default connect(mapStateToProps, {updateUser})(Articles)

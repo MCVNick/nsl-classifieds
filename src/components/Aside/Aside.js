@@ -19,11 +19,11 @@ function Aside(props) {
                         <h1 className='aside-flex-row'><Link to='/' onClick={() => props.expandAsideNav()}>News</Link> <span id='aside-news-span' className='aside-expand-arrow'>►</span></h1>
 
                         <div id='aside-news-h2s'>
-                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Utah</a></h2>
-                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Southern Utah</a></h2>
-                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Idaho</a></h2>
-                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Features</a></h2>
-                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>U.S.</a></h2>
+                            <h2><Link to='/' onClick={() => props.expandAsideNav()}>Utah</Link></h2>
+                            <h2><Link to='/news/southernUtahObj' onClick={() => props.expandAsideNav()}>Southern Utah</Link></h2>
+                            <h2><Link to='/news/idahoObj' onClick={() => props.expandAsideNav()}>Idaho</Link></h2>
+                            <h2><Link to='/news/featuresObj' onClick={() => props.expandAsideNav()}>Features</Link></h2>
+                            <h2><Link to='/news/usObj' onClick={() => props.expandAsideNav()}>U.S.</Link></h2>
                             <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>World</a></h2>
                             <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Politics</a></h2>
                             <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Traffic</a></h2>
