@@ -1,9 +1,13 @@
 const axios = require('axios')
 
-let utahNewsObj = {}, southernUtahObj = {}, idahoObj = {}, minutes = 0
+let utahNewsObj = {}, southernUtahObj = {}, idahoObj = {}, hour = 0
 let featuresObj = {}, usObj = {}, worldObj = {}
 let politicsObj = {}, trafficObj = {}, businessObj = {}
 let entertainmentObj = {}, outdoorsObj = {}, latinoObj = {}
+let byuObj = {}, uofuObj = {}, utahJazzObj = {}
+let usuObj = {}, rslObj = {}, nflObj = {}
+let weberStObj = {}, suuObj = {}, uvuObj = {}
+let moreSportsObj = {}
 const { REACT_APP_NEWS_APIID } = process.env
 const utahNewsURL = `https://newsapi.org/v2/everything?q=utah&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
 const southernUtahURL = `https://newsapi.org/v2/everything?q=southern%20utah&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
@@ -16,8 +20,67 @@ const trafficURL = `https://newsapi.org/v2/everything?q=traffic&sortBy=published
 const businessURL = `https://newsapi.org/v2/top-headlines?category=business&apiKey=${REACT_APP_NEWS_APIID}`
 const entertainmentURL = `https://newsapi.org/v2/top-headlines?category=entertainment&apiKey=${REACT_APP_NEWS_APIID}`
 const outdoorsURL = `https://newsapi.org/v2/everything?q=outdoor&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
-const latinoURL = `https://newsapi.org/v2/everything?q=latino&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
+const byuURL = `https://newsapi.org/v2/everything?q=BYU&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
+const uofuURL = `https://newsapi.org/v2/everything?q=U%20of%20U&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
+const utahJazzURL = `https://newsapi.org/v2/everything?q=Utah%20Jazz&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
+const usuURL = `https://newsapi.org/v2/everything?q=USU&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
+const rslURL = `https://newsapi.org/v2/everything?q=RSL&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
+const nflURL = `https://newsapi.org/v2/everything?q=NFL&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
+const weberStURL = `https://newsapi.org/v2/everything?q=weber%20state&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
+const suuURL = `https://newsapi.org/v2/everything?q=SUU&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
+const uvuURL = `https://newsapi.org/v2/everything?q=UVU&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
+const moreSportsURL = `https://newsapi.org/v2/top-headlines?category=sports&apiKey=${REACT_APP_NEWS_APIID}`
 
+async function getBYU() {
+    const res = await axios.get(byuURL)
+    
+    return res.data
+}
+async function getUofU() {
+    const res = await axios.get(uofuURL)
+    
+    return res.data
+}
+async function getUtahJazz() {
+    const res = await axios.get(utahJazzURL)
+    
+    return res.data
+}
+async function getUSU() {
+    const res = await axios.get(usuURL)
+    
+    return res.data
+}
+async function getRSL() {
+    const res = await axios.get(rslURL)
+    
+    return res.data
+}
+async function getNFL() {
+    const res = await axios.get(nflURL)
+    
+    return res.data
+}
+async function getWeberSt() {
+    const res = await axios.get(weberStURL)
+    
+    return res.data
+}
+async function getSUU() {
+    const res = await axios.get(suuURL)
+    
+    return res.data
+}
+async function getUVU() {
+    const res = await axios.get(uvuURL)
+    
+    return res.data
+}
+async function getMoreSports() {
+    const res = await axios.get(moreSportsURL)
+    
+    return res.data
+}
 async function getUtahNews() {
     const res = await axios.get(utahNewsURL)
     
@@ -81,8 +144,8 @@ async function getLatino() {
 function getTime() {
     const time = new Date()
 
-    const min = time.getUTCMinutes()
-    return `${min}`
+    const hour = time.getUTCHours()
+    return `${hour}`
 }
 
 module.exports = {
@@ -101,14 +164,26 @@ module.exports = {
             entertainmentObj = await getEntertainment()
             outdoorsObj = await getOutdoors()
             latinoObj = await getLatino()
+            byuObj = await getBYU()
+            uofuObj = await getUofU()
+            utahJazzObj = await getUtahJazz()
+            usuObj = await getUSU()
+            rslObj = await getRSL()
+            nflObj = await getNFL()
+            weberStObj = await getWeberSt()
+            suuObj = await getSUU()
+            uvuObj = await getUVU()
+            moreSportsObj = await getMoreSports()
             
-            const obj = { utahNewsObj, southernUtahObj, idahoObj, featuresObj, usObj, worldObj, politicsObj, trafficObj, businessObj, entertainmentObj, outdoorsObj, latinoObj }
-            minutes = getTime()
+            let obj = { utahNewsObj, southernUtahObj, idahoObj, featuresObj, usObj, worldObj, politicsObj, trafficObj, businessObj, entertainmentObj, outdoorsObj, latinoObj }
+            obj = { ...obj, byuObj, uofuObj, utahJazzObj, usuObj, rslObj, nflObj, weberStObj, suuObj, uvuObj, moreSportsObj}
+            hour = getTime()
 
             res.send(obj)
-        } else if (getTime() - minutes >= 30) {
-            const obj = { utahNewsObj, southernUtahObj, idahoObj, featuresObj, usObj, worldObj, politicsObj, trafficObj, businessObj, entertainmentObj, outdoorsObj, latinoObj }
-            minutes = getTime()
+        } else if (getTime() !== hour) {
+            let obj = { utahNewsObj, southernUtahObj, idahoObj, featuresObj, usObj, worldObj, politicsObj, trafficObj, businessObj, entertainmentObj, outdoorsObj, latinoObj }
+            obj = { ...obj, byuObj, uofuObj, utahJazzObj, usuObj, rslObj, nflObj, weberStObj, suuObj, uvuObj, moreSportsObj}
+            hour = getTime()
             
             res.send(obj)
             
@@ -124,8 +199,19 @@ module.exports = {
             entertainmentObj = await getEntertainment()
             outdoorsObj = await getOutdoors()
             latinoObj = await getLatino()
+            byuObj = await getBYU()
+            uofuObj = await getUofU()
+            utahJazzObj = await getUtahJazz()
+            usuObj = await getUSU()
+            rslObj = await getRSL()
+            nflObj = await getNFL()
+            weberStObj = await getWeberSt()
+            suuObj = await getSUU()
+            uvuObj = await getUVU()
+            moreSportsObj = await getMoreSports()
         } else {
-            const obj = { utahNewsObj, southernUtahObj, idahoObj, featuresObj, usObj, worldObj, politicsObj, trafficObj, businessObj, entertainmentObj, outdoorsObj, latinoObj }
+            let obj = { utahNewsObj, southernUtahObj, idahoObj, featuresObj, usObj, worldObj, politicsObj, trafficObj, businessObj, entertainmentObj, outdoorsObj, latinoObj }
+            obj = { ...obj, byuObj, uofuObj, utahJazzObj, usuObj, rslObj, nflObj, weberStObj, suuObj, uvuObj, moreSportsObj}
             res.send(obj)
         }
     }

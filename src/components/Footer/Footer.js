@@ -22,36 +22,36 @@ function Footer(props) {
                     </h1>
                     <div className='footer-text'>
                         <span>
-                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Mobile Apps</a>
+                            <a className='rickRollRed' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Mobile Apps</a>
                             |
-                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Advertise</a>
+                            <a className='rickRollRed' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Advertise</a>
                             |
-                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Feedback</a>
+                            <a className='rickRollRed' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Feedback</a>
                             |
-                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Contact Us</a>
+                            <a className='rickRollRed' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Contact Us</a>
                             |
-                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Careers with DDM</a>
+                            <a className='rickRollRed' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Careers with DDM</a>
                             |
-                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Careers with NSL</a>
+                            <a className='rickRollRed' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Careers with NSL</a>
                         </span>
                     </div>
                     <div className='footer-text'>
                         <span>
-                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Terms of use</a>
+                            <a className='rickRollRed' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Terms of use</a>
                             |
-                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Privacy Statement</a>
+                            <a className='rickRollRed' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Privacy Statement</a>
                             |
-                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>DMCA Notice</a>
+                            <a className='rickRollRed' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>DMCA Notice</a>
                             |
-                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>EEO Public File Report</a>
+                            <a className='rickRollRed' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>EEO Public File Report</a>
                             |
-                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>NSL-TV FCC Public File</a>
+                            <a className='rickRollRed' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>NSL-TV FCC Public File</a>
                             |
-                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>NSL FM Radio FCC Public File</a>
+                            <a className='rickRollRed' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>NSL FM Radio FCC Public File</a>
                             |
-                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>NSL AM Radio FCC Public File</a>
+                            <a className='rickRollRed' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>NSL AM Radio FCC Public File</a>
                             |
-                            <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Closed Captioning Assistance</a>
+                            <a className='rickRollRed' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Closed Captioning Assistance</a>
                         </span>
                     </div>
                     <div className='footer-text'>

@@ -52,7 +52,6 @@ class Home extends Component {
 
         return (
             <div className='home-component'>
-                <h1 className='rick-roll-warning'>If you click on things I didn't tell you to click on it is probably a Rick Roll</h1>
                 {
                     articles && articles.length >= 3 ?
                     <main className='home-grid'>

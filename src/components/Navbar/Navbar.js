@@ -140,7 +140,7 @@ class Navbar extends Component {
                                         <h2 className='forecast-temp-c'>°{this.state[selectedTemp].list ? Math.round(this.state[selectedTemp].list[3].main.temp) : null}</h2>
                                         <h2 className='forecast-humidity'>Humidity {this.state[selectedTemp].list ? this.state[selectedTemp].list[0].main.humidity : null}%</h2>
                                         <h2 className='forecast-info'>{this.state[selectedTemp].list ? this.state[selectedTemp].list[0].weather[0].description : null}</h2>
-                                        <a className='forecast-button' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'><button>Full Forecast</button></a>
+                                        <a className='forecast-button' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'><button className='rickRollRed'>Full Forecast</button></a>
                                     </div>
                                 </div>
 

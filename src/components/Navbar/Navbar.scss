@@ -5,6 +5,10 @@
     z-index: 90;
     width: 100vw;
     // height: 100vh;
+
+    .rickRollRed {
+        color: $dark-error !important;
+    }
 }
 
 .header-nav {
