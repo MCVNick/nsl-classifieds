@@ -55,7 +55,7 @@ class Articles extends Component {
         let otherArticles
         try {
             otherArticles = articles.map((article, index) => {
-                return index > 3 ? <ThirdHeadline key={index} imgURL={article.urlToImage} title={article.title} objName={'utahNewsObj'} author={article.author} publishedAt={article.publishedAt}/> : null
+                return index > 3 ? <ThirdHeadline key={index} imgURL={article.urlToImage} title={article.title} objName={this.props.match.params.objName} author={article.author} publishedAt={article.publishedAt}/> : null
             })
         } catch {}
 
@@ -65,10 +65,10 @@ class Articles extends Component {
                 {
                     articles && articles.length >= 3 ?
                     <main className='home-grid'>
-                        <TopHeadline imgURL={articles[0].urlToImage} title={articles[0].title} objName={'utahNewsObj'} author={articles[0].author} publishedAt={articles[0].publishedAt}/>
+                        <TopHeadline imgURL={articles[0].urlToImage} title={articles[0].title} objName={this.props.match.params.objName} author={articles[0].author} publishedAt={articles[0].publishedAt}/>
                         <div className='home-secondary-headers'>
-                            <SecondaryHeadline imgURL={articles[1].urlToImage} title={articles[1].title} objName={'utahNewsObj'} author={articles[1].author} publishedAt={articles[1].publishedAt}/>
-                            <SecondaryHeadline imgURL={articles[2].urlToImage} title={articles[2].title} objName={'utahNewsObj'} author={articles[2].author} publishedAt={articles[2].publishedAt}/>
+                            <SecondaryHeadline imgURL={articles[1].urlToImage} title={articles[1].title} objName={this.props.match.params.objName} author={articles[1].author} publishedAt={articles[1].publishedAt}/>
+                            <SecondaryHeadline imgURL={articles[2].urlToImage} title={articles[2].title} objName={this.props.match.params.objName} author={articles[2].author} publishedAt={articles[2].publishedAt}/>
                         </div>
                         <div className='latest-news-header'>
                             <h1>LATEST NEWS & FEATURES</h1>
