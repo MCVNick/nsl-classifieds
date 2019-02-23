@@ -20,6 +20,7 @@ const trafficURL = `https://newsapi.org/v2/everything?q=traffic&sortBy=published
 const businessURL = `https://newsapi.org/v2/top-headlines?category=business&apiKey=${REACT_APP_NEWS_APIID}`
 const entertainmentURL = `https://newsapi.org/v2/top-headlines?category=entertainment&apiKey=${REACT_APP_NEWS_APIID}`
 const outdoorsURL = `https://newsapi.org/v2/everything?q=outdoor&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
+const latinoURL = `https://newsapi.org/v2/everything?q=latino&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
 const byuURL = `https://newsapi.org/v2/everything?q=BYU&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
 const uofuURL = `https://newsapi.org/v2/everything?q=U%20of%20U&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
 const utahJazzURL = `https://newsapi.org/v2/everything?q=Utah%20Jazz&sortBy=publishedAt&apiKey=${REACT_APP_NEWS_APIID}`
