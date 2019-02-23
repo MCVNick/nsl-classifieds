@@ -74,7 +74,7 @@ class Article extends Component {
                     article.content
                     ?
                     <div>
-                        <a href={`${url}`}><img src={urlToImage} alt='img' /></a>
+                        <a href={`${url}`}><img src={urlToImage ? urlToImage : 'https://via.placeholder.com/350x150'} alt='img' /></a>
                         <a href={`${url}`}><h1>{title}</h1></a>
                         <div className='sub-header-article'>
                             <h2>By {author} |</h2>

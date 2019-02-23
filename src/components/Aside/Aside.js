@@ -24,13 +24,13 @@ function Aside(props) {
                             <h2><Link to='/news/idahoObj' onClick={() => props.expandAsideNav()}>Idaho</Link></h2>
                             <h2><Link to='/news/featuresObj' onClick={() => props.expandAsideNav()}>Features</Link></h2>
                             <h2><Link to='/news/usObj' onClick={() => props.expandAsideNav()}>U.S.</Link></h2>
-                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>World</a></h2>
-                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Politics</a></h2>
-                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Traffic</a></h2>
-                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Business</a></h2>
-                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Entertainment</a></h2>
-                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Outdoors</a></h2>
-                            <h2><a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' onClick={() => props.expandAsideNav()}>Latino</a></h2>
+                            <h2><Link to='/news/worldObj' onClick={() => props.expandAsideNav()}>World</Link></h2>
+                            <h2><Link to='/news/politicsObj' onClick={() => props.expandAsideNav()}>Politics</Link></h2>
+                            <h2><Link to='/news/trafficObj' onClick={() => props.expandAsideNav()}>Traffic</Link></h2>
+                            <h2><Link to='/news/businessObj' onClick={() => props.expandAsideNav()}>Business</Link></h2>
+                            <h2><Link to='/news/entertainmentObj' onClick={() => props.expandAsideNav()}>Entertainment</Link></h2>
+                            <h2><Link to='/news/outdoorsObj' onClick={() => props.expandAsideNav()}>Outdoors</Link></h2>
+                            <h2><Link to='/news/latinoObj' onClick={() => props.expandAsideNav()}>Latino</Link></h2>
                         </div>
                     </div>
                     <div className='aside-content-single' onClick={() => handleExpand('aside-sports-h2s', 'aside-sports-span')}>
