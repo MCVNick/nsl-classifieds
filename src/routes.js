@@ -18,7 +18,7 @@ export default (
         <Route path='/classifieds' component={Classifieds} />
         <Route path='/member/profile/delete' component={DeleteProfile} />
         <Route path='/member/profile/' component={Member} />
-        <Route path='/news/:objName' component={Articles} />
         <Route path='/news/:objName/:time' component={Article} />
+        <Route path='/news/:objName' component={Articles} />
     </Switch>
 )
