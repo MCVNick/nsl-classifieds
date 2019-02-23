@@ -175,14 +175,12 @@ module.exports = {
             uvuObj = await getUVU()
             moreSportsObj = await getMoreSports()
             
-            let obj = { utahNewsObj, southernUtahObj, idahoObj, featuresObj, usObj, worldObj, politicsObj, trafficObj, businessObj, entertainmentObj, outdoorsObj, latinoObj }
-            obj = { ...obj, byuObj, uofuObj, utahJazzObj, usuObj, rslObj, nflObj, weberStObj, suuObj, uvuObj, moreSportsObj}
+            let obj = { utahNewsObj, southernUtahObj, idahoObj, featuresObj, usObj, worldObj, politicsObj, trafficObj, businessObj, entertainmentObj, outdoorsObj, latinoObj, byuObj, uofuObj, utahJazzObj, usuObj, rslObj, nflObj, weberStObj, suuObj, uvuObj, moreSportsObj }
             hour = getTime()
 
             res.send(obj)
         } else if (getTime() !== hour) {
-            let obj = { utahNewsObj, southernUtahObj, idahoObj, featuresObj, usObj, worldObj, politicsObj, trafficObj, businessObj, entertainmentObj, outdoorsObj, latinoObj }
-            obj = { ...obj, byuObj, uofuObj, utahJazzObj, usuObj, rslObj, nflObj, weberStObj, suuObj, uvuObj, moreSportsObj}
+            let obj = { utahNewsObj, southernUtahObj, idahoObj, featuresObj, usObj, worldObj, politicsObj, trafficObj, businessObj, entertainmentObj, outdoorsObj, latinoObj, byuObj, uofuObj, utahJazzObj, usuObj, rslObj, nflObj, weberStObj, suuObj, uvuObj, moreSportsObj }
             hour = getTime()
             
             res.send(obj)
@@ -210,8 +208,7 @@ module.exports = {
             uvuObj = await getUVU()
             moreSportsObj = await getMoreSports()
         } else {
-            let obj = { utahNewsObj, southernUtahObj, idahoObj, featuresObj, usObj, worldObj, politicsObj, trafficObj, businessObj, entertainmentObj, outdoorsObj, latinoObj }
-            obj = { ...obj, byuObj, uofuObj, utahJazzObj, usuObj, rslObj, nflObj, weberStObj, suuObj, uvuObj, moreSportsObj}
+            let obj = { utahNewsObj, southernUtahObj, idahoObj, featuresObj, usObj, worldObj, politicsObj, trafficObj, businessObj, entertainmentObj, outdoorsObj, latinoObj, byuObj, uofuObj, utahJazzObj, usuObj, rslObj, nflObj, weberStObj, suuObj, uvuObj, moreSportsObj }
             res.send(obj)
         }
     }
