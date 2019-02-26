@@ -98,6 +98,7 @@ class Navbar extends Component {
                                 <p>S</p>
                                 <p>L</p>
                             </div>
+                            <div className='nav-circle-nsl'><div></div></div>
                             <div className='nav-name-dot'><div></div></div>
                             <div className='flex-row low-weight'>
                                 <p>c</p>
@@ -106,7 +107,25 @@ class Navbar extends Component {
                             </div>
                         </h1>
                     </Link>
-                    <div className='flex-row center-all'>
+                    <div className='news-nav-bar'>
+                        <h2>News</h2>
+                        <h2>Sports</h2>
+                        <h2>Brandview</h2>
+                        <h2>TV</h2>
+                        <h2>Radio</h2>
+                        <h2>Live</h2>
+                        <h2>Obituaries</h2>
+                        <h2>Weather</h2>
+                    </div>
+                    <div className='marketplace-nav-bar'>
+                        <h2>Classifieds</h2>
+                        <h2>Cars</h2>
+                        <h2>Homes</h2>
+                        <h2>Jobs</h2>
+                        <h2>Services</h2>
+                        <h2>Deals</h2>
+                    </div>
+                    <div className='flex-row center-all smaller-nav-bar-top'>
                         <div className='flex-row auto-left'>
                             <div className='flex-row center-all weather-icon-parent' onClick={() => this.openWeather()}><img className='nav-weather-icon' src={this.getWeatherIcon(this.state[selectedTemp].list ? this.state[selectedTemp].list[0].weather[0].icon : null)} alt='weather'></img></div>
                             <div className='flex-row center-all weather-temp' onClick={() => this.openWeather()}>{this.state[selectedTemp].list ? Math.round(this.state[selectedTemp].list[0].main.temp) : null}°</div>

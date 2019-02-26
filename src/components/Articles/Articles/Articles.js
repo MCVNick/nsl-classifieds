@@ -64,10 +64,11 @@ class Articles extends Component {
                 {
                     articles && articles.length >= 3 ?
                     <main className='home-grid'>
-                        <TopHeadline imgURL={articles[0].urlToImage} title={articles[0].title} objName={this.props.match.params.objName} author={articles[0].author} publishedAt={articles[0].publishedAt}/>
+                        <TopHeadline description={articles[0].description} imgURL={articles[0].urlToImage} title={articles[0].title} objName={this.props.match.params.objName} author={articles[0].author} publishedAt={articles[0].publishedAt}/>
                         <div className='home-secondary-headers'>
                             <SecondaryHeadline imgURL={articles[1].urlToImage} title={articles[1].title} objName={this.props.match.params.objName} author={articles[1].author} publishedAt={articles[1].publishedAt}/>
-                            <SecondaryHeadline imgURL={articles[2].urlToImage} title={articles[2].title} objName={this.props.match.params.objName} author={articles[2].author} publishedAt={articles[2].publishedAt}/>
+                            <SecondaryHeadline className='middle-secondary-article' imgURL={articles[2].urlToImage} title={articles[2].title} objName={this.props.match.params.objName} author={articles[2].author} publishedAt={articles[2].publishedAt}/>
+                            <SecondaryHeadline imgURL={articles[3].urlToImage} title={articles[3].title} objName={this.props.match.params.objName} author={articles[3].author} publishedAt={articles[3].publishedAt}/>
                         </div>
                         <div className='latest-news-header'>
                             <h1>LATEST NEWS & FEATURES</h1>

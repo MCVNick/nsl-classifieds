@@ -144,8 +144,16 @@
 
 .header-grid {
     display: grid;
-    grid-template-columns:  2% 53% 43% 2%;
+    grid-template-columns:  2% 53% 43% 0% 0% 2%;
     grid-template-rows: 40px;
+
+    .news-nav-bar {
+        display: none;
+    }
+
+    .marketplace-nav-bar {
+        display: none;
+    }
 }
 
 .weather-overlay-slid {
@@ -291,5 +299,59 @@
             "lw lt tc ic tec"
             "h h b b b"
             "i i b b b";
+    }
+}
+
+@media (min-width: 960px) {
+    .header-nav {
+        height: 80px;
+    }
+
+    .header-grid {
+        display: grid;
+        grid-template-columns:  2% 14% 48% 34% 0% 2%;
+        grid-template-rows: 80px;
+    }
+
+    .nav-circle-nsl {
+        div {
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            top: -35px;
+            left: -65px;
+            border: 3px solid $primary-text-color;
+            border-radius: 100%;
+        }
+    }
+
+    .news-nav-bar {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+
+        h2 {
+            padding: $xxs;
+            font-size: 12px;
+        }
+    }
+
+    .marketplace-nav-bar {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+
+        h2 {
+            padding: $xxs;
+            font-size: 12px;
+        }
+    }
+
+    .smaller-nav-bar-top {
+        display: none !important;
     }
 }

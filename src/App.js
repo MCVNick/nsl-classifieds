@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, createRef } from 'react'
 import { HashRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './ducks/store'
@@ -15,23 +15,23 @@ class App extends Component {
   constructor() {
     super()
 
+    this.masterGrid = createRef()
     this.state = {}
 
     this.expandAsideNav = this.expandAsideNav.bind(this)
   }
 
   expandAsideNav(bool = true) {
-    let masterGrid = document.getElementById('master-grid')
     let aside = document.getElementById('aside-nav')
     let asideParent = document.getElementById('aside-parent')
 
-    if (masterGrid.classList.contains('master-grid-slid')) {
-      masterGrid.classList.remove('master-grid-slid')
+    if (this.masterGrid.current.classList.contains('master-grid-slid')) {
+      this.masterGrid.current.classList.remove('master-grid-slid')
       aside.classList.remove('aside-nav-slid')
       asideParent.classList.remove('aside-parent-slid')
-      masterGrid.classList.add('delay-overflow')
-      setTimeout(function () {
-        masterGrid.classList.remove('delay-overflow');
+      this.masterGrid.current.classList.add('delay-overflow')
+      setTimeout(() => {
+        this.masterGrid.current.classList.remove('delay-overflow');
 
         let rotateArr = document.getElementsByClassName('aside-expand-arrow')
         for (let x = 0; x < rotateArr.length; x++) {
@@ -57,7 +57,7 @@ class App extends Component {
       }, 200)
     }
     else if (bool) {
-      masterGrid.classList.add('master-grid-slid')
+      this.masterGrid.current.classList.add('master-grid-slid')
       aside.classList.add('aside-nav-slid')
       asideParent.classList.add('aside-parent-slid')
     }
@@ -71,7 +71,7 @@ class App extends Component {
             <div className='everything'>
               {/* main content, nav, footer */}
               <div>
-                <div id='master-grid' className='master-grid'>
+                <div id='master-grid' ref={this.masterGrid} className='master-grid'>
                   <HeaderNav expandAsideNav={this.expandAsideNav} />
                   {routes}
                   <Footer />
