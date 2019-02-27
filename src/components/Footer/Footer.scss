@@ -1,5 +1,9 @@
 @import './../../variables.scss';
 
+.footer-component {
+    transition: $slide;
+}
+
 .footer {
     background-color: $fifth-color;
     padding-bottom: 5em;
@@ -10,7 +14,10 @@
     grid-row-gap: 5px;
     grid-column-gap: 5px;
     font-size: 12px;
-
+    position: absolute;
+    bottom: -285px;
+    // calc((-100vw + 1097px) / 2)
+    
     .rickRollRed {
         color: $dark-error !important;
     }
@@ -86,4 +93,11 @@
         }
     }
 
+}
+
+@media (min-width: 1097px) {
+    .footer {
+        width: calc(100% + ((100vw - 1097px) / 2));
+        left: calc((-100vw + 1097px) / 2)
+    }
 }

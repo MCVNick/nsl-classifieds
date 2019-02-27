@@ -1,7 +1,7 @@
 @import './../../variables.scss';
 
 .home-component {
-    margin-top: 40px;    
+    margin-top: 40px;
 }
 
 .home-grid {
@@ -11,7 +11,6 @@
     grid-template-columns: 100%;
     grid-template-rows: auto auto auto auto;
     font-family: $primary-font-family;
-    max-width: 1097px;
 }
 
 //main headline
@@ -95,18 +94,21 @@
         div {
             display: grid;
             img {
-                width: 75px;
+                width: 100%;
+                object-fit: cover;
                 padding: $xxs;
                 grid-area: i;
+                display: flex;
             }
     
             h2 {
+                height: 100%;
                 font-weight: bold;
                 padding: $xxs;
                 grid-area: h2;
                 text-align: left;
             }
-    
+            
             h3 {
                 display: flex;
                 align-items: flex-end;
@@ -115,7 +117,7 @@
                 padding: $xxs;
                 grid-area: h3;
             }
-    
+            
             grid-template-columns: 25% 75%;
             grid-template-rows: auto auto;
             grid-template-areas: 
@@ -181,12 +183,12 @@
         .home-front-header {
             padding: $m $xxl;
             display: flex;
-            height: 30vw;
-            max-height: 350px;
-
+            height: 100%;
+            
             img {
                 width: 65.5%;
                 height: 100%;
+                object-fit: cover;
             }
             
             div {
@@ -215,8 +217,13 @@
             border: none;
             grid-template-columns: 33% 33% 33%;
             padding: $s $xxl;
+            
+            img {
+                object-fit: cover;
+            }
 
             .middle-secondary-article {
+                object-fit: cover;
                 padding: 0px;
             }
         }
@@ -228,6 +235,20 @@
             h1 {
                 border-top: 1px dotted black;
                 padding-top: 10px;
+            }
+        }
+
+        .latest-other-headlines {
+            padding: $s $xxl;
+            div {
+                // img {
+                // }
+        
+                // h2 {
+                // }
+                
+                // h3 {
+                // }
             }
         }
     }
@@ -281,7 +302,11 @@
     .home-grid {
         .home-secondary-headers {
             h2 {
-                font-size: 100%;
+                margin: $s $xs;
+                color: $primary-text-color;
+                background: rgba(0, 0, 0, .5);
+                position: absolute;
+                bottom: 0px;
             }
         }
     }
@@ -294,12 +319,6 @@
                 font-size: 100%;
             }
         }
-    }
-}
-
-@media (min-width: 1097px) {
-    .home-grid {
-        margin-left: calc((100% - 1097px) / 2);
     }
 }
 

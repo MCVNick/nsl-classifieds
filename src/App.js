@@ -16,6 +16,8 @@ class App extends Component {
     super()
 
     this.masterGrid = createRef()
+    this.everything = createRef()
+    this.footer = createRef()
     this.state = {}
 
     this.expandAsideNav = this.expandAsideNav.bind(this)
@@ -27,11 +29,13 @@ class App extends Component {
 
     if (this.masterGrid.current.classList.contains('master-grid-slid')) {
       this.masterGrid.current.classList.remove('master-grid-slid')
+      this.footer.current.classList.remove('master-grid-slid')
       aside.classList.remove('aside-nav-slid')
       asideParent.classList.remove('aside-parent-slid')
       this.masterGrid.current.classList.add('delay-overflow')
       setTimeout(() => {
-        this.masterGrid.current.classList.remove('delay-overflow');
+        this.masterGrid.current.classList.remove('delay-overflow')
+
 
         let rotateArr = document.getElementsByClassName('aside-expand-arrow')
         for (let x = 0; x < rotateArr.length; x++) {
@@ -58,6 +62,7 @@ class App extends Component {
     }
     else if (bool) {
       this.masterGrid.current.classList.add('master-grid-slid')
+      this.footer.current.classList.add('master-grid-slid')
       aside.classList.add('aside-nav-slid')
       asideParent.classList.add('aside-parent-slid')
     }
@@ -68,14 +73,16 @@ class App extends Component {
       <div className="App">
         <Provider store={store}>
           <Router>
-            <div className='everything'>
+            <div ref={this.everything} className='everything'>
               {/* main content, nav, footer */}
               <div>
                 <div id='master-grid' ref={this.masterGrid} className='master-grid'>
                   <HeaderNav expandAsideNav={this.expandAsideNav} />
                   {routes}
-                  <Footer />
                 </div>
+              </div>
+              <div ref={this.footer} className='footer-component'>
+                <Footer />
               </div>
               {/* aside that cannot be seen unless we do something */}
               <div id='aside-parent' className='aside-parent'>

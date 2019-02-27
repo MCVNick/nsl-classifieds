@@ -5,7 +5,7 @@ import './Footer.scss'
 
 function Footer(props) {
     return (
-        <div>
+        <div className='footer-component'>
             <footer className='footer header-grid'>
                     <h1 className='flex-row footer-name center'>
                         <div className='flex-row high-weight'>
