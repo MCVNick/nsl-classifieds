@@ -303,6 +303,57 @@
     }
 }
 
+.header-parent-top {
+    .header-nav {
+        .marketplace-nav-bar {
+            .login-icon {
+            margin: $xxs;
+                .login-icon-body {
+                    position: absolute;
+                    top: -8px;
+                    width: 20px;
+                    height: 15px;
+                    border: 2px solid $primary-text-color;
+                    border-radius: 6px 6px 0px 0px;
+                }
+                .login-icon-head {
+                    position: absolute;
+                    bottom: 7px;
+                    left: 2.5px;
+                    width: 13px;
+                    height: 13px;
+                    border: 2px solid $primary-text-color;
+                    border-radius: 100%;
+                }
+            }
+
+            .nav-search {
+                margin: $xxs;
+                width: 24px;
+                height: 24px;
+                .search-circle {
+                    position: absolute;
+                    top: -5px;
+                    width: 19px;
+                    height: 19px;
+                    border: 2px solid $primary-text-color;
+                    border-radius: 100%;
+                }
+            
+                .search-line {
+                    position: absolute;
+                    top: 14px;
+                    right: -2px;
+                    width: 14px;
+                    border: 1px solid $primary-text-color;
+                    border-radius: 2px;
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+}
+
 @media (min-width: 960px) {
     .header-nav {
         height: 80px;

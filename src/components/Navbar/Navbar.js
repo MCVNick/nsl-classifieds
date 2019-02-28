@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { withRouter, Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { updateUser } from './../../ducks/reducer'
 
 import './Navbar.scss'
 
@@ -124,6 +126,19 @@ class Navbar extends Component {
                         <h2>Jobs</h2>
                         <h2>Services</h2>
                         <h2>Deals</h2>
+                        <div className='nav-search'><div className='search-circle'></div><div className='search-line'></div></div>
+                        <div className='login-icon'>
+                            <div className='login-icon-head'></div>
+                            <div className='login-icon-body'></div>
+                            {
+                                this.props.id ?
+                                <div className='login-icon-check-parent'>
+                                    <div className='login-icon-check-one'></div>
+                                    <div className='login-icon-check-two'></div>
+                                </div> :
+                                null
+                            }
+                        </div>
                     </div>
                     <div className='flex-row center-all smaller-nav-bar-top'>
                         <div className='flex-row auto-left'>
@@ -184,4 +199,21 @@ class Navbar extends Component {
     }
 }
 
-export default withRouter(Navbar)
+function logout(props) {
+    axios.post('/auth/logout')
+        .then(res => {
+            props.expandAsideNav()
+            props.updateUser({ id: 0 })
+            props.history.push('/')
+        })
+}
+
+function mapStateToProps(reduxState) {
+    const { first_name, id } = reduxState.user
+    return {
+        first_name,
+        id
+    }
+}
+
+export default withRouter(connect(mapStateToProps, {updateUser})(Navbar))
