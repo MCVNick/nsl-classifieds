@@ -4,7 +4,6 @@ const express = require('express')
 const { json } = require('express')
 const massive = require('massive')
 const session = require('express-session')
-const path = require('path')
 
 const userCtrl = require('./controller/user')
 const authCtrl = require('./controller/auth')
@@ -20,10 +19,6 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
-
-app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname, '../build/index.html'));
-});
 
 massive(CONNECTION_STRING)
 .then(db => {
