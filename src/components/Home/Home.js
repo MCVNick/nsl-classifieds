@@ -36,7 +36,6 @@ class Home extends Component {
                 this.setState({
                     newsObj: res.data.utahNewsObj
                 })
-                console.log(res.data)
             })
             .catch(() => {})
     }

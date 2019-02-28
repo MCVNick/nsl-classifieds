@@ -24,7 +24,6 @@ class Article extends Component {
         this.setState({
             article: obj
         })
-        console.log(obj)
     }
 
     fixDate(date) {
