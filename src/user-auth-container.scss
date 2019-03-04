@@ -17,7 +17,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-
+    background: white;
 }
 
 .user-auth-box {
@@ -167,5 +167,11 @@
         input {
             margin-top: $m;
         }
+    }
+}
+
+@media (min-width: 960px) {
+    .user-auth-container-parent {
+        margin-top: 40px
     }
 }
