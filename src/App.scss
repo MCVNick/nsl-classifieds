@@ -17,7 +17,7 @@
   }
   
   .master-grid-slid{
-    overflow: visible;
+    overflow-y: hidden;
     margin-left: -88%;
     grid-template-columns: 100%;
     transition: $slide;
