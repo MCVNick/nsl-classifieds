@@ -41,7 +41,7 @@ class Navbar extends Component {
     }
 
     getWeatherIcon(icon) {
-        return `http://openweathermap.org/img/w/${icon}.png`
+        return `https://openweathermap.org/img/w/${icon}.png`
     }
 
     handleChangeCity(name1 = 'saltLakeObj', name2 = 'Salt Lake') {
